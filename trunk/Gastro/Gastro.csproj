@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="logika\DBProvider.cs" />
     <Compile Include="logika\GastroEntry.cs" />
-    <Compile Include="logika\XLSReader.cs" />
+    <Compile Include="logika\CSVReader.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
