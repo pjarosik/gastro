@@ -37,6 +37,8 @@
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oProgramieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAutorachToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundThread = new System.ComponentModel.BackgroundWorker();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,14 +81,14 @@
             // importujToolStripMenuItem
             // 
             this.importujToolStripMenuItem.Name = "importujToolStripMenuItem";
-            this.importujToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.importujToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.importujToolStripMenuItem.Text = "&Importuj ";
             this.importujToolStripMenuItem.Click += new System.EventHandler(this.importujToolStripMenuItem_Click);
             // 
             // wyczyśćToolStripMenuItem
             // 
             this.wyczyśćToolStripMenuItem.Name = "wyczyśćToolStripMenuItem";
-            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.wyczyśćToolStripMenuItem.Text = "&Wyczyść";
             // 
             // pomocToolStripMenuItem
@@ -110,11 +112,27 @@
             this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.oAutorachToolStripMenuItem.Text = "O Autorach";
             // 
+            // backgroundThread
+            // 
+            this.backgroundThread.WorkerReportsProgress = true;
+            this.backgroundThread.WorkerSupportsCancellation = true;
+            this.backgroundThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundThread_DoWork);
+            this.backgroundThread.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundThread_ProgressChanged);
+            this.backgroundThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundThread_RunWorkerCompleted);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(12, 466);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(738, 23);
+            this.progressBar.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 501);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -137,6 +155,8 @@
         private System.Windows.Forms.ToolStripMenuItem oAutorachToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem plikToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zamknijToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundThread;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 

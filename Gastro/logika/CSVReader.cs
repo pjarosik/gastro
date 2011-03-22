@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace Gastro.logika
 {
@@ -35,12 +36,16 @@ namespace Gastro.logika
         /// </summary>
         /// <param name="path">Path to file</param>
         /// <returns>Results: </returns>
-        public static bool readFile(String path)
+        public static bool readFile(string path,BackgroundWorker worker)
         {
+            float status = 0;
             string line = "";
             string[] splitedLine;
 
             int count = checkFileFormat(path); // checking file format
+            long lines = countLinesInFile(path);
+            lines -= count;
+            float step = 100 / (float)lines;
             
             if (count == -1)
             {
@@ -56,12 +61,28 @@ namespace Gastro.logika
                 // Here reading rows with data from file
                 splitedLine = line.Split(';');
                 prepareProdukty(splitedLine);
-                //prepareAminokwasy(splitedLine);
+                prepareAminokwasy(splitedLine);
+                status += step;
+                worker.ReportProgress((int)status);
                 //Debug.WriteLine(splitedLine[86].ToString());
             }
 
             stream.Close();
             return true;
+        }
+
+        static long countLinesInFile(string f)
+        {
+            long count = 0;
+            using (StreamReader r = new StreamReader(f))
+            {
+                string line;
+                while ((line = r.ReadLine()) != null)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
 
         private static bool prepareProdukty(string[] entryLine)
@@ -121,6 +142,7 @@ namespace Gastro.logika
         {
             int row = -1;
             StreamReader stream = new StreamReader(path);
+
             while (!stream.EndOfStream)
             {
                 row++;
