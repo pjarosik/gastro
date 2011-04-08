@@ -71,5 +71,10 @@ namespace Gastro
             else
                 MessageBox.Show("Wystapil blad podczas wczytywania danych");
         }
+
+        private void wyczyśćToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DBProvider.drop();
+        }
     }
 }

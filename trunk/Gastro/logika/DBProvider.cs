@@ -32,7 +32,6 @@ namespace Gastro.logika
         {
             cont.Produkties.InsertOnSubmit(newEntry);
             cont.SubmitChanges();
-
             return true;
         }
 
@@ -44,5 +43,26 @@ namespace Gastro.logika
 
             return true;
         }
+
+        static public void drop()
+        {
+            Produkty element;
+            using (IEnumerator<Produkty> iterator = cont.Produkties.GetEnumerator())
+            {
+                for (int i = -1; i < cont.Produkties.Count(); i++)
+                {
+                    if (iterator.MoveNext())
+                    {
+                        element = iterator.Current;
+                        Console.WriteLine("Kasuje: " + element.nazwa_produktu);
+                    }
+                }
+            } 
+            cont.Produkties.DeleteAllOnSubmit(cont.Produkties);
+            cont.SubmitChanges();
+            cont.Dispose();
+            cont = new LinqGastroDataContext();
+        }
+
     }
 }
