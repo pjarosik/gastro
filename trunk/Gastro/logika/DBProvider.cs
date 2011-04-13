@@ -19,7 +19,40 @@ namespace Gastro.logika
             cont.Witaminies.InsertOnSubmit(wita);
             cont.SubmitChanges();
         }
+        static public bool addKwasyTluszczoweNasyc(Kw_tluszcz_nasyc newEntry)
+        {
+            cont.Kw_tluszcz_nasycs.InsertOnSubmit(newEntry);
+            cont.SubmitChanges();
+            return true;
+        }
+        static public bool addKwasyTluszczoweWielonienas(Kw_tluszcz_wielonienasyc newEntry)
+        {
+            cont.Kw_tluszcz_wielonienasycs.InsertOnSubmit(newEntry);
+            cont.SubmitChanges();
+            return true;
+        }
 
+        static public bool addKwasyTluszczoweJednonienas(Kw_tluszcz_jednonienasyc newEntry)
+        {
+            cont.Kw_tluszcz_jednonienasycs.InsertOnSubmit(newEntry);
+            cont.SubmitChanges();
+            return true; 
+        }
+        
+        static public bool addSkladnikiMineralne(Skladniki_mineralne newEntry)
+        {
+            cont.Skladniki_mineralnes.InsertOnSubmit(newEntry);
+            cont.SubmitChanges();
+            return true;
+        }
+
+        static public bool addEnergia(Energia newEntry)
+        {
+            cont.Energias.InsertOnSubmit(newEntry);
+            cont.SubmitChanges();
+
+            return true;
+        }
         static public bool addWitaminy(Witaminy newEntry)
         {
             cont.Witaminies.InsertOnSubmit(newEntry);
@@ -27,7 +60,22 @@ namespace Gastro.logika
 
             return true;
         }
+
+        static public bool addWartoscEnergetyczna(Wartosc_energetyczna wartEn)
+        {
+            cont.Wartosc_energetycznas.InsertOnSubmit(wartEn);
+            cont.SubmitChanges();
+            return true;
+        }
         
+        static public bool addWeglowodany(Weglowodany wegl)
+        {
+            cont.Weglowodanies.InsertOnSubmit(wegl);
+            cont.SubmitChanges();
+            return true;
+        }
+        
+
         static public bool addProdukty(Produkty newEntry)
         {
             cont.Produkties.InsertOnSubmit(newEntry);
