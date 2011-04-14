@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Linq;
 
 namespace Gastro.logika
 {
@@ -74,7 +75,19 @@ namespace Gastro.logika
             cont.SubmitChanges();
             return true;
         }
-        
+        static public object getDatabaseData()
+        {
+            Table<Produkty> produkty = cont.GetTable<Produkty>();
+
+            var allProdukty = from prod in produkty
+                              select new
+                              {
+                                  prod.nazwa_produktu,
+                                  prod.numer_kodowy
+                              };
+
+            return allProdukty;
+        }
 
         static public bool addProdukty(Produkty newEntry)
         {
@@ -108,9 +121,6 @@ namespace Gastro.logika
             } 
             cont.Produkties.DeleteAllOnSubmit(cont.Produkties);
             cont.SubmitChanges();
-            cont.Dispose();
-            cont = new LinqGastroDataContext();
         }
-
     }
 }

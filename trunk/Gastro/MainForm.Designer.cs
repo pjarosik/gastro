@@ -39,7 +39,9 @@
             this.oAutorachToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundThread = new System.ComponentModel.BackgroundWorker();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -59,13 +61,13 @@
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zamknijToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
-            this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.plikToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
             this.plikToolStripMenuItem.Text = "&Plik";
             // 
             // zamknijToolStripMenuItem
             // 
             this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
-            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.zamknijToolStripMenuItem.Text = "&Zamknij";
             this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
             // 
@@ -75,20 +77,20 @@
             this.importujToolStripMenuItem,
             this.wyczyśćToolStripMenuItem});
             this.bazaDanychToolStripMenuItem.Name = "bazaDanychToolStripMenuItem";
-            this.bazaDanychToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.bazaDanychToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.bazaDanychToolStripMenuItem.Text = "&Baza danych";
             // 
             // importujToolStripMenuItem
             // 
             this.importujToolStripMenuItem.Name = "importujToolStripMenuItem";
-            this.importujToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.importujToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.importujToolStripMenuItem.Text = "&Importuj ";
             this.importujToolStripMenuItem.Click += new System.EventHandler(this.importujToolStripMenuItem_Click);
             // 
             // wyczyśćToolStripMenuItem
             // 
             this.wyczyśćToolStripMenuItem.Name = "wyczyśćToolStripMenuItem";
-            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.wyczyśćToolStripMenuItem.Text = "&Wyczyść";
             this.wyczyśćToolStripMenuItem.Click += new System.EventHandler(this.wyczyśćToolStripMenuItem_Click);
             // 
@@ -98,19 +100,19 @@
             this.oProgramieToolStripMenuItem,
             this.oAutorachToolStripMenuItem});
             this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
-            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.pomocToolStripMenuItem.Text = "P&omoc";
             // 
             // oProgramieToolStripMenuItem
             // 
             this.oProgramieToolStripMenuItem.Name = "oProgramieToolStripMenuItem";
-            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.oProgramieToolStripMenuItem.Text = "O Programie";
             // 
             // oAutorachToolStripMenuItem
             // 
             this.oAutorachToolStripMenuItem.Name = "oAutorachToolStripMenuItem";
-            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.oAutorachToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.oAutorachToolStripMenuItem.Text = "O Autorach";
             // 
             // backgroundThread
@@ -123,16 +125,30 @@
             // 
             // progressBar
             // 
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.Location = new System.Drawing.Point(12, 466);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(738, 23);
             this.progressBar.TabIndex = 1;
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(12, 27);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(738, 433);
+            this.dataGridView.TabIndex = 2;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 501);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -140,6 +156,7 @@
             this.Text = "Gastro";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,6 +175,7 @@
         private System.Windows.Forms.ToolStripMenuItem zamknijToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker backgroundThread;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.DataGridView dataGridView;
     }
 }
 
