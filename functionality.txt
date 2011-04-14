@@ -1,0 +1,9 @@
++ Edytowalna baza danych
++ MO¿liwoœæ uk³adania potraw z elementów bazy danych (potrawy bêd¹ nowymi tabelami myœle)
++ Uk³adanie dziennego posi³ku z potraw ( œniadanie, 2 œniadanie, obiad, podwieczorek, kolacja, 2 kolacja) - kolejna tabela bazy danych, musi mieæ date dla jakiego dnia zaplanowana
++ Wylicz diete (suma wszystkich kolumna tabel dla posi³ku dnia)
++ Wprowadzenie obu norm ¿ywnoœciowych do bazy
++ Porównywanie posi³ku dziennego z normami, wykres
++ (Opcjonalne) baza pacjentów jak w arkuszu excel
++ Generowanie raportu.txt oraz tabelki
++ Jad³ospis dekadowy - 10 dni
