@@ -67,7 +67,10 @@ namespace Gastro
         {
             bool result = (bool)e.Result;
             if (result)
+            {
                 MessageBox.Show("Dane wczytano poprawnie");
+                dataGridView.DataSource = DBProvider.getDatabaseData();
+            }
             else
                 MessageBox.Show("Wystapil blad podczas wczytywania danych");
         }
