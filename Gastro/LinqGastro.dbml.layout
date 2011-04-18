@@ -1,128 +1,154 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 21.625, 26" name="LinqGastro">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 31.25" name="LinqGastro">
   <DataContextMoniker Name="/LinqGastroDataContext" />
   <nestedChildShapes>
-    <classShape Id="e0b0e816-2c51-496d-860b-07f64b392448" absoluteBounds="13.125, 19, 2, 2.2465844726562505">
-      <DataClassMoniker Name="/LinqGastroDataContext/Produkty" />
-      <nestedChildShapes>
-        <elementListCompartment Id="0bed9ead-7169-4b25-9a71-33d562d0bbf0" absoluteBounds="13.140000000596046, 19.46000000089407, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="84cc8a20-f0e6-4ff9-a146-7e387428932b" absoluteBounds="19, 20, 2, 3.8900577799479095">
+    <classShape Id="57f8d818-9de8-4f67-ad1c-9158109b3d5c" absoluteBounds="3.5, 27.125, 2, 3.8900577799479166">
       <DataClassMoniker Name="/LinqGastroDataContext/Aminokwasy" />
       <nestedChildShapes>
-        <elementListCompartment Id="a3208b6f-6b57-4d02-a505-120595d8bc6e" absoluteBounds="19.015, 20.46, 1.9700000000000002, 3.3300577799479165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9aa7e128-c0f9-4b0f-8da6-840f9e8d3d77" absoluteBounds="3.5150000005960464, 27.58500000089407, 1.9700000000000002, 3.3300577799479165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="bf7082a6-382c-4583-a409-d47fee1da733" absoluteBounds="13, 14.75, 2, 1.4248478190104166">
-      <DataClassMoniker Name="/LinqGastroDataContext/Energia" />
-      <nestedChildShapes>
-        <elementListCompartment Id="16c11d25-4dab-41e4-96db-1d1a8f7c8849" absoluteBounds="13.015, 15.21, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="38693160-d590-49e5-9a8a-8d1c45f6dc4d" absoluteBounds="7.875, 17.375, 2, 2.0822371419270809">
-      <DataClassMoniker Name="/LinqGastroDataContext/Kw_tluszcz_jednonienasyc" />
-      <nestedChildShapes>
-        <elementListCompartment Id="0224796d-1f02-4793-99c5-7d076b385021" absoluteBounds="7.8900000000000006, 17.835, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="5ce443b5-95ff-4a7d-9c5d-44656f342f75" absoluteBounds="15.25, 22.875, 2, 2.7396264648437523">
-      <DataClassMoniker Name="/LinqGastroDataContext/Kw_tluszcz_nasyc" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d8f3d62a-f048-449c-acaa-97ac71a08c26" absoluteBounds="15.265, 23.335, 1.9700000000000002, 2.17962646484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="dc31652e-c37a-4c09-a491-d2f04f273a9b" absoluteBounds="8.125, 20.5, 2, 2.2465844726562523">
-      <DataClassMoniker Name="/LinqGastroDataContext/Kw_tluszcz_wielonienasyc" />
-      <nestedChildShapes>
-        <elementListCompartment Id="1d1d5058-7cd3-4a49-ad5a-7991dcb739d3" absoluteBounds="8.14, 20.96, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="3dd1bfec-3a85-445f-afa0-e14a9399f2fb" absoluteBounds="11.25, 22.875, 2, 2.4109318033854166">
-      <DataClassMoniker Name="/LinqGastroDataContext/Skladniki_mineralne" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ce3e7484-a0ed-4b9f-9d6b-f01f58f92d62" absoluteBounds="11.265, 23.335, 1.9700000000000002, 1.8509318033854165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="f718af24-be28-4b7e-b8a0-268a4a24d1a8" absoluteBounds="16.125, 15.5, 2, 1.5891951497395809">
-      <DataClassMoniker Name="/LinqGastroDataContext/Weglowodany" />
-      <nestedChildShapes>
-        <elementListCompartment Id="83fd8a22-2f5e-4f7d-9e15-88c8e3b972c8" absoluteBounds="16.14, 15.96, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="72ca566f-d295-46a6-aff9-0787ccbbc395" absoluteBounds="19.125, 15.625, 2, 2.9039737955729095">
+    <classShape Id="4f668d16-4888-4701-89b1-4b920685719a" absoluteBounds="3.5, 23.5, 2, 2.9039737955729166">
       <DataClassMoniker Name="/LinqGastroDataContext/Witaminy" />
       <nestedChildShapes>
-        <elementListCompartment Id="d8c19dfc-4ed2-42f1-bf5b-1ee7f92359fa" absoluteBounds="19.14, 16.085, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7ff6d611-6b51-44a8-92f6-95af31c3ae92" absoluteBounds="3.5150000005960464, 23.96000000089407, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(15.125 : 20.6232922363281); (19 : 20.6232922363281)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Aminokwasy" />
-      <nodes>
-        <classShapeMoniker Id="e0b0e816-2c51-496d-860b-07f64b392448" />
-        <classShapeMoniker Id="84cc8a20-f0e6-4ff9-a146-7e387428932b" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(14.40625 : 19); (14.40625 : 16.1748478190104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Energia" />
-      <nodes>
-        <classShapeMoniker Id="e0b0e816-2c51-496d-860b-07f64b392448" />
-        <classShapeMoniker Id="bf7082a6-382c-4583-a409-d47fee1da733" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(13.125 : 19.2286185709635); (9.875 : 19.2286185709635)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Kw_tluszcz_jednonienasyc" />
-      <nodes>
-        <classShapeMoniker Id="e0b0e816-2c51-496d-860b-07f64b392448" />
-        <classShapeMoniker Id="38693160-d590-49e5-9a8a-8d1c45f6dc4d" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(14.789065625 : 21.2465844726563); (14.789065625 : 25.4815291341146); (15.25 : 25.4815291341146)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Kw_tluszcz_nasyc" />
-      <nodes>
-        <classShapeMoniker Id="e0b0e816-2c51-496d-860b-07f64b392448" />
-        <classShapeMoniker Id="5ce443b5-95ff-4a7d-9c5d-44656f342f75" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(13.125 : 20.8732922363281); (10.125 : 20.8732922363281)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Kw_tluszcz_wielonienasyc" />
-      <nodes>
-        <classShapeMoniker Id="e0b0e816-2c51-496d-860b-07f64b392448" />
-        <classShapeMoniker Id="dc31652e-c37a-4c09-a491-d2f04f273a9b" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(13.656248 : 21.2465844726563); (13.656248 : 24.0804659016927); (13.25 : 24.0804659016927)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Skladniki_mineralne" />
-      <nodes>
-        <classShapeMoniker Id="e0b0e816-2c51-496d-860b-07f64b392448" />
-        <classShapeMoniker Id="3dd1bfec-3a85-445f-afa0-e14a9399f2fb" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(15.109375 : 19); (15.109375 : 16.7628096516927); (16.125 : 16.7628096516927)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Weglowodany" />
-      <nodes>
-        <classShapeMoniker Id="e0b0e816-2c51-496d-860b-07f64b392448" />
-        <classShapeMoniker Id="f718af24-be28-4b7e-b8a0-268a4a24d1a8" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(15.125 : 19.46875); (21.09375 : 19.46875); (21.09375 : 18.5289737955729)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Witaminy" />
-      <nodes>
-        <classShapeMoniker Id="e0b0e816-2c51-496d-860b-07f64b392448" />
-        <classShapeMoniker Id="72ca566f-d295-46a6-aff9-0787ccbbc395" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="44a9009a-a5a2-4e29-be25-a0679ee02179" absoluteBounds="10.25, 15.625, 2, 1.26050048828125">
+    <classShape Id="a7685676-f377-4c69-8702-767db60717bf" absoluteBounds="3.5, 6.5, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/LinqGastroDataContext/Energia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aafc3054-0f46-4ebb-aca5-58cb9cd9af7f" absoluteBounds="3.5150000005960464, 6.96000000089407, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="411005e5-7fa0-478d-bf63-298ab26b5d72" absoluteBounds="3.5, 11, 2, 2.0822371419270844">
+      <DataClassMoniker Name="/LinqGastroDataContext/Kw_tluszcz_jednonienasyc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="648ff18d-d499-4a6d-9699-957818c9d505" absoluteBounds="3.5150000005960464, 11.46000000089407, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="852f1fe4-dc80-49ea-87ee-0598a86562aa" absoluteBounds="3.5, 20, 2, 2.7396264648437523">
+      <DataClassMoniker Name="/LinqGastroDataContext/Kw_tluszcz_nasyc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="984a4697-f350-49d7-9f3e-77b71205823d" absoluteBounds="3.5150000005960464, 20.46000000089407, 1.9700000000000002, 2.17962646484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0d08cb2e-6d83-49bb-9cc5-207b0baa03a6" absoluteBounds="3.5, 13.75, 2, 2.246584472656254">
+      <DataClassMoniker Name="/LinqGastroDataContext/Kw_tluszcz_wielonienasyc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b51ae1bc-d03b-4a0f-9ec9-4cfcd895a0a4" absoluteBounds="3.5150000005960464, 14.21000000089407, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d0a283b6-fd27-414c-8f0f-02ce9ccccd5b" absoluteBounds="6.25, 2.25, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/LinqGastroDataContext/Potrawy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4696caf4-7b6b-468b-b846-83744b7d97d2" absoluteBounds="6.2650000005960464, 2.7100000008940697, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" absoluteBounds="0.75, 15.5, 2, 2.2465844726562523">
+      <DataClassMoniker Name="/LinqGastroDataContext/Produkty" />
+      <nestedChildShapes>
+        <elementListCompartment Id="830b2f4d-ef14-41f3-9935-54d1c846c78a" absoluteBounds="0.76500000059604645, 15.96000000089407, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c6700342-4590-421c-9d08-ff738ee6198a" absoluteBounds="3.5, 2.375, 2, 1.2605004882812505">
+      <DataClassMoniker Name="/LinqGastroDataContext/Skladniki" />
+      <nestedChildShapes>
+        <elementListCompartment Id="95fcb10f-0429-4fb2-9481-0d539063166d" absoluteBounds="3.5150000005960464, 2.8350000008940697, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="573fdcff-59a9-4f87-83e9-c3d602415133" absoluteBounds="3.5, 16.75, 2, 2.4109318033854166">
+      <DataClassMoniker Name="/LinqGastroDataContext/Skladniki_mineralne" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c87b33a0-2611-4297-91d7-02abf4e85d94" absoluteBounds="3.5150000005960464, 17.21000000089407, 1.9700000000000002, 1.8509318033854165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bcb1b4a1-0b30-4163-9c74-74ff046473d3" absoluteBounds="3.5, 4.375, 2, 1.2605004882812505">
       <DataClassMoniker Name="/LinqGastroDataContext/Wartosc_energetyczna" />
       <nestedChildShapes>
-        <elementListCompartment Id="e7361319-639e-450c-8e42-118f90cb5634" absoluteBounds="10.265, 16.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="feeb3464-334e-42fb-b911-4913203755d0" absoluteBounds="3.5150000005960464, 4.83500000089407, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(15.0859375 : 19); (15.0859375 : 16.5000787353516); (14.4895833333333 : 16.5000787353516 : JumpStart); (14.3229166666667 : 16.5000787353516 : JumpEnd); (12.25 : 16.5000787353516)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="f20c038b-9e7f-4e1e-86df-cd958dc03283" absoluteBounds="3.5, 8.625, 2, 1.5891951497395844">
+      <DataClassMoniker Name="/LinqGastroDataContext/Weglowodany" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e83dfb86-4958-418c-b4d4-965f5ca04edc" absoluteBounds="3.5150000005960464, 9.08500000089407, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 17.7465844726563); (1.75 : 29.070028889974); (3.5 : 29.070028889974)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Aminokwasy" />
+      <nodes>
+        <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
+        <classShapeMoniker Id="57f8d818-9de8-4f67-ad1c-9158109b3d5c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 17.7465844726563); (2.2812525 : 24.9519868977865); (3.5 : 24.9519868977865)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Witaminy" />
+      <nodes>
+        <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
+        <classShapeMoniker Id="4f668d16-4888-4701-89b1-4b920685719a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 15.5); (1.75 : 7.21242390950521); (2.46354541666667 : 7.21242390950521 : JumpStart); (2.63021208333333 : 7.21242390950521 : JumpEnd); (3.5 : 7.21242390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Energia" />
+      <nodes>
+        <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
+        <classShapeMoniker Id="a7685676-f377-4c69-8702-767db60717bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 15.5); (2.2812525 : 12.0411185709635); (2.46354541666667 : 12.0411185709635 : JumpStart); (2.63021208333333 : 12.0411185709635 : JumpEnd); (3.5 : 12.0411185709635)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Kw_tluszcz_jednonienasyc" />
+      <nodes>
+        <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
+        <classShapeMoniker Id="411005e5-7fa0-478d-bf63-298ab26b5d72" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.2187475 : 17.7465844726563); (1.2187475 : 21.3698132324219); (1.66666666666667 : 21.3698132324219 : JumpStart); (1.83333333333333 : 21.3698132324219 : JumpEnd); (2.19791916666667 : 21.3698132324219 : JumpStart); (2.36458583333333 : 21.3698132324219 : JumpEnd); (3.5 : 21.3698132324219)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Kw_tluszcz_nasyc" />
+      <nodes>
+        <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
+        <classShapeMoniker Id="852f1fe4-dc80-49ea-87ee-0598a86562aa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 15.7482922363281); (3.5 : 15.7482922363281)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Kw_tluszcz_wielonienasyc" />
+      <nodes>
+        <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
+        <classShapeMoniker Id="0d08cb2e-6d83-49bb-9cc5-207b0baa03a6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 3.00525024414063); (6.25 : 3.00525024414063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqGastroDataContext/Skladniki/Skladniki_Potrawy" />
+      <nodes>
+        <classShapeMoniker Id="c6700342-4590-421c-9d08-ff738ee6198a" />
+        <classShapeMoniker Id="d0a283b6-fd27-414c-8f0f-02ce9ccccd5b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.2187475 : 15.5); (1.2187475 : 3.00525024414063); (3.5 : 3.00525024414063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Skladniki" />
+      <nodes>
+        <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
+        <classShapeMoniker Id="c6700342-4590-421c-9d08-ff738ee6198a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 17.2482922364833); (3.5 : 17.2482922364833)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Skladniki_mineralne" />
+      <nodes>
+        <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
+        <classShapeMoniker Id="573fdcff-59a9-4f87-83e9-c3d602415133" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.54687875 : 15.5); (2.54687875 : 5.00525024414063); (3.5 : 5.00525024414063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Wartosc_energetyczna" />
       <nodes>
-        <classShapeMoniker Id="e0b0e816-2c51-496d-860b-07f64b392448" />
-        <classShapeMoniker Id="44a9009a-a5a2-4e29-be25-a0679ee02179" />
+        <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
+        <classShapeMoniker Id="bcb1b4a1-0b30-4163-9c74-74ff046473d3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.01562625 : 15.5); (2.01562625 : 9.41959757486979); (2.46354541666667 : 9.41959757486979 : JumpStart); (2.63021208333333 : 9.41959757486979 : JumpEnd); (3.5 : 9.41959757486979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Weglowodany" />
+      <nodes>
+        <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
+        <classShapeMoniker Id="f20c038b-9e7f-4e1e-86df-cd958dc03283" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

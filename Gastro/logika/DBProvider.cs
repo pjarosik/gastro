@@ -122,5 +122,18 @@ namespace Gastro.logika
             cont.Produkties.DeleteAllOnSubmit(cont.Produkties);
             cont.SubmitChanges();
         }
+
+        static public List<object> getProductsName()
+        {
+            var productsName = from prod in cont.Produkties
+                               select prod.nazwa_produktu.Substring(1,prod.nazwa_produktu.Length-2);
+                              //     new
+                              //{
+                              //    prod.nazwa_produktu,
+                              //    prod.numer_kodowy
+                              //};
+
+            return productsName.ToList<object>();
+        }
     }
 }

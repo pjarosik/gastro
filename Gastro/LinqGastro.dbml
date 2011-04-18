@@ -1,30 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GastroDB" Class="LinqGastroDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\GastroDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True" SettingsObjectName="Gastro.Properties.Settings" SettingsPropertyName="GastroDBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Produkty" Member="Produkties">
-    <Type Name="Produkty">
-      <Column Name="numer_kodowy" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="nazwa_produktu" Type="System.String" DbType="NChar(45) NOT NULL" CanBeNull="false" />
-      <Column Name="odpadki" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="bialko_zwierzece" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="bialko_roslinne" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="woda" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="choresterol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="tluszcz" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="popiol" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Association Name="Produkty_Aminokwasy" Member="Aminokwasy" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Aminokwasy" Cardinality="One" />
-      <Association Name="Produkty_Energia" Member="Energia" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Energia" Cardinality="One" />
-      <Association Name="Produkty_Kw_tluszcz_jednonienasyc" Member="Kw_tluszcz_jednonienasyc" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Kw_tluszcz_jednonienasyc" Cardinality="One" />
-      <Association Name="Produkty_Kw_tluszcz_nasyc" Member="Kw_tluszcz_nasyc" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Kw_tluszcz_nasyc" Cardinality="One" />
-      <Association Name="Produkty_Kw_tluszcz_wielonienasyc" Member="Kw_tluszcz_wielonienasyc" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Kw_tluszcz_wielonienasyc" Cardinality="One" />
-      <Association Name="Produkty_Skladniki_mineralne" Member="Skladniki_mineralne" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Skladniki_mineralne" Cardinality="One" />
-      <Association Name="Produkty_Weglowodany" Member="Weglowodany" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Weglowodany" Cardinality="One" />
-      <Association Name="Produkty_Witaminy" Member="Witaminy" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Witaminy" Cardinality="One" />
-      <Association Name="Produkty_Wartosc_energetyczna" Member="Wartosc_energetyczna" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Wartosc_energetyczna" Cardinality="One" />
-    </Type>
-  </Table>
   <Table Name="dbo.Aminokwasy" Member="Aminokwasies">
     <Type Name="Aminokwasy">
-      <Column Name="numer_kodowy" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="numer_kodowy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="izoleucyna" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="leucyna" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="lizyna" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -46,9 +24,27 @@
       <Association Name="Produkty_Aminokwasy" Member="Produkty" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Produkty" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Witaminy" Member="Witaminies">
+    <Type Name="Witaminy">
+      <Column Name="numer_kodowy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ek_retinolu" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="retinol" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="beta_karoten" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="D" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="E" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="tiamina" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="ryboflawina" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="niacyna" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="B6" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="foliany" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="B12" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="C" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="Produkty_Witaminy" Member="Produkty" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Produkty" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Energia" Member="Energias">
     <Type Name="Energia">
-      <Column Name="numer_kodowy" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="numer_kodowy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="bialko" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="tluszcz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="weglowodany" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -57,7 +53,7 @@
   </Table>
   <Table Name="dbo.Kw_tluszcz_jednonienasyc" Member="Kw_tluszcz_jednonienasycs">
     <Type Name="Kw_tluszcz_jednonienasyc">
-      <Column Name="numer_kodowy" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="numer_kodowy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="C14_1" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
       <Column Name="C15_1" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
       <Column Name="C16_1" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
@@ -70,7 +66,7 @@
   </Table>
   <Table Name="dbo.Kw_tluszcz_nasyc" Member="Kw_tluszcz_nasycs">
     <Type Name="Kw_tluszcz_nasyc">
-      <Column Name="numer_kodowy" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="numer_kodowy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="C4_0" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
       <Column Name="C6_0" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
       <Column Name="C8_0" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
@@ -87,7 +83,7 @@
   </Table>
   <Table Name="dbo.Kw_tluszcz_wielonienasyc" Member="Kw_tluszcz_wielonienasycs">
     <Type Name="Kw_tluszcz_wielonienasyc">
-      <Column Name="numer_kodowy" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="numer_kodowy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="C18_2" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
       <Column Name="C18_3" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
       <Column Name="C18_4" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
@@ -99,9 +95,50 @@
       <Association Name="Produkty_Kw_tluszcz_wielonienasyc" Member="Produkty" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Produkty" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Potrawy" Member="Potrawies">
+    <Type Name="Potrawy">
+      <Column Name="ID_potrawy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nazwa" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_skladnik" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="kategoria" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Skladniki_Potrawy" Member="Skladniki" ThisKey="ID_skladnik" OtherKey="ID_skladnik" Type="Skladniki" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Produkty" Member="Produkties">
+    <Type Name="Produkty">
+      <Column Name="numer_kodowy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nazwa_produktu" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="odpadki" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bialko_zwierzece" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="bialko_roslinne" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="woda" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="choresterol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tluszcz" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="popiol" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="Produkty_Aminokwasy" Member="Aminokwasy" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Aminokwasy" Cardinality="One" />
+      <Association Name="Produkty_Witaminy" Member="Witaminy" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Witaminy" Cardinality="One" />
+      <Association Name="Produkty_Energia" Member="Energia" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Energia" Cardinality="One" />
+      <Association Name="Produkty_Kw_tluszcz_jednonienasyc" Member="Kw_tluszcz_jednonienasyc" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Kw_tluszcz_jednonienasyc" Cardinality="One" />
+      <Association Name="Produkty_Kw_tluszcz_nasyc" Member="Kw_tluszcz_nasyc" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Kw_tluszcz_nasyc" Cardinality="One" />
+      <Association Name="Produkty_Kw_tluszcz_wielonienasyc" Member="Kw_tluszcz_wielonienasyc" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Kw_tluszcz_wielonienasyc" Cardinality="One" />
+      <Association Name="Produkty_Skladniki" Member="Skladnikis" ThisKey="numer_kodowy" OtherKey="ID_produktu" Type="Skladniki" />
+      <Association Name="Produkty_Skladniki_mineralne" Member="Skladniki_mineralne" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Skladniki_mineralne" Cardinality="One" />
+      <Association Name="Produkty_Wartosc_energetyczna" Member="Wartosc_energetyczna" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Wartosc_energetyczna" Cardinality="One" />
+      <Association Name="Produkty_Weglowodany" Member="Weglowodany" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Weglowodany" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Skladniki" Member="Skladnikis">
+    <Type Name="Skladniki">
+      <Column Name="ID_skladnik" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_produktu" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ilosc" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="Skladniki_Potrawy" Member="Potrawies" ThisKey="ID_skladnik" OtherKey="ID_skladnik" Type="Potrawy" />
+      <Association Name="Produkty_Skladniki" Member="Produkty" ThisKey="ID_produktu" OtherKey="numer_kodowy" Type="Produkty" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Skladniki_mineralne" Member="Skladniki_mineralnes">
     <Type Name="Skladniki_mineralne">
-      <Column Name="numer_kodowy" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="numer_kodowy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="sod" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
       <Column Name="potas" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
       <Column Name="wapn" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
@@ -114,40 +151,22 @@
       <Association Name="Produkty_Skladniki_mineralne" Member="Produkty" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Produkty" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Wartosc_energetyczna" Member="Wartosc_energetycznas">
+    <Type Name="Wartosc_energetyczna">
+      <Column Name="numer_kodowy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KJ" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kcal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Produkty_Wartosc_energetyczna" Member="Produkty" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Produkty" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Weglowodany" Member="Weglowodanies">
     <Type Name="Weglowodany">
-      <Column Name="numer_kodowy" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="numer_kodowy" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="sacharoza" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="laktoza" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="skrobia" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="blonnik_pokarmowy" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Association Name="Produkty_Weglowodany" Member="Produkty" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Produkty" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Witaminy" Member="Witaminies">
-    <Type Name="Witaminy">
-      <Column Name="numer_kodowy" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ek_retinolu" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="retinol" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="beta_karoten" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="D" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="E" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="tiamina" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="ryboflawina" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="niacyna" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="B6" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="foliany" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="B12" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Column Name="C" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
-      <Association Name="Produkty_Witaminy" Member="Produkty" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Produkty" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Wartosc_energetyczna" Member="Wartosc_energetycznas">
-    <Type Name="Wartosc_energetyczna">
-      <Column Name="numer_kodowy" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="KJ" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="kcal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Produkty_Wartosc_energetyczna" Member="Produkty" ThisKey="numer_kodowy" OtherKey="numer_kodowy" Type="Produkty" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
