@@ -30,12 +30,12 @@ namespace Gastro
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertProdukty(Produkty instance);
-    partial void UpdateProdukty(Produkty instance);
-    partial void DeleteProdukty(Produkty instance);
     partial void InsertAminokwasy(Aminokwasy instance);
     partial void UpdateAminokwasy(Aminokwasy instance);
     partial void DeleteAminokwasy(Aminokwasy instance);
+    partial void InsertWitaminy(Witaminy instance);
+    partial void UpdateWitaminy(Witaminy instance);
+    partial void DeleteWitaminy(Witaminy instance);
     partial void InsertEnergia(Energia instance);
     partial void UpdateEnergia(Energia instance);
     partial void DeleteEnergia(Energia instance);
@@ -48,18 +48,24 @@ namespace Gastro
     partial void InsertKw_tluszcz_wielonienasyc(Kw_tluszcz_wielonienasyc instance);
     partial void UpdateKw_tluszcz_wielonienasyc(Kw_tluszcz_wielonienasyc instance);
     partial void DeleteKw_tluszcz_wielonienasyc(Kw_tluszcz_wielonienasyc instance);
+    partial void InsertPotrawy(Potrawy instance);
+    partial void UpdatePotrawy(Potrawy instance);
+    partial void DeletePotrawy(Potrawy instance);
+    partial void InsertProdukty(Produkty instance);
+    partial void UpdateProdukty(Produkty instance);
+    partial void DeleteProdukty(Produkty instance);
+    partial void InsertSkladniki(Skladniki instance);
+    partial void UpdateSkladniki(Skladniki instance);
+    partial void DeleteSkladniki(Skladniki instance);
     partial void InsertSkladniki_mineralne(Skladniki_mineralne instance);
     partial void UpdateSkladniki_mineralne(Skladniki_mineralne instance);
     partial void DeleteSkladniki_mineralne(Skladniki_mineralne instance);
-    partial void InsertWeglowodany(Weglowodany instance);
-    partial void UpdateWeglowodany(Weglowodany instance);
-    partial void DeleteWeglowodany(Weglowodany instance);
-    partial void InsertWitaminy(Witaminy instance);
-    partial void UpdateWitaminy(Witaminy instance);
-    partial void DeleteWitaminy(Witaminy instance);
     partial void InsertWartosc_energetyczna(Wartosc_energetyczna instance);
     partial void UpdateWartosc_energetyczna(Wartosc_energetyczna instance);
     partial void DeleteWartosc_energetyczna(Wartosc_energetyczna instance);
+    partial void InsertWeglowodany(Weglowodany instance);
+    partial void UpdateWeglowodany(Weglowodany instance);
+    partial void DeleteWeglowodany(Weglowodany instance);
     #endregion
 		
 		public LinqGastroDataContext() : 
@@ -92,19 +98,19 @@ namespace Gastro
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Produkty> Produkties
-		{
-			get
-			{
-				return this.GetTable<Produkty>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Aminokwasy> Aminokwasies
 		{
 			get
 			{
 				return this.GetTable<Aminokwasy>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Witaminy> Witaminies
+		{
+			get
+			{
+				return this.GetTable<Witaminy>();
 			}
 		}
 		
@@ -140,27 +146,35 @@ namespace Gastro
 			}
 		}
 		
+		public System.Data.Linq.Table<Potrawy> Potrawies
+		{
+			get
+			{
+				return this.GetTable<Potrawy>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Produkty> Produkties
+		{
+			get
+			{
+				return this.GetTable<Produkty>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Skladniki> Skladnikis
+		{
+			get
+			{
+				return this.GetTable<Skladniki>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Skladniki_mineralne> Skladniki_mineralnes
 		{
 			get
 			{
 				return this.GetTable<Skladniki_mineralne>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Weglowodany> Weglowodanies
-		{
-			get
-			{
-				return this.GetTable<Weglowodany>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Witaminy> Witaminies
-		{
-			get
-			{
-				return this.GetTable<Witaminy>();
 			}
 		}
 		
@@ -171,546 +185,12 @@ namespace Gastro
 				return this.GetTable<Wartosc_energetyczna>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Produkty")]
-	public partial class Produkty : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _numer_kodowy;
-		
-		private string _nazwa_produktu;
-		
-		private int _odpadki;
-		
-		private float _bialko_zwierzece;
-		
-		private float _bialko_roslinne;
-		
-		private float _woda;
-		
-		private int _choresterol;
-		
-		private float _tluszcz;
-		
-		private float _popiol;
-		
-		private EntityRef<Aminokwasy> _Aminokwasy;
-		
-		private EntityRef<Energia> _Energia;
-		
-		private EntityRef<Kw_tluszcz_jednonienasyc> _Kw_tluszcz_jednonienasyc;
-		
-		private EntityRef<Kw_tluszcz_nasyc> _Kw_tluszcz_nasyc;
-		
-		private EntityRef<Kw_tluszcz_wielonienasyc> _Kw_tluszcz_wielonienasyc;
-		
-		private EntityRef<Skladniki_mineralne> _Skladniki_mineralne;
-		
-		private EntityRef<Weglowodany> _Weglowodany;
-		
-		private EntityRef<Witaminy> _Witaminy;
-		
-		private EntityRef<Wartosc_energetyczna> _Wartosc_energetyczna;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onnumer_kodowyChanging(string value);
-    partial void Onnumer_kodowyChanged();
-    partial void Onnazwa_produktuChanging(string value);
-    partial void Onnazwa_produktuChanged();
-    partial void OnodpadkiChanging(int value);
-    partial void OnodpadkiChanged();
-    partial void Onbialko_zwierzeceChanging(float value);
-    partial void Onbialko_zwierzeceChanged();
-    partial void Onbialko_roslinneChanging(float value);
-    partial void Onbialko_roslinneChanged();
-    partial void OnwodaChanging(float value);
-    partial void OnwodaChanged();
-    partial void OnchoresterolChanging(int value);
-    partial void OnchoresterolChanged();
-    partial void OntluszczChanging(float value);
-    partial void OntluszczChanged();
-    partial void OnpopiolChanging(float value);
-    partial void OnpopiolChanged();
-    #endregion
-		
-		public Produkty()
-		{
-			this._Aminokwasy = default(EntityRef<Aminokwasy>);
-			this._Energia = default(EntityRef<Energia>);
-			this._Kw_tluszcz_jednonienasyc = default(EntityRef<Kw_tluszcz_jednonienasyc>);
-			this._Kw_tluszcz_nasyc = default(EntityRef<Kw_tluszcz_nasyc>);
-			this._Kw_tluszcz_wielonienasyc = default(EntityRef<Kw_tluszcz_wielonienasyc>);
-			this._Skladniki_mineralne = default(EntityRef<Skladniki_mineralne>);
-			this._Weglowodany = default(EntityRef<Weglowodany>);
-			this._Witaminy = default(EntityRef<Witaminy>);
-			this._Wartosc_energetyczna = default(EntityRef<Wartosc_energetyczna>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string numer_kodowy
+		public System.Data.Linq.Table<Weglowodany> Weglowodanies
 		{
 			get
 			{
-				return this._numer_kodowy;
-			}
-			set
-			{
-				if ((this._numer_kodowy != value))
-				{
-					this.Onnumer_kodowyChanging(value);
-					this.SendPropertyChanging();
-					this._numer_kodowy = value;
-					this.SendPropertyChanged("numer_kodowy");
-					this.Onnumer_kodowyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa_produktu", DbType="NChar(45) NOT NULL", CanBeNull=false)]
-		public string nazwa_produktu
-		{
-			get
-			{
-				return this._nazwa_produktu;
-			}
-			set
-			{
-				if ((this._nazwa_produktu != value))
-				{
-					this.Onnazwa_produktuChanging(value);
-					this.SendPropertyChanging();
-					this._nazwa_produktu = value;
-					this.SendPropertyChanged("nazwa_produktu");
-					this.Onnazwa_produktuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_odpadki", DbType="Int NOT NULL")]
-		public int odpadki
-		{
-			get
-			{
-				return this._odpadki;
-			}
-			set
-			{
-				if ((this._odpadki != value))
-				{
-					this.OnodpadkiChanging(value);
-					this.SendPropertyChanging();
-					this._odpadki = value;
-					this.SendPropertyChanged("odpadki");
-					this.OnodpadkiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bialko_zwierzece", DbType="Real NOT NULL")]
-		public float bialko_zwierzece
-		{
-			get
-			{
-				return this._bialko_zwierzece;
-			}
-			set
-			{
-				if ((this._bialko_zwierzece != value))
-				{
-					this.Onbialko_zwierzeceChanging(value);
-					this.SendPropertyChanging();
-					this._bialko_zwierzece = value;
-					this.SendPropertyChanged("bialko_zwierzece");
-					this.Onbialko_zwierzeceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bialko_roslinne", DbType="Real NOT NULL")]
-		public float bialko_roslinne
-		{
-			get
-			{
-				return this._bialko_roslinne;
-			}
-			set
-			{
-				if ((this._bialko_roslinne != value))
-				{
-					this.Onbialko_roslinneChanging(value);
-					this.SendPropertyChanging();
-					this._bialko_roslinne = value;
-					this.SendPropertyChanged("bialko_roslinne");
-					this.Onbialko_roslinneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_woda", DbType="Real NOT NULL")]
-		public float woda
-		{
-			get
-			{
-				return this._woda;
-			}
-			set
-			{
-				if ((this._woda != value))
-				{
-					this.OnwodaChanging(value);
-					this.SendPropertyChanging();
-					this._woda = value;
-					this.SendPropertyChanged("woda");
-					this.OnwodaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_choresterol", DbType="Int NOT NULL")]
-		public int choresterol
-		{
-			get
-			{
-				return this._choresterol;
-			}
-			set
-			{
-				if ((this._choresterol != value))
-				{
-					this.OnchoresterolChanging(value);
-					this.SendPropertyChanging();
-					this._choresterol = value;
-					this.SendPropertyChanged("choresterol");
-					this.OnchoresterolChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tluszcz", DbType="Real NOT NULL")]
-		public float tluszcz
-		{
-			get
-			{
-				return this._tluszcz;
-			}
-			set
-			{
-				if ((this._tluszcz != value))
-				{
-					this.OntluszczChanging(value);
-					this.SendPropertyChanging();
-					this._tluszcz = value;
-					this.SendPropertyChanged("tluszcz");
-					this.OntluszczChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_popiol", DbType="Real NOT NULL")]
-		public float popiol
-		{
-			get
-			{
-				return this._popiol;
-			}
-			set
-			{
-				if ((this._popiol != value))
-				{
-					this.OnpopiolChanging(value);
-					this.SendPropertyChanging();
-					this._popiol = value;
-					this.SendPropertyChanged("popiol");
-					this.OnpopiolChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Aminokwasy", Storage="_Aminokwasy", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
-		public Aminokwasy Aminokwasy
-		{
-			get
-			{
-				return this._Aminokwasy.Entity;
-			}
-			set
-			{
-				Aminokwasy previousValue = this._Aminokwasy.Entity;
-				if (((previousValue != value) 
-							|| (this._Aminokwasy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Aminokwasy.Entity = null;
-						previousValue.Produkty = null;
-					}
-					this._Aminokwasy.Entity = value;
-					if ((value != null))
-					{
-						value.Produkty = this;
-					}
-					this.SendPropertyChanged("Aminokwasy");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Energia", Storage="_Energia", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
-		public Energia Energia
-		{
-			get
-			{
-				return this._Energia.Entity;
-			}
-			set
-			{
-				Energia previousValue = this._Energia.Entity;
-				if (((previousValue != value) 
-							|| (this._Energia.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Energia.Entity = null;
-						previousValue.Produkty = null;
-					}
-					this._Energia.Entity = value;
-					if ((value != null))
-					{
-						value.Produkty = this;
-					}
-					this.SendPropertyChanged("Energia");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Kw_tluszcz_jednonienasyc", Storage="_Kw_tluszcz_jednonienasyc", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
-		public Kw_tluszcz_jednonienasyc Kw_tluszcz_jednonienasyc
-		{
-			get
-			{
-				return this._Kw_tluszcz_jednonienasyc.Entity;
-			}
-			set
-			{
-				Kw_tluszcz_jednonienasyc previousValue = this._Kw_tluszcz_jednonienasyc.Entity;
-				if (((previousValue != value) 
-							|| (this._Kw_tluszcz_jednonienasyc.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Kw_tluszcz_jednonienasyc.Entity = null;
-						previousValue.Produkty = null;
-					}
-					this._Kw_tluszcz_jednonienasyc.Entity = value;
-					if ((value != null))
-					{
-						value.Produkty = this;
-					}
-					this.SendPropertyChanged("Kw_tluszcz_jednonienasyc");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Kw_tluszcz_nasyc", Storage="_Kw_tluszcz_nasyc", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
-		public Kw_tluszcz_nasyc Kw_tluszcz_nasyc
-		{
-			get
-			{
-				return this._Kw_tluszcz_nasyc.Entity;
-			}
-			set
-			{
-				Kw_tluszcz_nasyc previousValue = this._Kw_tluszcz_nasyc.Entity;
-				if (((previousValue != value) 
-							|| (this._Kw_tluszcz_nasyc.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Kw_tluszcz_nasyc.Entity = null;
-						previousValue.Produkty = null;
-					}
-					this._Kw_tluszcz_nasyc.Entity = value;
-					if ((value != null))
-					{
-						value.Produkty = this;
-					}
-					this.SendPropertyChanged("Kw_tluszcz_nasyc");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Kw_tluszcz_wielonienasyc", Storage="_Kw_tluszcz_wielonienasyc", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
-		public Kw_tluszcz_wielonienasyc Kw_tluszcz_wielonienasyc
-		{
-			get
-			{
-				return this._Kw_tluszcz_wielonienasyc.Entity;
-			}
-			set
-			{
-				Kw_tluszcz_wielonienasyc previousValue = this._Kw_tluszcz_wielonienasyc.Entity;
-				if (((previousValue != value) 
-							|| (this._Kw_tluszcz_wielonienasyc.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Kw_tluszcz_wielonienasyc.Entity = null;
-						previousValue.Produkty = null;
-					}
-					this._Kw_tluszcz_wielonienasyc.Entity = value;
-					if ((value != null))
-					{
-						value.Produkty = this;
-					}
-					this.SendPropertyChanged("Kw_tluszcz_wielonienasyc");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Skladniki_mineralne", Storage="_Skladniki_mineralne", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
-		public Skladniki_mineralne Skladniki_mineralne
-		{
-			get
-			{
-				return this._Skladniki_mineralne.Entity;
-			}
-			set
-			{
-				Skladniki_mineralne previousValue = this._Skladniki_mineralne.Entity;
-				if (((previousValue != value) 
-							|| (this._Skladniki_mineralne.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Skladniki_mineralne.Entity = null;
-						previousValue.Produkty = null;
-					}
-					this._Skladniki_mineralne.Entity = value;
-					if ((value != null))
-					{
-						value.Produkty = this;
-					}
-					this.SendPropertyChanged("Skladniki_mineralne");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Weglowodany", Storage="_Weglowodany", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
-		public Weglowodany Weglowodany
-		{
-			get
-			{
-				return this._Weglowodany.Entity;
-			}
-			set
-			{
-				Weglowodany previousValue = this._Weglowodany.Entity;
-				if (((previousValue != value) 
-							|| (this._Weglowodany.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Weglowodany.Entity = null;
-						previousValue.Produkty = null;
-					}
-					this._Weglowodany.Entity = value;
-					if ((value != null))
-					{
-						value.Produkty = this;
-					}
-					this.SendPropertyChanged("Weglowodany");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Witaminy", Storage="_Witaminy", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
-		public Witaminy Witaminy
-		{
-			get
-			{
-				return this._Witaminy.Entity;
-			}
-			set
-			{
-				Witaminy previousValue = this._Witaminy.Entity;
-				if (((previousValue != value) 
-							|| (this._Witaminy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Witaminy.Entity = null;
-						previousValue.Produkty = null;
-					}
-					this._Witaminy.Entity = value;
-					if ((value != null))
-					{
-						value.Produkty = this;
-					}
-					this.SendPropertyChanged("Witaminy");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Wartosc_energetyczna", Storage="_Wartosc_energetyczna", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
-		public Wartosc_energetyczna Wartosc_energetyczna
-		{
-			get
-			{
-				return this._Wartosc_energetyczna.Entity;
-			}
-			set
-			{
-				Wartosc_energetyczna previousValue = this._Wartosc_energetyczna.Entity;
-				if (((previousValue != value) 
-							|| (this._Wartosc_energetyczna.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Wartosc_energetyczna.Entity = null;
-						previousValue.Produkty = null;
-					}
-					this._Wartosc_energetyczna.Entity = value;
-					if ((value != null))
-					{
-						value.Produkty = this;
-					}
-					this.SendPropertyChanged("Wartosc_energetyczna");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Weglowodany>();
 			}
 		}
 	}
@@ -811,7 +291,7 @@ namespace Gastro
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string numer_kodowy
 		{
 			get
@@ -1250,6 +730,397 @@ namespace Gastro
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Witaminy")]
+	public partial class Witaminy : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _numer_kodowy;
+		
+		private float _ek_retinolu;
+		
+		private float _retinol;
+		
+		private float _beta_karoten;
+		
+		private float _D;
+		
+		private float _E;
+		
+		private float _tiamina;
+		
+		private float _ryboflawina;
+		
+		private float _niacyna;
+		
+		private float _B6;
+		
+		private float _foliany;
+		
+		private float _B12;
+		
+		private float _C;
+		
+		private EntityRef<Produkty> _Produkty;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onnumer_kodowyChanging(string value);
+    partial void Onnumer_kodowyChanged();
+    partial void Onek_retinoluChanging(float value);
+    partial void Onek_retinoluChanged();
+    partial void OnretinolChanging(float value);
+    partial void OnretinolChanged();
+    partial void Onbeta_karotenChanging(float value);
+    partial void Onbeta_karotenChanged();
+    partial void OnDChanging(float value);
+    partial void OnDChanged();
+    partial void OnEChanging(float value);
+    partial void OnEChanged();
+    partial void OntiaminaChanging(float value);
+    partial void OntiaminaChanged();
+    partial void OnryboflawinaChanging(float value);
+    partial void OnryboflawinaChanged();
+    partial void OnniacynaChanging(float value);
+    partial void OnniacynaChanged();
+    partial void OnB6Changing(float value);
+    partial void OnB6Changed();
+    partial void OnfolianyChanging(float value);
+    partial void OnfolianyChanged();
+    partial void OnB12Changing(float value);
+    partial void OnB12Changed();
+    partial void OnCChanging(float value);
+    partial void OnCChanged();
+    #endregion
+		
+		public Witaminy()
+		{
+			this._Produkty = default(EntityRef<Produkty>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string numer_kodowy
+		{
+			get
+			{
+				return this._numer_kodowy;
+			}
+			set
+			{
+				if ((this._numer_kodowy != value))
+				{
+					if (this._Produkty.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onnumer_kodowyChanging(value);
+					this.SendPropertyChanging();
+					this._numer_kodowy = value;
+					this.SendPropertyChanged("numer_kodowy");
+					this.Onnumer_kodowyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ek_retinolu", DbType="Real NOT NULL")]
+		public float ek_retinolu
+		{
+			get
+			{
+				return this._ek_retinolu;
+			}
+			set
+			{
+				if ((this._ek_retinolu != value))
+				{
+					this.Onek_retinoluChanging(value);
+					this.SendPropertyChanging();
+					this._ek_retinolu = value;
+					this.SendPropertyChanged("ek_retinolu");
+					this.Onek_retinoluChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_retinol", DbType="Real NOT NULL")]
+		public float retinol
+		{
+			get
+			{
+				return this._retinol;
+			}
+			set
+			{
+				if ((this._retinol != value))
+				{
+					this.OnretinolChanging(value);
+					this.SendPropertyChanging();
+					this._retinol = value;
+					this.SendPropertyChanged("retinol");
+					this.OnretinolChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_beta_karoten", DbType="Real NOT NULL")]
+		public float beta_karoten
+		{
+			get
+			{
+				return this._beta_karoten;
+			}
+			set
+			{
+				if ((this._beta_karoten != value))
+				{
+					this.Onbeta_karotenChanging(value);
+					this.SendPropertyChanging();
+					this._beta_karoten = value;
+					this.SendPropertyChanged("beta_karoten");
+					this.Onbeta_karotenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D", DbType="Real NOT NULL")]
+		public float D
+		{
+			get
+			{
+				return this._D;
+			}
+			set
+			{
+				if ((this._D != value))
+				{
+					this.OnDChanging(value);
+					this.SendPropertyChanging();
+					this._D = value;
+					this.SendPropertyChanged("D");
+					this.OnDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E", DbType="Real NOT NULL")]
+		public float E
+		{
+			get
+			{
+				return this._E;
+			}
+			set
+			{
+				if ((this._E != value))
+				{
+					this.OnEChanging(value);
+					this.SendPropertyChanging();
+					this._E = value;
+					this.SendPropertyChanged("E");
+					this.OnEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tiamina", DbType="Real NOT NULL")]
+		public float tiamina
+		{
+			get
+			{
+				return this._tiamina;
+			}
+			set
+			{
+				if ((this._tiamina != value))
+				{
+					this.OntiaminaChanging(value);
+					this.SendPropertyChanging();
+					this._tiamina = value;
+					this.SendPropertyChanged("tiamina");
+					this.OntiaminaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ryboflawina", DbType="Real NOT NULL")]
+		public float ryboflawina
+		{
+			get
+			{
+				return this._ryboflawina;
+			}
+			set
+			{
+				if ((this._ryboflawina != value))
+				{
+					this.OnryboflawinaChanging(value);
+					this.SendPropertyChanging();
+					this._ryboflawina = value;
+					this.SendPropertyChanged("ryboflawina");
+					this.OnryboflawinaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_niacyna", DbType="Real NOT NULL")]
+		public float niacyna
+		{
+			get
+			{
+				return this._niacyna;
+			}
+			set
+			{
+				if ((this._niacyna != value))
+				{
+					this.OnniacynaChanging(value);
+					this.SendPropertyChanging();
+					this._niacyna = value;
+					this.SendPropertyChanged("niacyna");
+					this.OnniacynaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B6", DbType="Real NOT NULL")]
+		public float B6
+		{
+			get
+			{
+				return this._B6;
+			}
+			set
+			{
+				if ((this._B6 != value))
+				{
+					this.OnB6Changing(value);
+					this.SendPropertyChanging();
+					this._B6 = value;
+					this.SendPropertyChanged("B6");
+					this.OnB6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_foliany", DbType="Real NOT NULL")]
+		public float foliany
+		{
+			get
+			{
+				return this._foliany;
+			}
+			set
+			{
+				if ((this._foliany != value))
+				{
+					this.OnfolianyChanging(value);
+					this.SendPropertyChanging();
+					this._foliany = value;
+					this.SendPropertyChanged("foliany");
+					this.OnfolianyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B12", DbType="Real NOT NULL")]
+		public float B12
+		{
+			get
+			{
+				return this._B12;
+			}
+			set
+			{
+				if ((this._B12 != value))
+				{
+					this.OnB12Changing(value);
+					this.SendPropertyChanging();
+					this._B12 = value;
+					this.SendPropertyChanged("B12");
+					this.OnB12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C", DbType="Real NOT NULL")]
+		public float C
+		{
+			get
+			{
+				return this._C;
+			}
+			set
+			{
+				if ((this._C != value))
+				{
+					this.OnCChanging(value);
+					this.SendPropertyChanging();
+					this._C = value;
+					this.SendPropertyChanged("C");
+					this.OnCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Witaminy", Storage="_Produkty", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsForeignKey=true)]
+		public Produkty Produkty
+		{
+			get
+			{
+				return this._Produkty.Entity;
+			}
+			set
+			{
+				Produkty previousValue = this._Produkty.Entity;
+				if (((previousValue != value) 
+							|| (this._Produkty.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Produkty.Entity = null;
+						previousValue.Witaminy = null;
+					}
+					this._Produkty.Entity = value;
+					if ((value != null))
+					{
+						value.Witaminy = this;
+						this._numer_kodowy = value.numer_kodowy;
+					}
+					else
+					{
+						this._numer_kodowy = default(string);
+					}
+					this.SendPropertyChanged("Produkty");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Energia")]
 	public partial class Energia : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1286,7 +1157,7 @@ namespace Gastro
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string numer_kodowy
 		{
 			get
@@ -1477,7 +1348,7 @@ namespace Gastro
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string numer_kodowy
 		{
 			get
@@ -1764,7 +1635,7 @@ namespace Gastro
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string numer_kodowy
 		{
 			get
@@ -2119,7 +1990,7 @@ namespace Gastro
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string numer_kodowy
 		{
 			get
@@ -2358,6 +2229,930 @@ namespace Gastro
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Potrawy")]
+	public partial class Potrawy : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _ID_potrawy;
+		
+		private string _nazwa;
+		
+		private string _ID_skladnik;
+		
+		private string _kategoria;
+		
+		private EntityRef<Skladniki> _Skladniki;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_potrawyChanging(string value);
+    partial void OnID_potrawyChanged();
+    partial void OnnazwaChanging(string value);
+    partial void OnnazwaChanged();
+    partial void OnID_skladnikChanging(string value);
+    partial void OnID_skladnikChanged();
+    partial void OnkategoriaChanging(string value);
+    partial void OnkategoriaChanged();
+    #endregion
+		
+		public Potrawy()
+		{
+			this._Skladniki = default(EntityRef<Skladniki>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_potrawy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ID_potrawy
+		{
+			get
+			{
+				return this._ID_potrawy;
+			}
+			set
+			{
+				if ((this._ID_potrawy != value))
+				{
+					this.OnID_potrawyChanging(value);
+					this.SendPropertyChanging();
+					this._ID_potrawy = value;
+					this.SendPropertyChanged("ID_potrawy");
+					this.OnID_potrawyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string nazwa
+		{
+			get
+			{
+				return this._nazwa;
+			}
+			set
+			{
+				if ((this._nazwa != value))
+				{
+					this.OnnazwaChanging(value);
+					this.SendPropertyChanging();
+					this._nazwa = value;
+					this.SendPropertyChanged("nazwa");
+					this.OnnazwaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_skladnik", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string ID_skladnik
+		{
+			get
+			{
+				return this._ID_skladnik;
+			}
+			set
+			{
+				if ((this._ID_skladnik != value))
+				{
+					if (this._Skladniki.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_skladnikChanging(value);
+					this.SendPropertyChanging();
+					this._ID_skladnik = value;
+					this.SendPropertyChanged("ID_skladnik");
+					this.OnID_skladnikChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kategoria", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string kategoria
+		{
+			get
+			{
+				return this._kategoria;
+			}
+			set
+			{
+				if ((this._kategoria != value))
+				{
+					this.OnkategoriaChanging(value);
+					this.SendPropertyChanging();
+					this._kategoria = value;
+					this.SendPropertyChanged("kategoria");
+					this.OnkategoriaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Skladniki_Potrawy", Storage="_Skladniki", ThisKey="ID_skladnik", OtherKey="ID_skladnik", IsForeignKey=true)]
+		public Skladniki Skladniki
+		{
+			get
+			{
+				return this._Skladniki.Entity;
+			}
+			set
+			{
+				Skladniki previousValue = this._Skladniki.Entity;
+				if (((previousValue != value) 
+							|| (this._Skladniki.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Skladniki.Entity = null;
+						previousValue.Potrawies.Remove(this);
+					}
+					this._Skladniki.Entity = value;
+					if ((value != null))
+					{
+						value.Potrawies.Add(this);
+						this._ID_skladnik = value.ID_skladnik;
+					}
+					else
+					{
+						this._ID_skladnik = default(string);
+					}
+					this.SendPropertyChanged("Skladniki");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Produkty")]
+	public partial class Produkty : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _numer_kodowy;
+		
+		private string _nazwa_produktu;
+		
+		private int _odpadki;
+		
+		private float _bialko_zwierzece;
+		
+		private float _bialko_roslinne;
+		
+		private float _woda;
+		
+		private int _choresterol;
+		
+		private float _tluszcz;
+		
+		private float _popiol;
+		
+		private EntityRef<Aminokwasy> _Aminokwasy;
+		
+		private EntityRef<Witaminy> _Witaminy;
+		
+		private EntityRef<Energia> _Energia;
+		
+		private EntityRef<Kw_tluszcz_jednonienasyc> _Kw_tluszcz_jednonienasyc;
+		
+		private EntityRef<Kw_tluszcz_nasyc> _Kw_tluszcz_nasyc;
+		
+		private EntityRef<Kw_tluszcz_wielonienasyc> _Kw_tluszcz_wielonienasyc;
+		
+		private EntitySet<Skladniki> _Skladnikis;
+		
+		private EntityRef<Skladniki_mineralne> _Skladniki_mineralne;
+		
+		private EntityRef<Wartosc_energetyczna> _Wartosc_energetyczna;
+		
+		private EntityRef<Weglowodany> _Weglowodany;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onnumer_kodowyChanging(string value);
+    partial void Onnumer_kodowyChanged();
+    partial void Onnazwa_produktuChanging(string value);
+    partial void Onnazwa_produktuChanged();
+    partial void OnodpadkiChanging(int value);
+    partial void OnodpadkiChanged();
+    partial void Onbialko_zwierzeceChanging(float value);
+    partial void Onbialko_zwierzeceChanged();
+    partial void Onbialko_roslinneChanging(float value);
+    partial void Onbialko_roslinneChanged();
+    partial void OnwodaChanging(float value);
+    partial void OnwodaChanged();
+    partial void OnchoresterolChanging(int value);
+    partial void OnchoresterolChanged();
+    partial void OntluszczChanging(float value);
+    partial void OntluszczChanged();
+    partial void OnpopiolChanging(float value);
+    partial void OnpopiolChanged();
+    #endregion
+		
+		public Produkty()
+		{
+			this._Aminokwasy = default(EntityRef<Aminokwasy>);
+			this._Witaminy = default(EntityRef<Witaminy>);
+			this._Energia = default(EntityRef<Energia>);
+			this._Kw_tluszcz_jednonienasyc = default(EntityRef<Kw_tluszcz_jednonienasyc>);
+			this._Kw_tluszcz_nasyc = default(EntityRef<Kw_tluszcz_nasyc>);
+			this._Kw_tluszcz_wielonienasyc = default(EntityRef<Kw_tluszcz_wielonienasyc>);
+			this._Skladnikis = new EntitySet<Skladniki>(new Action<Skladniki>(this.attach_Skladnikis), new Action<Skladniki>(this.detach_Skladnikis));
+			this._Skladniki_mineralne = default(EntityRef<Skladniki_mineralne>);
+			this._Wartosc_energetyczna = default(EntityRef<Wartosc_energetyczna>);
+			this._Weglowodany = default(EntityRef<Weglowodany>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string numer_kodowy
+		{
+			get
+			{
+				return this._numer_kodowy;
+			}
+			set
+			{
+				if ((this._numer_kodowy != value))
+				{
+					this.Onnumer_kodowyChanging(value);
+					this.SendPropertyChanging();
+					this._numer_kodowy = value;
+					this.SendPropertyChanged("numer_kodowy");
+					this.Onnumer_kodowyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa_produktu", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nazwa_produktu
+		{
+			get
+			{
+				return this._nazwa_produktu;
+			}
+			set
+			{
+				if ((this._nazwa_produktu != value))
+				{
+					this.Onnazwa_produktuChanging(value);
+					this.SendPropertyChanging();
+					this._nazwa_produktu = value;
+					this.SendPropertyChanged("nazwa_produktu");
+					this.Onnazwa_produktuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_odpadki", DbType="Int NOT NULL")]
+		public int odpadki
+		{
+			get
+			{
+				return this._odpadki;
+			}
+			set
+			{
+				if ((this._odpadki != value))
+				{
+					this.OnodpadkiChanging(value);
+					this.SendPropertyChanging();
+					this._odpadki = value;
+					this.SendPropertyChanged("odpadki");
+					this.OnodpadkiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bialko_zwierzece", DbType="Real NOT NULL")]
+		public float bialko_zwierzece
+		{
+			get
+			{
+				return this._bialko_zwierzece;
+			}
+			set
+			{
+				if ((this._bialko_zwierzece != value))
+				{
+					this.Onbialko_zwierzeceChanging(value);
+					this.SendPropertyChanging();
+					this._bialko_zwierzece = value;
+					this.SendPropertyChanged("bialko_zwierzece");
+					this.Onbialko_zwierzeceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bialko_roslinne", DbType="Real NOT NULL")]
+		public float bialko_roslinne
+		{
+			get
+			{
+				return this._bialko_roslinne;
+			}
+			set
+			{
+				if ((this._bialko_roslinne != value))
+				{
+					this.Onbialko_roslinneChanging(value);
+					this.SendPropertyChanging();
+					this._bialko_roslinne = value;
+					this.SendPropertyChanged("bialko_roslinne");
+					this.Onbialko_roslinneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_woda", DbType="Real NOT NULL")]
+		public float woda
+		{
+			get
+			{
+				return this._woda;
+			}
+			set
+			{
+				if ((this._woda != value))
+				{
+					this.OnwodaChanging(value);
+					this.SendPropertyChanging();
+					this._woda = value;
+					this.SendPropertyChanged("woda");
+					this.OnwodaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_choresterol", DbType="Int NOT NULL")]
+		public int choresterol
+		{
+			get
+			{
+				return this._choresterol;
+			}
+			set
+			{
+				if ((this._choresterol != value))
+				{
+					this.OnchoresterolChanging(value);
+					this.SendPropertyChanging();
+					this._choresterol = value;
+					this.SendPropertyChanged("choresterol");
+					this.OnchoresterolChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tluszcz", DbType="Real NOT NULL")]
+		public float tluszcz
+		{
+			get
+			{
+				return this._tluszcz;
+			}
+			set
+			{
+				if ((this._tluszcz != value))
+				{
+					this.OntluszczChanging(value);
+					this.SendPropertyChanging();
+					this._tluszcz = value;
+					this.SendPropertyChanged("tluszcz");
+					this.OntluszczChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_popiol", DbType="Real NOT NULL")]
+		public float popiol
+		{
+			get
+			{
+				return this._popiol;
+			}
+			set
+			{
+				if ((this._popiol != value))
+				{
+					this.OnpopiolChanging(value);
+					this.SendPropertyChanging();
+					this._popiol = value;
+					this.SendPropertyChanged("popiol");
+					this.OnpopiolChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Aminokwasy", Storage="_Aminokwasy", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
+		public Aminokwasy Aminokwasy
+		{
+			get
+			{
+				return this._Aminokwasy.Entity;
+			}
+			set
+			{
+				Aminokwasy previousValue = this._Aminokwasy.Entity;
+				if (((previousValue != value) 
+							|| (this._Aminokwasy.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Aminokwasy.Entity = null;
+						previousValue.Produkty = null;
+					}
+					this._Aminokwasy.Entity = value;
+					if ((value != null))
+					{
+						value.Produkty = this;
+					}
+					this.SendPropertyChanged("Aminokwasy");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Witaminy", Storage="_Witaminy", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
+		public Witaminy Witaminy
+		{
+			get
+			{
+				return this._Witaminy.Entity;
+			}
+			set
+			{
+				Witaminy previousValue = this._Witaminy.Entity;
+				if (((previousValue != value) 
+							|| (this._Witaminy.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Witaminy.Entity = null;
+						previousValue.Produkty = null;
+					}
+					this._Witaminy.Entity = value;
+					if ((value != null))
+					{
+						value.Produkty = this;
+					}
+					this.SendPropertyChanged("Witaminy");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Energia", Storage="_Energia", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
+		public Energia Energia
+		{
+			get
+			{
+				return this._Energia.Entity;
+			}
+			set
+			{
+				Energia previousValue = this._Energia.Entity;
+				if (((previousValue != value) 
+							|| (this._Energia.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Energia.Entity = null;
+						previousValue.Produkty = null;
+					}
+					this._Energia.Entity = value;
+					if ((value != null))
+					{
+						value.Produkty = this;
+					}
+					this.SendPropertyChanged("Energia");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Kw_tluszcz_jednonienasyc", Storage="_Kw_tluszcz_jednonienasyc", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
+		public Kw_tluszcz_jednonienasyc Kw_tluszcz_jednonienasyc
+		{
+			get
+			{
+				return this._Kw_tluszcz_jednonienasyc.Entity;
+			}
+			set
+			{
+				Kw_tluszcz_jednonienasyc previousValue = this._Kw_tluszcz_jednonienasyc.Entity;
+				if (((previousValue != value) 
+							|| (this._Kw_tluszcz_jednonienasyc.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kw_tluszcz_jednonienasyc.Entity = null;
+						previousValue.Produkty = null;
+					}
+					this._Kw_tluszcz_jednonienasyc.Entity = value;
+					if ((value != null))
+					{
+						value.Produkty = this;
+					}
+					this.SendPropertyChanged("Kw_tluszcz_jednonienasyc");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Kw_tluszcz_nasyc", Storage="_Kw_tluszcz_nasyc", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
+		public Kw_tluszcz_nasyc Kw_tluszcz_nasyc
+		{
+			get
+			{
+				return this._Kw_tluszcz_nasyc.Entity;
+			}
+			set
+			{
+				Kw_tluszcz_nasyc previousValue = this._Kw_tluszcz_nasyc.Entity;
+				if (((previousValue != value) 
+							|| (this._Kw_tluszcz_nasyc.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kw_tluszcz_nasyc.Entity = null;
+						previousValue.Produkty = null;
+					}
+					this._Kw_tluszcz_nasyc.Entity = value;
+					if ((value != null))
+					{
+						value.Produkty = this;
+					}
+					this.SendPropertyChanged("Kw_tluszcz_nasyc");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Kw_tluszcz_wielonienasyc", Storage="_Kw_tluszcz_wielonienasyc", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
+		public Kw_tluszcz_wielonienasyc Kw_tluszcz_wielonienasyc
+		{
+			get
+			{
+				return this._Kw_tluszcz_wielonienasyc.Entity;
+			}
+			set
+			{
+				Kw_tluszcz_wielonienasyc previousValue = this._Kw_tluszcz_wielonienasyc.Entity;
+				if (((previousValue != value) 
+							|| (this._Kw_tluszcz_wielonienasyc.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kw_tluszcz_wielonienasyc.Entity = null;
+						previousValue.Produkty = null;
+					}
+					this._Kw_tluszcz_wielonienasyc.Entity = value;
+					if ((value != null))
+					{
+						value.Produkty = this;
+					}
+					this.SendPropertyChanged("Kw_tluszcz_wielonienasyc");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Skladniki", Storage="_Skladnikis", ThisKey="numer_kodowy", OtherKey="ID_produktu")]
+		public EntitySet<Skladniki> Skladnikis
+		{
+			get
+			{
+				return this._Skladnikis;
+			}
+			set
+			{
+				this._Skladnikis.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Skladniki_mineralne", Storage="_Skladniki_mineralne", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
+		public Skladniki_mineralne Skladniki_mineralne
+		{
+			get
+			{
+				return this._Skladniki_mineralne.Entity;
+			}
+			set
+			{
+				Skladniki_mineralne previousValue = this._Skladniki_mineralne.Entity;
+				if (((previousValue != value) 
+							|| (this._Skladniki_mineralne.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Skladniki_mineralne.Entity = null;
+						previousValue.Produkty = null;
+					}
+					this._Skladniki_mineralne.Entity = value;
+					if ((value != null))
+					{
+						value.Produkty = this;
+					}
+					this.SendPropertyChanged("Skladniki_mineralne");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Wartosc_energetyczna", Storage="_Wartosc_energetyczna", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
+		public Wartosc_energetyczna Wartosc_energetyczna
+		{
+			get
+			{
+				return this._Wartosc_energetyczna.Entity;
+			}
+			set
+			{
+				Wartosc_energetyczna previousValue = this._Wartosc_energetyczna.Entity;
+				if (((previousValue != value) 
+							|| (this._Wartosc_energetyczna.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Wartosc_energetyczna.Entity = null;
+						previousValue.Produkty = null;
+					}
+					this._Wartosc_energetyczna.Entity = value;
+					if ((value != null))
+					{
+						value.Produkty = this;
+					}
+					this.SendPropertyChanged("Wartosc_energetyczna");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Weglowodany", Storage="_Weglowodany", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
+		public Weglowodany Weglowodany
+		{
+			get
+			{
+				return this._Weglowodany.Entity;
+			}
+			set
+			{
+				Weglowodany previousValue = this._Weglowodany.Entity;
+				if (((previousValue != value) 
+							|| (this._Weglowodany.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Weglowodany.Entity = null;
+						previousValue.Produkty = null;
+					}
+					this._Weglowodany.Entity = value;
+					if ((value != null))
+					{
+						value.Produkty = this;
+					}
+					this.SendPropertyChanged("Weglowodany");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Skladnikis(Skladniki entity)
+		{
+			this.SendPropertyChanging();
+			entity.Produkty = this;
+		}
+		
+		private void detach_Skladnikis(Skladniki entity)
+		{
+			this.SendPropertyChanging();
+			entity.Produkty = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Skladniki")]
+	public partial class Skladniki : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _ID_skladnik;
+		
+		private string _ID_produktu;
+		
+		private float _ilosc;
+		
+		private EntitySet<Potrawy> _Potrawies;
+		
+		private EntityRef<Produkty> _Produkty;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_skladnikChanging(string value);
+    partial void OnID_skladnikChanged();
+    partial void OnID_produktuChanging(string value);
+    partial void OnID_produktuChanged();
+    partial void OniloscChanging(float value);
+    partial void OniloscChanged();
+    #endregion
+		
+		public Skladniki()
+		{
+			this._Potrawies = new EntitySet<Potrawy>(new Action<Potrawy>(this.attach_Potrawies), new Action<Potrawy>(this.detach_Potrawies));
+			this._Produkty = default(EntityRef<Produkty>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_skladnik", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ID_skladnik
+		{
+			get
+			{
+				return this._ID_skladnik;
+			}
+			set
+			{
+				if ((this._ID_skladnik != value))
+				{
+					this.OnID_skladnikChanging(value);
+					this.SendPropertyChanging();
+					this._ID_skladnik = value;
+					this.SendPropertyChanged("ID_skladnik");
+					this.OnID_skladnikChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_produktu", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string ID_produktu
+		{
+			get
+			{
+				return this._ID_produktu;
+			}
+			set
+			{
+				if ((this._ID_produktu != value))
+				{
+					if (this._Produkty.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_produktuChanging(value);
+					this.SendPropertyChanging();
+					this._ID_produktu = value;
+					this.SendPropertyChanged("ID_produktu");
+					this.OnID_produktuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ilosc", DbType="Real NOT NULL")]
+		public float ilosc
+		{
+			get
+			{
+				return this._ilosc;
+			}
+			set
+			{
+				if ((this._ilosc != value))
+				{
+					this.OniloscChanging(value);
+					this.SendPropertyChanging();
+					this._ilosc = value;
+					this.SendPropertyChanged("ilosc");
+					this.OniloscChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Skladniki_Potrawy", Storage="_Potrawies", ThisKey="ID_skladnik", OtherKey="ID_skladnik")]
+		public EntitySet<Potrawy> Potrawies
+		{
+			get
+			{
+				return this._Potrawies;
+			}
+			set
+			{
+				this._Potrawies.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Skladniki", Storage="_Produkty", ThisKey="ID_produktu", OtherKey="numer_kodowy", IsForeignKey=true)]
+		public Produkty Produkty
+		{
+			get
+			{
+				return this._Produkty.Entity;
+			}
+			set
+			{
+				Produkty previousValue = this._Produkty.Entity;
+				if (((previousValue != value) 
+							|| (this._Produkty.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Produkty.Entity = null;
+						previousValue.Skladnikis.Remove(this);
+					}
+					this._Produkty.Entity = value;
+					if ((value != null))
+					{
+						value.Skladnikis.Add(this);
+						this._ID_produktu = value.numer_kodowy;
+					}
+					else
+					{
+						this._ID_produktu = default(string);
+					}
+					this.SendPropertyChanged("Produkty");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Potrawies(Potrawy entity)
+		{
+			this.SendPropertyChanging();
+			entity.Skladniki = this;
+		}
+		
+		private void detach_Potrawies(Potrawy entity)
+		{
+			this.SendPropertyChanging();
+			entity.Skladniki = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Skladniki_mineralne")]
 	public partial class Skladniki_mineralne : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2418,7 +3213,7 @@ namespace Gastro
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string numer_kodowy
 		{
 			get
@@ -2677,6 +3472,157 @@ namespace Gastro
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Wartosc_energetyczna")]
+	public partial class Wartosc_energetyczna : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _numer_kodowy;
+		
+		private int _KJ;
+		
+		private int _kcal;
+		
+		private EntityRef<Produkty> _Produkty;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onnumer_kodowyChanging(string value);
+    partial void Onnumer_kodowyChanged();
+    partial void OnKJChanging(int value);
+    partial void OnKJChanged();
+    partial void OnkcalChanging(int value);
+    partial void OnkcalChanged();
+    #endregion
+		
+		public Wartosc_energetyczna()
+		{
+			this._Produkty = default(EntityRef<Produkty>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string numer_kodowy
+		{
+			get
+			{
+				return this._numer_kodowy;
+			}
+			set
+			{
+				if ((this._numer_kodowy != value))
+				{
+					if (this._Produkty.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onnumer_kodowyChanging(value);
+					this.SendPropertyChanging();
+					this._numer_kodowy = value;
+					this.SendPropertyChanged("numer_kodowy");
+					this.Onnumer_kodowyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KJ", DbType="Int NOT NULL")]
+		public int KJ
+		{
+			get
+			{
+				return this._KJ;
+			}
+			set
+			{
+				if ((this._KJ != value))
+				{
+					this.OnKJChanging(value);
+					this.SendPropertyChanging();
+					this._KJ = value;
+					this.SendPropertyChanged("KJ");
+					this.OnKJChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kcal", DbType="Int NOT NULL")]
+		public int kcal
+		{
+			get
+			{
+				return this._kcal;
+			}
+			set
+			{
+				if ((this._kcal != value))
+				{
+					this.OnkcalChanging(value);
+					this.SendPropertyChanging();
+					this._kcal = value;
+					this.SendPropertyChanged("kcal");
+					this.OnkcalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Wartosc_energetyczna", Storage="_Produkty", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsForeignKey=true)]
+		public Produkty Produkty
+		{
+			get
+			{
+				return this._Produkty.Entity;
+			}
+			set
+			{
+				Produkty previousValue = this._Produkty.Entity;
+				if (((previousValue != value) 
+							|| (this._Produkty.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Produkty.Entity = null;
+						previousValue.Wartosc_energetyczna = null;
+					}
+					this._Produkty.Entity = value;
+					if ((value != null))
+					{
+						value.Wartosc_energetyczna = this;
+						this._numer_kodowy = value.numer_kodowy;
+					}
+					else
+					{
+						this._numer_kodowy = default(string);
+					}
+					this.SendPropertyChanged("Produkty");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Weglowodany")]
 	public partial class Weglowodany : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2717,7 +3663,7 @@ namespace Gastro
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string numer_kodowy
 		{
 			get
@@ -2844,548 +3790,6 @@ namespace Gastro
 					if ((value != null))
 					{
 						value.Weglowodany = this;
-						this._numer_kodowy = value.numer_kodowy;
-					}
-					else
-					{
-						this._numer_kodowy = default(string);
-					}
-					this.SendPropertyChanged("Produkty");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Witaminy")]
-	public partial class Witaminy : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _numer_kodowy;
-		
-		private float _ek_retinolu;
-		
-		private float _retinol;
-		
-		private float _beta_karoten;
-		
-		private float _D;
-		
-		private float _E;
-		
-		private float _tiamina;
-		
-		private float _ryboflawina;
-		
-		private float _niacyna;
-		
-		private float _B6;
-		
-		private float _foliany;
-		
-		private float _B12;
-		
-		private float _C;
-		
-		private EntityRef<Produkty> _Produkty;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onnumer_kodowyChanging(string value);
-    partial void Onnumer_kodowyChanged();
-    partial void Onek_retinoluChanging(float value);
-    partial void Onek_retinoluChanged();
-    partial void OnretinolChanging(float value);
-    partial void OnretinolChanged();
-    partial void Onbeta_karotenChanging(float value);
-    partial void Onbeta_karotenChanged();
-    partial void OnDChanging(float value);
-    partial void OnDChanged();
-    partial void OnEChanging(float value);
-    partial void OnEChanged();
-    partial void OntiaminaChanging(float value);
-    partial void OntiaminaChanged();
-    partial void OnryboflawinaChanging(float value);
-    partial void OnryboflawinaChanged();
-    partial void OnniacynaChanging(float value);
-    partial void OnniacynaChanged();
-    partial void OnB6Changing(float value);
-    partial void OnB6Changed();
-    partial void OnfolianyChanging(float value);
-    partial void OnfolianyChanged();
-    partial void OnB12Changing(float value);
-    partial void OnB12Changed();
-    partial void OnCChanging(float value);
-    partial void OnCChanged();
-    #endregion
-		
-		public Witaminy()
-		{
-			this._Produkty = default(EntityRef<Produkty>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string numer_kodowy
-		{
-			get
-			{
-				return this._numer_kodowy;
-			}
-			set
-			{
-				if ((this._numer_kodowy != value))
-				{
-					if (this._Produkty.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onnumer_kodowyChanging(value);
-					this.SendPropertyChanging();
-					this._numer_kodowy = value;
-					this.SendPropertyChanged("numer_kodowy");
-					this.Onnumer_kodowyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ek_retinolu", DbType="Real NOT NULL")]
-		public float ek_retinolu
-		{
-			get
-			{
-				return this._ek_retinolu;
-			}
-			set
-			{
-				if ((this._ek_retinolu != value))
-				{
-					this.Onek_retinoluChanging(value);
-					this.SendPropertyChanging();
-					this._ek_retinolu = value;
-					this.SendPropertyChanged("ek_retinolu");
-					this.Onek_retinoluChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_retinol", DbType="Real NOT NULL")]
-		public float retinol
-		{
-			get
-			{
-				return this._retinol;
-			}
-			set
-			{
-				if ((this._retinol != value))
-				{
-					this.OnretinolChanging(value);
-					this.SendPropertyChanging();
-					this._retinol = value;
-					this.SendPropertyChanged("retinol");
-					this.OnretinolChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_beta_karoten", DbType="Real NOT NULL")]
-		public float beta_karoten
-		{
-			get
-			{
-				return this._beta_karoten;
-			}
-			set
-			{
-				if ((this._beta_karoten != value))
-				{
-					this.Onbeta_karotenChanging(value);
-					this.SendPropertyChanging();
-					this._beta_karoten = value;
-					this.SendPropertyChanged("beta_karoten");
-					this.Onbeta_karotenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D", DbType="Real NOT NULL")]
-		public float D
-		{
-			get
-			{
-				return this._D;
-			}
-			set
-			{
-				if ((this._D != value))
-				{
-					this.OnDChanging(value);
-					this.SendPropertyChanging();
-					this._D = value;
-					this.SendPropertyChanged("D");
-					this.OnDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E", DbType="Real NOT NULL")]
-		public float E
-		{
-			get
-			{
-				return this._E;
-			}
-			set
-			{
-				if ((this._E != value))
-				{
-					this.OnEChanging(value);
-					this.SendPropertyChanging();
-					this._E = value;
-					this.SendPropertyChanged("E");
-					this.OnEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tiamina", DbType="Real NOT NULL")]
-		public float tiamina
-		{
-			get
-			{
-				return this._tiamina;
-			}
-			set
-			{
-				if ((this._tiamina != value))
-				{
-					this.OntiaminaChanging(value);
-					this.SendPropertyChanging();
-					this._tiamina = value;
-					this.SendPropertyChanged("tiamina");
-					this.OntiaminaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ryboflawina", DbType="Real NOT NULL")]
-		public float ryboflawina
-		{
-			get
-			{
-				return this._ryboflawina;
-			}
-			set
-			{
-				if ((this._ryboflawina != value))
-				{
-					this.OnryboflawinaChanging(value);
-					this.SendPropertyChanging();
-					this._ryboflawina = value;
-					this.SendPropertyChanged("ryboflawina");
-					this.OnryboflawinaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_niacyna", DbType="Real NOT NULL")]
-		public float niacyna
-		{
-			get
-			{
-				return this._niacyna;
-			}
-			set
-			{
-				if ((this._niacyna != value))
-				{
-					this.OnniacynaChanging(value);
-					this.SendPropertyChanging();
-					this._niacyna = value;
-					this.SendPropertyChanged("niacyna");
-					this.OnniacynaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B6", DbType="Real NOT NULL")]
-		public float B6
-		{
-			get
-			{
-				return this._B6;
-			}
-			set
-			{
-				if ((this._B6 != value))
-				{
-					this.OnB6Changing(value);
-					this.SendPropertyChanging();
-					this._B6 = value;
-					this.SendPropertyChanged("B6");
-					this.OnB6Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_foliany", DbType="Real NOT NULL")]
-		public float foliany
-		{
-			get
-			{
-				return this._foliany;
-			}
-			set
-			{
-				if ((this._foliany != value))
-				{
-					this.OnfolianyChanging(value);
-					this.SendPropertyChanging();
-					this._foliany = value;
-					this.SendPropertyChanged("foliany");
-					this.OnfolianyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B12", DbType="Real NOT NULL")]
-		public float B12
-		{
-			get
-			{
-				return this._B12;
-			}
-			set
-			{
-				if ((this._B12 != value))
-				{
-					this.OnB12Changing(value);
-					this.SendPropertyChanging();
-					this._B12 = value;
-					this.SendPropertyChanged("B12");
-					this.OnB12Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C", DbType="Real NOT NULL")]
-		public float C
-		{
-			get
-			{
-				return this._C;
-			}
-			set
-			{
-				if ((this._C != value))
-				{
-					this.OnCChanging(value);
-					this.SendPropertyChanging();
-					this._C = value;
-					this.SendPropertyChanged("C");
-					this.OnCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Witaminy", Storage="_Produkty", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsForeignKey=true)]
-		public Produkty Produkty
-		{
-			get
-			{
-				return this._Produkty.Entity;
-			}
-			set
-			{
-				Produkty previousValue = this._Produkty.Entity;
-				if (((previousValue != value) 
-							|| (this._Produkty.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Produkty.Entity = null;
-						previousValue.Witaminy = null;
-					}
-					this._Produkty.Entity = value;
-					if ((value != null))
-					{
-						value.Witaminy = this;
-						this._numer_kodowy = value.numer_kodowy;
-					}
-					else
-					{
-						this._numer_kodowy = default(string);
-					}
-					this.SendPropertyChanged("Produkty");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Wartosc_energetyczna")]
-	public partial class Wartosc_energetyczna : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _numer_kodowy;
-		
-		private int _KJ;
-		
-		private int _kcal;
-		
-		private EntityRef<Produkty> _Produkty;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onnumer_kodowyChanging(string value);
-    partial void Onnumer_kodowyChanged();
-    partial void OnKJChanging(int value);
-    partial void OnKJChanged();
-    partial void OnkcalChanging(int value);
-    partial void OnkcalChanged();
-    #endregion
-		
-		public Wartosc_energetyczna()
-		{
-			this._Produkty = default(EntityRef<Produkty>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numer_kodowy", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string numer_kodowy
-		{
-			get
-			{
-				return this._numer_kodowy;
-			}
-			set
-			{
-				if ((this._numer_kodowy != value))
-				{
-					if (this._Produkty.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onnumer_kodowyChanging(value);
-					this.SendPropertyChanging();
-					this._numer_kodowy = value;
-					this.SendPropertyChanged("numer_kodowy");
-					this.Onnumer_kodowyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KJ", DbType="Int NOT NULL")]
-		public int KJ
-		{
-			get
-			{
-				return this._KJ;
-			}
-			set
-			{
-				if ((this._KJ != value))
-				{
-					this.OnKJChanging(value);
-					this.SendPropertyChanging();
-					this._KJ = value;
-					this.SendPropertyChanged("KJ");
-					this.OnKJChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kcal", DbType="Int NOT NULL")]
-		public int kcal
-		{
-			get
-			{
-				return this._kcal;
-			}
-			set
-			{
-				if ((this._kcal != value))
-				{
-					this.OnkcalChanging(value);
-					this.SendPropertyChanging();
-					this._kcal = value;
-					this.SendPropertyChanged("kcal");
-					this.OnkcalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Wartosc_energetyczna", Storage="_Produkty", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsForeignKey=true)]
-		public Produkty Produkty
-		{
-			get
-			{
-				return this._Produkty.Entity;
-			}
-			set
-			{
-				Produkty previousValue = this._Produkty.Entity;
-				if (((previousValue != value) 
-							|| (this._Produkty.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Produkty.Entity = null;
-						previousValue.Wartosc_energetyczna = null;
-					}
-					this._Produkty.Entity = value;
-					if ((value != null))
-					{
-						value.Wartosc_energetyczna = this;
 						this._numer_kodowy = value.numer_kodowy;
 					}
 					else

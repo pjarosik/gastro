@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using Gastro.logika;
+using Gastro.widok;
 
 namespace Gastro
 {
@@ -78,6 +79,18 @@ namespace Gastro
         private void wyczyśćToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DBProvider.drop();
+        }
+
+        private void potrawyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PotrawyDlg potrawyDlg = new PotrawyDlg();
+            potrawyDlg.ShowDialog();
+        }
+
+        private void produktyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProduktyDlg produktyDlg = new ProduktyDlg();
+            produktyDlg.ShowDialog();
         }
     }
 }

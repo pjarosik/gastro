@@ -40,6 +40,9 @@
             this.backgroundThread = new System.ComponentModel.BackgroundWorker();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.zarzadzajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.potrawyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produktyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +51,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plikToolStripMenuItem,
+            this.zarzadzajToolStripMenuItem,
             this.bazaDanychToolStripMenuItem,
             this.pomocToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -143,6 +147,29 @@
             this.dataGridView.Size = new System.Drawing.Size(738, 433);
             this.dataGridView.TabIndex = 2;
             // 
+            // zarzadzajToolStripMenuItem
+            // 
+            this.zarzadzajToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.potrawyToolStripMenuItem,
+            this.produktyToolStripMenuItem});
+            this.zarzadzajToolStripMenuItem.Name = "zarzadzajToolStripMenuItem";
+            this.zarzadzajToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.zarzadzajToolStripMenuItem.Text = "Zarządzaj";
+            // 
+            // potrawyToolStripMenuItem
+            // 
+            this.potrawyToolStripMenuItem.Name = "potrawyToolStripMenuItem";
+            this.potrawyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.potrawyToolStripMenuItem.Text = "Potrawy";
+            this.potrawyToolStripMenuItem.Click += new System.EventHandler(this.potrawyToolStripMenuItem_Click);
+            // 
+            // produktyToolStripMenuItem
+            // 
+            this.produktyToolStripMenuItem.Name = "produktyToolStripMenuItem";
+            this.produktyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.produktyToolStripMenuItem.Text = "Produkty";
+            this.produktyToolStripMenuItem.Click += new System.EventHandler(this.produktyToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +203,9 @@
         private System.ComponentModel.BackgroundWorker backgroundThread;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.ToolStripMenuItem zarzadzajToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem potrawyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produktyToolStripMenuItem;
     }
 }
 

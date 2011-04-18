@@ -70,6 +70,8 @@
     <Compile Include="logika\DBProvider.cs" />
     <Compile Include="logika\GastroEntry.cs" />
     <Compile Include="logika\CSVReader.cs" />
+    <Compile Include="logika\PotrawyLogic.cs" />
+    <Compile Include="logika\Utils.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +85,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="widok\PotrawyDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widok\PotrawyDlg.Designer.cs">
+      <DependentUpon>PotrawyDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widok\ProduktyDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widok\ProduktyDlg.Designer.cs">
+      <DependentUpon>ProduktyDlg.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="widok\PotrawyDlg.resx">
+      <DependentUpon>PotrawyDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widok\ProduktyDlg.resx">
+      <DependentUpon>ProduktyDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="LinqGastro.dbml.layout">
       <DependentUpon>LinqGastro.dbml</DependentUpon>
     </None>
@@ -115,6 +135,7 @@
       <LastGenOutput>LinqGastro.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Gastro.logika.PotrawyLogic.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
