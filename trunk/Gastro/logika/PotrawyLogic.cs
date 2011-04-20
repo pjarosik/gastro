@@ -8,9 +8,17 @@ namespace Gastro.logika
 {
     public class Component
     {
-         [DisplayName("Nazwa produktu")]
-        public string name{get; set;}
 
+        public string name;//{get; set;}
+
+        [DisplayName("Nazwa produktu")]
+         public string Name
+         {
+             get
+             {
+                 return name;
+             }
+         }
         [DisplayName("Ilość [x100g]")]
         public double count{get; set;}
         

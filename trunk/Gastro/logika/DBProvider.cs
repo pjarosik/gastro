@@ -75,18 +75,17 @@ namespace Gastro.logika
             cont.SubmitChanges();
             return true;
         }
-        static public object getDatabaseData()
+        static public List<object> getProdukty()
         {
             Table<Produkty> produkty = cont.GetTable<Produkty>();
 
             var allProdukty = from prod in produkty
                               select new
-                              {
-                                  prod.nazwa_produktu,
-                                  prod.numer_kodowy
-                              };
-
-            return allProdukty;
+                               {
+                                   prod.nazwa_produktu,//Substring(1,prod.nazwa_produktu.Length-2)
+                                   prod.numer_kodowy
+                               };
+            return allProdukty.ToList<object>();
         }
 
         static public bool addProdukty(Produkty newEntry)
@@ -126,7 +125,7 @@ namespace Gastro.logika
         static public List<object> getProductsName()
         {
             var productsName = from prod in cont.Produkties
-                               select prod.nazwa_produktu.Substring(1,prod.nazwa_produktu.Length-2);
+                               select prod.nazwa_produktu;
                               //     new
                               //{
                               //    prod.nazwa_produktu,
@@ -134,6 +133,18 @@ namespace Gastro.logika
                               //};
 
             return productsName.ToList<object>();
+        }
+
+        static public List<object> getPotrawy()
+        {
+            var potrawy = from potr in cont.Potrawies
+                          select new
+                          {
+                              potr.nazwa,
+                              potr.kategoria
+                          };
+
+            return potrawy.ToList<object>();
         }
     }
 }

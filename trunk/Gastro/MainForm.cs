@@ -70,7 +70,7 @@ namespace Gastro
             if (result)
             {
                 MessageBox.Show("Dane wczytano poprawnie");
-                dataGridView.DataSource = DBProvider.getDatabaseData();
+                dataGridView.DataSource = DBProvider.getProdukty();
             }
             else
                 MessageBox.Show("Wystapil blad podczas wczytywania danych");
@@ -83,14 +83,16 @@ namespace Gastro
 
         private void potrawyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PotrawyDlg potrawyDlg = new PotrawyDlg();
-            potrawyDlg.ShowDialog();
+            ZarzadzajDlg dlg = new ZarzadzajDlg(ZarzadzajDlg.Mode.Potrawy);
+            //PotrawyDlg potrawyDlg = new PotrawyDlg();
+            dlg.ShowDialog();
         }
 
         private void produktyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProduktyDlg produktyDlg = new ProduktyDlg();
-            produktyDlg.ShowDialog();
+            ZarzadzajDlg dlg = new ZarzadzajDlg(ZarzadzajDlg.Mode.Produkty);
+            //PotrawyDlg potrawyDlg = new PotrawyDlg();
+            dlg.ShowDialog();
         }
     }
 }
