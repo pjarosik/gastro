@@ -12,7 +12,7 @@ namespace Gastro.logika
             List<object> filterList = new List<object>();
             foreach (object obj in data)
             {
-                if (obj.ToString().Contains(filter))
+                if (obj.ToString().ToUpper().Contains(filter.ToUpper()))
                     filterList.Add(obj);
             }
             return filterList;

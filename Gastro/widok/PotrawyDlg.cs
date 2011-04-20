@@ -17,8 +17,14 @@ namespace Gastro.widok
         List<object> productsName;
         List<logika.Component> componentsList = new List<logika.Component>();
 
-        public PotrawyDlg()
+        public enum Mode { New, Edit };
+        Mode activeMode;
+        string ID_potrawy;
+
+        public PotrawyDlg(Mode mode,string ID_potrawy)
         {
+            this.activeMode = mode;
+            this.ID_potrawy = ID_potrawy;
             InitializeComponent();
         }
 
@@ -26,6 +32,9 @@ namespace Gastro.widok
         {
             productsName = DBProvider.getProductsName();
             lbProdukty.DataSource = productsName;
+
+            if (activeMode == Mode.New)
+                cbKategory.SelectedIndex = 0;
         }
 
         private void tbNazwaProduktu_TextChanged(object sender, EventArgs e)
@@ -33,25 +42,60 @@ namespace Gastro.widok
             lbProdukty.DataSource = Utils.dataFilter(tbNazwaProduktu.Text,productsName);
         }
 
-        private void lbProdukty_DragOver(object sender, DragEventArgs e)
-        {
-
-        }
-
-        private void lbProdukty_DragEnter(object sender, DragEventArgs e)
-        {
-        }
-
-        private void lbProdukty_DragLeave(object sender, EventArgs e)
-        {
-        }
-
         private void lbProdukty_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+
+            //addNew();
+        }
+
+        private void addNew()
+        {
+            if (lbProdukty.SelectedIndex == -1)
+            {
+                MessageBox.Show(this, "Uwaga", "Proszę wybrać produkt");
+                return;
+            }
+
             dgvSkladniki.DataSource = null;
-            componentsList.Add(new logika.Component(((ListBox)sender).SelectedValue.ToString(), 0));
+            componentsList.Add(new logika.Component((lbProdukty.SelectedItem.ToString()), 1));
             dgvSkladniki.DataSource = componentsList;
-            dgvSkladniki.Refresh();
+        }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Zapisano (fake)", "Uwaga");
+        }
+
+        private void dgvSkladniki_DataSourceChanged(object sender, EventArgs e)
+        {
+            if (dgvSkladniki.Columns.Count < 1)
+                return;
+
+            dgvSkladniki.Columns[0].Width = 200;
+        }
+
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+            addNew();
+        }
+
+        private void btRemove_Click(object sender, EventArgs e)
+        {
+            if (dgvSkladniki.SelectedCells.Count < 1)
+            {
+                MessageBox.Show(this, "Zaznacz element aby usunąć", "Uwaga");
+                return;
+            }
+
+            int toRemove = dgvSkladniki.SelectedCells[0].RowIndex;//.Cells[0].Value.ToString();
+            dgvSkladniki.DataSource = null;
+            componentsList.RemoveAt(toRemove);
+            dgvSkladniki.DataSource = componentsList;
         }
     }
 }

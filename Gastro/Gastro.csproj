@@ -97,11 +97,20 @@
     <Compile Include="widok\ProduktyDlg.Designer.cs">
       <DependentUpon>ProduktyDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="widok\ZarzadzajDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widok\ZarzadzajDlg.Designer.cs">
+      <DependentUpon>ZarzadzajDlg.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="widok\PotrawyDlg.resx">
       <DependentUpon>PotrawyDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="widok\ProduktyDlg.resx">
       <DependentUpon>ProduktyDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widok\ZarzadzajDlg.resx">
+      <DependentUpon>ZarzadzajDlg.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="LinqGastro.dbml.layout">
       <DependentUpon>LinqGastro.dbml</DependentUpon>
@@ -151,8 +160,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="GastroDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GastroDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

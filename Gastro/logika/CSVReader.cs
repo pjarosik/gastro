@@ -59,7 +59,7 @@ namespace Gastro.logika
             while (!stream.EndOfStream && (line = stream.ReadLine()).Trim() != "")
             {
                 // Here reading rows with data from file
-                splitedLine = line.Split(';');
+                splitedLine = line.Replace("\"", "").Split(';');
                 prepareProdukty(splitedLine);
                 prepareAminokwasy(splitedLine);
                 prepareWeglowodany(splitedLine);
