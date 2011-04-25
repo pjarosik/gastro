@@ -116,7 +116,8 @@
             "Śniadanie 2",
             "Obiad",
             "Podwieczorek",
-            "Kolacja"});
+            "Kolacja 1",
+            "Kolacja 2"});
             this.cbKategory.Location = new System.Drawing.Point(491, 44);
             this.cbKategory.Name = "cbKategory";
             this.cbKategory.Size = new System.Drawing.Size(135, 21);
