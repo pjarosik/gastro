@@ -66,6 +66,7 @@
             this.dgvContent.Size = new System.Drawing.Size(627, 361);
             this.dgvContent.TabIndex = 2;
             this.dgvContent.DataSourceChanged += new System.EventHandler(this.dgvContent_DataSourceChanged);
+            this.dgvContent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContent_CellClick);
             // 
             // btEdit
             // 
@@ -76,6 +77,7 @@
             this.btEdit.TabIndex = 3;
             this.btEdit.Text = "Edytuj zaznaczone";
             this.btEdit.UseVisualStyleBackColor = true;
+            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
             // 
             // btRemove
             // 

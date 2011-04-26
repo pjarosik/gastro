@@ -60,16 +60,20 @@ namespace Gastro.logika
             {
                 // Here reading rows with data from file
                 splitedLine = line.Replace("\"", "").Split(';');
-                prepareProdukty(splitedLine);
-                prepareAminokwasy(splitedLine);
-                prepareWeglowodany(splitedLine);
-                prepareKwasyTluszczoweJednonienas(splitedLine);
-                prepareKwasyTluszczoweNasyc(splitedLine);
-                prepareKwasyTluszczoweWielonienas(splitedLine);
-                prepareSkladnikiMineralne(splitedLine);
-                prepareWartoscEnergetyczna(splitedLine);
-                prepareEnergia(splitedLine);
-                prepareWitaminy(splitedLine);
+
+                if (prepareProdukty(splitedLine))
+                {
+                    prepareAminokwasy(splitedLine);
+                    prepareWeglowodany(splitedLine);
+                    prepareKwasyTluszczoweJednonienas(splitedLine);
+                    prepareKwasyTluszczoweNasyc(splitedLine);
+                    prepareKwasyTluszczoweWielonienas(splitedLine);
+                    prepareSkladnikiMineralne(splitedLine);
+                    prepareWartoscEnergetyczna(splitedLine);
+                    prepareEnergia(splitedLine);
+                    prepareWitaminy(splitedLine);
+                }
+
                 status += step;
                 worker.ReportProgress((int)status);
                 //Debug.WriteLine(splitedLine[86].ToString());
@@ -232,8 +236,7 @@ namespace Gastro.logika
             prod.bialko_zwierzece = float.Parse(entryLine[Fields.bialko[0]]);
             prod.bialko_roslinne = float.Parse(entryLine[Fields.bialko[1]]);
 
-            DBProvider.addProdukty(prod);
-            return true;
+            return DBProvider.addProdukty(prod);
         }
         private static bool prepareAminokwasy(string[] entryLine)
         {

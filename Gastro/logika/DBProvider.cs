@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Linq;
+using System.Diagnostics;
 
 namespace Gastro.logika
 {
@@ -88,11 +89,18 @@ namespace Gastro.logika
             return allProdukty.ToList<object>();
         }
 
+
+
         static public bool addProdukty(Produkty newEntry)
         {
-            cont.Produkties.InsertOnSubmit(newEntry);
-            cont.SubmitChanges();
-            return true;
+            if (getIfExists(newEntry)==null)
+            {
+                cont.Produkties.InsertOnSubmit(newEntry);
+                cont.SubmitChanges();
+                return true;
+            }
+            else
+                return false;
         }
 
 
@@ -141,10 +149,59 @@ namespace Gastro.logika
                           select new
                           {
                               potr.nazwa,
-                              potr.kategoria
+                              potr.kategoria,
+                              potr.ID_potrawy
                           };
 
             return potrawy.ToList<object>();
+        }
+
+
+
+        static public Produkty getIfExists(Produkty prod)
+        {
+            var tmp = (from d in cont.Produkties
+                      where ((d.numer_kodowy == prod.numer_kodowy) || d.nazwa_produktu == prod.nazwa_produktu)
+                      select d).FirstOrDefault();
+
+            return tmp;
+        }
+
+        static public List<object> getSkladniki(Potrawy potrawa)
+        {
+            var skladniki = from skl in cont.Skladnikis
+                            from produkty in cont.Produkties
+                            where (skl.ID_potrawy == potrawa.ID_potrawy && produkty.numer_kodowy == skl.ID_produktu)
+                            select new
+                            {
+                                produkty.nazwa_produktu,
+                                skl.ilosc
+                            };
+
+            return skladniki.ToList<object>();
+        }
+
+        static public Potrawy getIfExists(Potrawy potr)
+        {
+            var tmp = (from d in cont.Potrawies
+                      where ((d.nazwa == potr.nazwa) || d.ID_potrawy == potr.ID_potrawy)
+                       select d).FirstOrDefault();
+
+            return tmp;
+        }
+
+        static public bool addPotrawa(Potrawy potrawa, List<Skladniki> skladniki)
+        {
+            cont.Potrawies.InsertOnSubmit(potrawa);
+            cont.SubmitChanges();
+            foreach (Skladniki skladnik in skladniki)
+            {
+                skladnik.ID_potrawy = potrawa.ID_potrawy;
+                cont.Skladnikis.InsertOnSubmit(skladnik);
+            }
+
+            cont.SubmitChanges();
+            return true;
         }
     }
 }

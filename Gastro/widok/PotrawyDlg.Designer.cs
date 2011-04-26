@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSkladniki = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbKategory = new System.Windows.Forms.ComboBox();
             this.btSave = new System.Windows.Forms.Button();
@@ -90,13 +90,13 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Nazwa potrawy:";
             // 
-            // textBox1
+            // tbName
             // 
-            this.textBox1.Location = new System.Drawing.Point(491, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "Podaj nazwę";
+            this.tbName.Location = new System.Drawing.Point(491, 18);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(188, 20);
+            this.tbName.TabIndex = 5;
+            this.tbName.Text = "Podaj nazwę";
             // 
             // label3
             // 
@@ -184,7 +184,7 @@
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.cbKategory);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvSkladniki);
             this.Controls.Add(this.label1);
@@ -206,7 +206,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSkladniki;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbKategory;
         private System.Windows.Forms.Button btSave;

@@ -59,6 +59,9 @@ namespace Gastro.widok
                     this.Text += " produktami";
                     break;
             }
+
+            if (dgvContent.SelectedCells.Count != 0) 
+                dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Selected = true;
             //productsName = DBProvider.getProductsName();
             //lbProdukty.DataSource = productsName;
         }
@@ -84,8 +87,8 @@ namespace Gastro.widok
         private void preapareDGVForPotrawy()
         {
             dgvContent.Columns[0].Width = 400;
+            dgvContent.Columns[dgvContent.Columns.Count - 1].Visible = false;
             
-
             //dgvContent.Columns.Add(new DataGridViewColumn(new DataGridViewComboBoxCell()));
             //dgvContent.Rows.Insert(0,new DataGridViewRow());
             //dgvContent.AllowUserToAddRows = false;
@@ -108,6 +111,21 @@ namespace Gastro.widok
                     new PotrawyDlg(PotrawyDlg.Mode.New,"").ShowDialog();
                     break;
             }
+        }
+
+        private void btEdit_Click(object sender, EventArgs e)
+        {
+            switch (activeMode)
+            {
+                case Mode.Potrawy:
+                    new PotrawyDlg(PotrawyDlg.Mode.Edit, dgvContent.SelectedRows[0].Cells[dgvContent.SelectedRows[0].Cells.Count -1 ].Value.ToString()).ShowDialog();
+                    break;
+            }
+        }
+
+        private void dgvContent_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Selected = true;
         }
     }
 }

@@ -7,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Gastro.logika;
+using System.Diagnostics;
 
 namespace Gastro.widok
 {
-    
-
     public partial class PotrawyDlg : Form
     {
         List<object> productsName;
@@ -35,6 +34,23 @@ namespace Gastro.widok
 
             if (activeMode == Mode.New)
                 cbKategory.SelectedIndex = 0;
+            // temporary disabled
+            //else
+            //    loadPotrawy();
+        }
+
+
+        private void loadPotrawy()
+        {
+            Potrawy potrawa = new Potrawy();
+            potrawa.ID_potrawy = decimal.Parse(ID_potrawy);
+            if ((potrawa = DBProvider.getIfExists(potrawa)) != null)
+            {
+                dgvSkladniki.DataSource = DBProvider.getSkladniki(potrawa);
+
+            }
+            else
+                MessageBox.Show("Wybrana potrawa nie istnieje.blad!!");
         }
 
         private void tbNazwaProduktu_TextChanged(object sender, EventArgs e)
@@ -44,7 +60,6 @@ namespace Gastro.widok
 
         private void lbProdukty_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
             //addNew();
         }
 
@@ -66,9 +81,47 @@ namespace Gastro.widok
             this.Close();
         }
 
+        private List<Skladniki> getSkladniki()
+        {
+            List<Skladniki> skladniki = new List<Skladniki>();
+            foreach (DataGridViewRow row in dgvSkladniki.Rows)
+            {
+                Skladniki skladnik = new Skladniki();
+                Produkty tmp = new Produkty();
+                tmp.nazwa_produktu = row.Cells[0].Value.ToString();
+
+                skladnik.ID_produktu = DBProvider.getIfExists(tmp).numer_kodowy;
+                skladnik.ilosc = float.Parse(row.Cells[1].Value.ToString());
+                
+                skladniki.Add(skladnik);
+            }
+            return skladniki;
+        }
         private void btSave_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this, "Zapisano (fake)", "Uwaga");
+            if (dgvSkladniki.Rows.Count < 1)
+            {
+                MessageBox.Show(this, "Nie dodano składników.", "Uwaga");
+                return;
+            }
+
+            if (tbName.Text.Trim() == "")
+            {
+                MessageBox.Show(this, "Nie wprowadzono nazwy dla potrawy.", "Uwaga");
+                return;
+            }
+
+            Potrawy potrawa = new Potrawy();
+            potrawa.kategoria = cbKategory.Text;
+            potrawa.nazwa = tbName.Text;
+            if (DBProvider.getIfExists(potrawa)==null)
+            {
+                DBProvider.addPotrawa(potrawa, getSkladniki());
+            }
+            else
+                MessageBox.Show(this, "Potrawa o podanej nazwie już istnieje.", "Uwaga");
+
+
         }
 
         private void dgvSkladniki_DataSourceChanged(object sender, EventArgs e)
