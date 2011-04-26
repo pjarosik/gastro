@@ -48,15 +48,9 @@ namespace Gastro
     partial void InsertKw_tluszcz_wielonienasyc(Kw_tluszcz_wielonienasyc instance);
     partial void UpdateKw_tluszcz_wielonienasyc(Kw_tluszcz_wielonienasyc instance);
     partial void DeleteKw_tluszcz_wielonienasyc(Kw_tluszcz_wielonienasyc instance);
-    partial void InsertPotrawy(Potrawy instance);
-    partial void UpdatePotrawy(Potrawy instance);
-    partial void DeletePotrawy(Potrawy instance);
     partial void InsertProdukty(Produkty instance);
     partial void UpdateProdukty(Produkty instance);
     partial void DeleteProdukty(Produkty instance);
-    partial void InsertSkladniki(Skladniki instance);
-    partial void UpdateSkladniki(Skladniki instance);
-    partial void DeleteSkladniki(Skladniki instance);
     partial void InsertSkladniki_mineralne(Skladniki_mineralne instance);
     partial void UpdateSkladniki_mineralne(Skladniki_mineralne instance);
     partial void DeleteSkladniki_mineralne(Skladniki_mineralne instance);
@@ -66,6 +60,12 @@ namespace Gastro
     partial void InsertWeglowodany(Weglowodany instance);
     partial void UpdateWeglowodany(Weglowodany instance);
     partial void DeleteWeglowodany(Weglowodany instance);
+    partial void InsertPotrawy(Potrawy instance);
+    partial void UpdatePotrawy(Potrawy instance);
+    partial void DeletePotrawy(Potrawy instance);
+    partial void InsertSkladniki(Skladniki instance);
+    partial void UpdateSkladniki(Skladniki instance);
+    partial void DeleteSkladniki(Skladniki instance);
     #endregion
 		
 		public LinqGastroDataContext() : 
@@ -146,27 +146,11 @@ namespace Gastro
 			}
 		}
 		
-		public System.Data.Linq.Table<Potrawy> Potrawies
-		{
-			get
-			{
-				return this.GetTable<Potrawy>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Produkty> Produkties
 		{
 			get
 			{
 				return this.GetTable<Produkty>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Skladniki> Skladnikis
-		{
-			get
-			{
-				return this.GetTable<Skladniki>();
 			}
 		}
 		
@@ -191,6 +175,22 @@ namespace Gastro
 			get
 			{
 				return this.GetTable<Weglowodany>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Potrawy> Potrawies
+		{
+			get
+			{
+				return this.GetTable<Potrawy>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Skladniki> Skladnikis
+		{
+			get
+			{
+				return this.GetTable<Skladniki>();
 			}
 		}
 	}
@@ -2229,181 +2229,6 @@ namespace Gastro
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Potrawy")]
-	public partial class Potrawy : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _ID_potrawy;
-		
-		private string _nazwa;
-		
-		private string _ID_skladnik;
-		
-		private string _kategoria;
-		
-		private EntityRef<Skladniki> _Skladniki;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_potrawyChanging(string value);
-    partial void OnID_potrawyChanged();
-    partial void OnnazwaChanging(string value);
-    partial void OnnazwaChanged();
-    partial void OnID_skladnikChanging(string value);
-    partial void OnID_skladnikChanged();
-    partial void OnkategoriaChanging(string value);
-    partial void OnkategoriaChanged();
-    #endregion
-		
-		public Potrawy()
-		{
-			this._Skladniki = default(EntityRef<Skladniki>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_potrawy", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ID_potrawy
-		{
-			get
-			{
-				return this._ID_potrawy;
-			}
-			set
-			{
-				if ((this._ID_potrawy != value))
-				{
-					this.OnID_potrawyChanging(value);
-					this.SendPropertyChanging();
-					this._ID_potrawy = value;
-					this.SendPropertyChanged("ID_potrawy");
-					this.OnID_potrawyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa", DbType="NChar(10) NOT NULL", CanBeNull=false)]
-		public string nazwa
-		{
-			get
-			{
-				return this._nazwa;
-			}
-			set
-			{
-				if ((this._nazwa != value))
-				{
-					this.OnnazwaChanging(value);
-					this.SendPropertyChanging();
-					this._nazwa = value;
-					this.SendPropertyChanged("nazwa");
-					this.OnnazwaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_skladnik", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string ID_skladnik
-		{
-			get
-			{
-				return this._ID_skladnik;
-			}
-			set
-			{
-				if ((this._ID_skladnik != value))
-				{
-					if (this._Skladniki.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnID_skladnikChanging(value);
-					this.SendPropertyChanging();
-					this._ID_skladnik = value;
-					this.SendPropertyChanged("ID_skladnik");
-					this.OnID_skladnikChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kategoria", DbType="NChar(10) NOT NULL", CanBeNull=false)]
-		public string kategoria
-		{
-			get
-			{
-				return this._kategoria;
-			}
-			set
-			{
-				if ((this._kategoria != value))
-				{
-					this.OnkategoriaChanging(value);
-					this.SendPropertyChanging();
-					this._kategoria = value;
-					this.SendPropertyChanged("kategoria");
-					this.OnkategoriaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Skladniki_Potrawy", Storage="_Skladniki", ThisKey="ID_skladnik", OtherKey="ID_skladnik", IsForeignKey=true)]
-		public Skladniki Skladniki
-		{
-			get
-			{
-				return this._Skladniki.Entity;
-			}
-			set
-			{
-				Skladniki previousValue = this._Skladniki.Entity;
-				if (((previousValue != value) 
-							|| (this._Skladniki.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Skladniki.Entity = null;
-						previousValue.Potrawies.Remove(this);
-					}
-					this._Skladniki.Entity = value;
-					if ((value != null))
-					{
-						value.Potrawies.Add(this);
-						this._ID_skladnik = value.ID_skladnik;
-					}
-					else
-					{
-						this._ID_skladnik = default(string);
-					}
-					this.SendPropertyChanged("Skladniki");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Produkty")]
 	public partial class Produkty : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2440,13 +2265,13 @@ namespace Gastro
 		
 		private EntityRef<Kw_tluszcz_wielonienasyc> _Kw_tluszcz_wielonienasyc;
 		
-		private EntitySet<Skladniki> _Skladnikis;
-		
 		private EntityRef<Skladniki_mineralne> _Skladniki_mineralne;
 		
 		private EntityRef<Wartosc_energetyczna> _Wartosc_energetyczna;
 		
 		private EntityRef<Weglowodany> _Weglowodany;
+		
+		private EntitySet<Skladniki> _Skladnikis;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2480,10 +2305,10 @@ namespace Gastro
 			this._Kw_tluszcz_jednonienasyc = default(EntityRef<Kw_tluszcz_jednonienasyc>);
 			this._Kw_tluszcz_nasyc = default(EntityRef<Kw_tluszcz_nasyc>);
 			this._Kw_tluszcz_wielonienasyc = default(EntityRef<Kw_tluszcz_wielonienasyc>);
-			this._Skladnikis = new EntitySet<Skladniki>(new Action<Skladniki>(this.attach_Skladnikis), new Action<Skladniki>(this.detach_Skladnikis));
 			this._Skladniki_mineralne = default(EntityRef<Skladniki_mineralne>);
 			this._Wartosc_energetyczna = default(EntityRef<Wartosc_energetyczna>);
 			this._Weglowodany = default(EntityRef<Weglowodany>);
+			this._Skladnikis = new EntitySet<Skladniki>(new Action<Skladniki>(this.attach_Skladnikis), new Action<Skladniki>(this.detach_Skladnikis));
 			OnCreated();
 		}
 		
@@ -2841,19 +2666,6 @@ namespace Gastro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Skladniki", Storage="_Skladnikis", ThisKey="numer_kodowy", OtherKey="ID_produktu")]
-		public EntitySet<Skladniki> Skladnikis
-		{
-			get
-			{
-				return this._Skladnikis;
-			}
-			set
-			{
-				this._Skladnikis.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Skladniki_mineralne", Storage="_Skladniki_mineralne", ThisKey="numer_kodowy", OtherKey="numer_kodowy", IsUnique=true, IsForeignKey=false)]
 		public Skladniki_mineralne Skladniki_mineralne
 		{
@@ -2941,6 +2753,19 @@ namespace Gastro
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Skladniki", Storage="_Skladnikis", ThisKey="numer_kodowy", OtherKey="ID_produktu")]
+		public EntitySet<Skladniki> Skladnikis
+		{
+			get
+			{
+				return this._Skladnikis;
+			}
+			set
+			{
+				this._Skladnikis.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2971,185 +2796,6 @@ namespace Gastro
 		{
 			this.SendPropertyChanging();
 			entity.Produkty = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Skladniki")]
-	public partial class Skladniki : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _ID_skladnik;
-		
-		private string _ID_produktu;
-		
-		private float _ilosc;
-		
-		private EntitySet<Potrawy> _Potrawies;
-		
-		private EntityRef<Produkty> _Produkty;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_skladnikChanging(string value);
-    partial void OnID_skladnikChanged();
-    partial void OnID_produktuChanging(string value);
-    partial void OnID_produktuChanged();
-    partial void OniloscChanging(float value);
-    partial void OniloscChanged();
-    #endregion
-		
-		public Skladniki()
-		{
-			this._Potrawies = new EntitySet<Potrawy>(new Action<Potrawy>(this.attach_Potrawies), new Action<Potrawy>(this.detach_Potrawies));
-			this._Produkty = default(EntityRef<Produkty>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_skladnik", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ID_skladnik
-		{
-			get
-			{
-				return this._ID_skladnik;
-			}
-			set
-			{
-				if ((this._ID_skladnik != value))
-				{
-					this.OnID_skladnikChanging(value);
-					this.SendPropertyChanging();
-					this._ID_skladnik = value;
-					this.SendPropertyChanged("ID_skladnik");
-					this.OnID_skladnikChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_produktu", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string ID_produktu
-		{
-			get
-			{
-				return this._ID_produktu;
-			}
-			set
-			{
-				if ((this._ID_produktu != value))
-				{
-					if (this._Produkty.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnID_produktuChanging(value);
-					this.SendPropertyChanging();
-					this._ID_produktu = value;
-					this.SendPropertyChanged("ID_produktu");
-					this.OnID_produktuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ilosc", DbType="Real NOT NULL")]
-		public float ilosc
-		{
-			get
-			{
-				return this._ilosc;
-			}
-			set
-			{
-				if ((this._ilosc != value))
-				{
-					this.OniloscChanging(value);
-					this.SendPropertyChanging();
-					this._ilosc = value;
-					this.SendPropertyChanged("ilosc");
-					this.OniloscChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Skladniki_Potrawy", Storage="_Potrawies", ThisKey="ID_skladnik", OtherKey="ID_skladnik")]
-		public EntitySet<Potrawy> Potrawies
-		{
-			get
-			{
-				return this._Potrawies;
-			}
-			set
-			{
-				this._Potrawies.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Skladniki", Storage="_Produkty", ThisKey="ID_produktu", OtherKey="numer_kodowy", IsForeignKey=true)]
-		public Produkty Produkty
-		{
-			get
-			{
-				return this._Produkty.Entity;
-			}
-			set
-			{
-				Produkty previousValue = this._Produkty.Entity;
-				if (((previousValue != value) 
-							|| (this._Produkty.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Produkty.Entity = null;
-						previousValue.Skladnikis.Remove(this);
-					}
-					this._Produkty.Entity = value;
-					if ((value != null))
-					{
-						value.Skladnikis.Add(this);
-						this._ID_produktu = value.numer_kodowy;
-					}
-					else
-					{
-						this._ID_produktu = default(string);
-					}
-					this.SendPropertyChanged("Produkty");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Potrawies(Potrawy entity)
-		{
-			this.SendPropertyChanging();
-			entity.Skladniki = this;
-		}
-		
-		private void detach_Potrawies(Potrawy entity)
-		{
-			this.SendPropertyChanging();
-			entity.Skladniki = null;
 		}
 	}
 	
@@ -3795,6 +3441,336 @@ namespace Gastro
 					else
 					{
 						this._numer_kodowy = default(string);
+					}
+					this.SendPropertyChanged("Produkty");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Potrawy")]
+	public partial class Potrawy : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _ID_potrawy;
+		
+		private string _nazwa;
+		
+		private string _kategoria;
+		
+		private EntitySet<Skladniki> _Skladnikis;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_potrawyChanging(decimal value);
+    partial void OnID_potrawyChanged();
+    partial void OnnazwaChanging(string value);
+    partial void OnnazwaChanged();
+    partial void OnkategoriaChanging(string value);
+    partial void OnkategoriaChanged();
+    #endregion
+		
+		public Potrawy()
+		{
+			this._Skladnikis = new EntitySet<Skladniki>(new Action<Skladniki>(this.attach_Skladnikis), new Action<Skladniki>(this.detach_Skladnikis));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_potrawy", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public decimal ID_potrawy
+		{
+			get
+			{
+				return this._ID_potrawy;
+			}
+			set
+			{
+				if ((this._ID_potrawy != value))
+				{
+					this.OnID_potrawyChanging(value);
+					this.SendPropertyChanging();
+					this._ID_potrawy = value;
+					this.SendPropertyChanged("ID_potrawy");
+					this.OnID_potrawyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string nazwa
+		{
+			get
+			{
+				return this._nazwa;
+			}
+			set
+			{
+				if ((this._nazwa != value))
+				{
+					this.OnnazwaChanging(value);
+					this.SendPropertyChanging();
+					this._nazwa = value;
+					this.SendPropertyChanged("nazwa");
+					this.OnnazwaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kategoria", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string kategoria
+		{
+			get
+			{
+				return this._kategoria;
+			}
+			set
+			{
+				if ((this._kategoria != value))
+				{
+					this.OnkategoriaChanging(value);
+					this.SendPropertyChanging();
+					this._kategoria = value;
+					this.SendPropertyChanged("kategoria");
+					this.OnkategoriaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Potrawy_Skladniki", Storage="_Skladnikis", ThisKey="ID_potrawy", OtherKey="ID_potrawy")]
+		public EntitySet<Skladniki> Skladnikis
+		{
+			get
+			{
+				return this._Skladnikis;
+			}
+			set
+			{
+				this._Skladnikis.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Skladnikis(Skladniki entity)
+		{
+			this.SendPropertyChanging();
+			entity.Potrawy = this;
+		}
+		
+		private void detach_Skladnikis(Skladniki entity)
+		{
+			this.SendPropertyChanging();
+			entity.Potrawy = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Skladniki")]
+	public partial class Skladniki : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _ID_potrawy;
+		
+		private string _ID_produktu;
+		
+		private float _ilosc;
+		
+		private EntityRef<Potrawy> _Potrawy;
+		
+		private EntityRef<Produkty> _Produkty;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_potrawyChanging(decimal value);
+    partial void OnID_potrawyChanged();
+    partial void OnID_produktuChanging(string value);
+    partial void OnID_produktuChanged();
+    partial void OniloscChanging(float value);
+    partial void OniloscChanged();
+    #endregion
+		
+		public Skladniki()
+		{
+			this._Potrawy = default(EntityRef<Potrawy>);
+			this._Produkty = default(EntityRef<Produkty>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_potrawy", DbType="Decimal(18,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal ID_potrawy
+		{
+			get
+			{
+				return this._ID_potrawy;
+			}
+			set
+			{
+				if ((this._ID_potrawy != value))
+				{
+					if (this._Potrawy.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_potrawyChanging(value);
+					this.SendPropertyChanging();
+					this._ID_potrawy = value;
+					this.SendPropertyChanged("ID_potrawy");
+					this.OnID_potrawyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_produktu", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ID_produktu
+		{
+			get
+			{
+				return this._ID_produktu;
+			}
+			set
+			{
+				if ((this._ID_produktu != value))
+				{
+					if (this._Produkty.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_produktuChanging(value);
+					this.SendPropertyChanging();
+					this._ID_produktu = value;
+					this.SendPropertyChanged("ID_produktu");
+					this.OnID_produktuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ilosc", DbType="Real NOT NULL")]
+		public float ilosc
+		{
+			get
+			{
+				return this._ilosc;
+			}
+			set
+			{
+				if ((this._ilosc != value))
+				{
+					this.OniloscChanging(value);
+					this.SendPropertyChanging();
+					this._ilosc = value;
+					this.SendPropertyChanged("ilosc");
+					this.OniloscChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Potrawy_Skladniki", Storage="_Potrawy", ThisKey="ID_potrawy", OtherKey="ID_potrawy", IsForeignKey=true)]
+		public Potrawy Potrawy
+		{
+			get
+			{
+				return this._Potrawy.Entity;
+			}
+			set
+			{
+				Potrawy previousValue = this._Potrawy.Entity;
+				if (((previousValue != value) 
+							|| (this._Potrawy.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Potrawy.Entity = null;
+						previousValue.Skladnikis.Remove(this);
+					}
+					this._Potrawy.Entity = value;
+					if ((value != null))
+					{
+						value.Skladnikis.Add(this);
+						this._ID_potrawy = value.ID_potrawy;
+					}
+					else
+					{
+						this._ID_potrawy = default(decimal);
+					}
+					this.SendPropertyChanged("Potrawy");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produkty_Skladniki", Storage="_Produkty", ThisKey="ID_produktu", OtherKey="numer_kodowy", IsForeignKey=true)]
+		public Produkty Produkty
+		{
+			get
+			{
+				return this._Produkty.Entity;
+			}
+			set
+			{
+				Produkty previousValue = this._Produkty.Entity;
+				if (((previousValue != value) 
+							|| (this._Produkty.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Produkty.Entity = null;
+						previousValue.Skladnikis.Remove(this);
+					}
+					this._Produkty.Entity = value;
+					if ((value != null))
+					{
+						value.Skladnikis.Add(this);
+						this._ID_produktu = value.numer_kodowy;
+					}
+					else
+					{
+						this._ID_produktu = default(string);
 					}
 					this.SendPropertyChanged("Produkty");
 				}
