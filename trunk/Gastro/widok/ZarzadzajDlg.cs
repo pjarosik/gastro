@@ -41,15 +41,23 @@ namespace Gastro.widok
             }
         }
 
+        private void updateDataGridData()
+        {
+            dgvContent.DataSource = null;
+            objects = DBProvider.getPotrawy();
+            dgvContent.DataSource = objects;
+        }
+
         private void ZarzadzajDlg_Load(object sender, EventArgs e)
         {
             switch (activeMode)
             {
                 case Mode.Potrawy:
-                    objects = DBProvider.getPotrawy();
-                    dgvContent.DataSource = objects;
+                    updateDataGridData();
                     btNew.Text += " potrawę";
                     this.Text += " potrawami";
+                    
+                    setupDGV(Mode.Potrawy);
                     break;
 
                 case Mode.Produkty:
@@ -70,7 +78,7 @@ namespace Gastro.widok
         {
             if (dgvContent.Columns.Count < 1)
             {
-               // MessageBox.Show(Parent, "Brak danych w bazie.", "Uwaga",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                // MessageBox.Show(Parent, "Brak danych w bazie.", "Uwaga",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
             
@@ -108,7 +116,8 @@ namespace Gastro.widok
             switch (activeMode)
             {
                 case Mode.Potrawy:
-                    new PotrawyDlg(PotrawyDlg.Mode.New,"").ShowDialog();
+                    if (new PotrawyDlg(PotrawyDlg.Mode.New, "").ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
+                        updateDataGridData();
                     break;
             }
         }

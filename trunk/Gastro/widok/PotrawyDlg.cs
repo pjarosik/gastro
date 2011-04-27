@@ -63,7 +63,7 @@ namespace Gastro.widok
             //addNew();
         }
 
-        private void addNew()
+        private void addNewSkladnik()
         {
             if (lbProdukty.SelectedIndex == -1)
             {
@@ -72,8 +72,24 @@ namespace Gastro.widok
             }
 
             dgvSkladniki.DataSource = null;
-            componentsList.Add(new logika.Component((lbProdukty.SelectedItem.ToString()), 1));
+            
+            logika.Component comp;
+            if ((comp = findElement(lbProdukty.SelectedItem.ToString())) != null)
+                comp.count += 1;
+            else
+                componentsList.Add(new logika.Component((lbProdukty.SelectedItem.ToString()), 1));
+
             dgvSkladniki.DataSource = componentsList;
+        }
+
+        private logika.Component findElement(string name)
+        {
+            foreach (logika.Component comp in componentsList)
+            {
+                if (comp.name == name)
+                    return comp;
+            }
+            return null;
         }
 
         private void btCancel_Click(object sender, EventArgs e)
@@ -99,29 +115,31 @@ namespace Gastro.widok
         }
         private void btSave_Click(object sender, EventArgs e)
         {
-            if (dgvSkladniki.Rows.Count < 1)
-            {
-                MessageBox.Show(this, "Nie dodano składników.", "Uwaga");
-                return;
-            }
-
             if (tbName.Text.Trim() == "")
             {
                 MessageBox.Show(this, "Nie wprowadzono nazwy dla potrawy.", "Uwaga");
                 return;
             }
 
+            if (dgvSkladniki.Rows.Count < 1)
+            {
+                MessageBox.Show(this, "Nie dodano składników.", "Uwaga");
+                return;
+            }
+
             Potrawy potrawa = new Potrawy();
             potrawa.kategoria = cbKategory.Text;
             potrawa.nazwa = tbName.Text;
-            if (DBProvider.getIfExists(potrawa)==null)
+            if (DBProvider.getIfExists(potrawa) == null)
             {
                 DBProvider.addPotrawa(potrawa, getSkladniki());
+                Close();
             }
             else
+            {
                 MessageBox.Show(this, "Potrawa o podanej nazwie już istnieje.", "Uwaga");
-
-
+                return;
+            }
         }
 
         private void dgvSkladniki_DataSourceChanged(object sender, EventArgs e)
@@ -134,7 +152,7 @@ namespace Gastro.widok
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            addNew();
+            addNewSkladnik();
         }
 
         private void btRemove_Click(object sender, EventArgs e)
