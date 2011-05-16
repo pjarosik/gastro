@@ -136,5 +136,16 @@ namespace Gastro.widok
         {
            dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Selected = true;
         }
+
+        private void btRemove_Click(object sender, EventArgs e)
+        {
+            switch (activeMode)
+            {
+                case Mode.Potrawy:
+                    //new PotrawyDlg(PotrawyDlg.Mode.Edit, dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Cells[dgvContent.Columns.Count - 1].Value.ToString()).ShowDialog();
+                    //updateDGVContent();
+                    break;
+            }
+        }
     }
 }
