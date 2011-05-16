@@ -41,7 +41,7 @@ namespace Gastro.widok
             }
         }
 
-        private void updateDataGridData()
+        private void updateDGVContent()
         {
             dgvContent.DataSource = null;
             objects = DBProvider.getPotrawy();
@@ -53,7 +53,7 @@ namespace Gastro.widok
             switch (activeMode)
             {
                 case Mode.Potrawy:
-                    updateDataGridData();
+                    updateDGVContent();
                     btNew.Text += " potrawę";
                     this.Text += " potrawami";
                     
@@ -67,11 +67,6 @@ namespace Gastro.widok
                     this.Text += " produktami";
                     break;
             }
-
-            if (dgvContent.SelectedCells.Count != 0) 
-                dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Selected = true;
-            //productsName = DBProvider.getProductsName();
-            //lbProdukty.DataSource = productsName;
         }
 
         private void setupDGV(Mode mode)
@@ -100,6 +95,9 @@ namespace Gastro.widok
             //dgvContent.Columns.Add(new DataGridViewColumn(new DataGridViewComboBoxCell()));
             //dgvContent.Rows.Insert(0,new DataGridViewRow());
             //dgvContent.AllowUserToAddRows = false;
+
+            if (dgvContent.SelectedCells.Count != 0)
+                dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Selected = true;
         }
         private void preapareDGVForProdukt()
         {
@@ -117,7 +115,7 @@ namespace Gastro.widok
             {
                 case Mode.Potrawy:
                     if (new PotrawyDlg(PotrawyDlg.Mode.New, "").ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
-                        updateDataGridData();
+                        updateDGVContent();
                     break;
             }
         }
@@ -127,7 +125,9 @@ namespace Gastro.widok
             switch (activeMode)
             {
                 case Mode.Potrawy:
-                    new PotrawyDlg(PotrawyDlg.Mode.Edit, dgvContent.SelectedRows[0].Cells[dgvContent.SelectedRows[0].Cells.Count -1 ].Value.ToString()).ShowDialog();
+                    new PotrawyDlg(PotrawyDlg.Mode.Edit, dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Cells[dgvContent.Columns.Count-1].Value.ToString()).ShowDialog();
+                    //new PotrawyDlg(PotrawyDlg.Mode.Edit, dgvContent.SelectedRows[0].Cells[dgvContent.SelectedRows[0].Cells.Count - 1].Value.ToString()).ShowDialog();
+                    updateDGVContent();
                     break;
             }
         }

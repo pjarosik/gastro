@@ -169,6 +169,7 @@ namespace Gastro.logika
 
         static public List<object> getSkladniki(Potrawy potrawa)
         {
+           
             var skladniki = from skl in cont.Skladnikis
                             from produkty in cont.Produkties
                             where (skl.ID_potrawy == potrawa.ID_potrawy && produkty.numer_kodowy == skl.ID_produktu)
@@ -177,8 +178,51 @@ namespace Gastro.logika
                                 produkty.nazwa_produktu,
                                 skl.ilosc
                             };
-
+                
             return skladniki.ToList<object>();
+        }
+
+        static public List<Skladniki> getSkladnikiForPotrawa(Potrawy potrawa)
+        {
+
+            var skladniki = from skl in cont.Skladnikis
+                            from produkty in cont.Produkties
+                            where (skl.ID_potrawy == potrawa.ID_potrawy && produkty.numer_kodowy == skl.ID_produktu)
+                            select skl;
+
+            return skladniki.ToList<Skladniki>();
+        }
+
+        static public Skladniki getSkladnikForPotrawa(Potrawy potrawa, Skladniki skladnik)
+        {
+
+            var skladniki = from skl in cont.Skladnikis
+                            from produkty in cont.Produkties
+                             where ((produkty.numer_kodowy == skl.ID_produktu) && (skl.ID_potrawy == potrawa.ID_potrawy) && (skl.ID_produktu == skladnik.ID_produktu))
+                            select skl;
+
+            return skladniki.FirstOrDefault();
+        }
+
+        static public List<logika.Component> getComponents(Potrawy potrawa)
+        {
+            List<logika.Component> complist = new List<Component>();
+
+               var skladniki = from skl in cont.Skladnikis
+                            from produkty in cont.Produkties
+                            where (skl.ID_potrawy == potrawa.ID_potrawy && produkty.numer_kodowy == skl.ID_produktu)
+                            select new
+                            {
+                                produkty.nazwa_produktu,
+                                skl.ilosc
+                            };
+                
+            foreach (var obj in skladniki)
+            {
+                complist.Add(new Component(obj.nazwa_produktu, obj.ilosc));
+            }
+
+            return complist;
         }
 
         static public Potrawy getIfExists(Potrawy potr)
@@ -190,17 +234,65 @@ namespace Gastro.logika
             return tmp;
         }
 
-        static public bool addPotrawa(Potrawy potrawa, List<Skladniki> skladniki)
-        {
-            cont.Potrawies.InsertOnSubmit(potrawa);
-            cont.SubmitChanges();
-            foreach (Skladniki skladnik in skladniki)
-            {
-                skladnik.ID_potrawy = potrawa.ID_potrawy;
-                cont.Skladnikis.InsertOnSubmit(skladnik);
-            }
+        //static public Skladniki getSkladnik(Potrawy potrawa, Skladniki skladnik)
+        //{
+        //    var skl = from skladnikidb in cont.Skladnikis
+        //              from potrawydb in cont.Potrawies
+        //              where ( (skladnikidb.ID_potrawy == potrawydb.ID_potrawy ) && 
+        //              (skladnik.ID_produktu == skladnikidb.ID_produktu) )
 
-            cont.SubmitChanges();
+        //}
+
+
+        static public bool addOrUpdatePotrawa(Potrawy potrawa, List<Skladniki> skladniki)
+        {
+            Potrawy tmp_potrawa = getIfExists(potrawa);
+
+            if (tmp_potrawa == null) // if potrawa does not exist in database
+            {
+                cont.Potrawies.InsertOnSubmit(potrawa);
+                cont.SubmitChanges();
+
+                foreach (Skladniki skladnik in skladniki)
+                {
+                    skladnik.ID_potrawy = potrawa.ID_potrawy;
+                    cont.Skladnikis.InsertOnSubmit(skladnik);
+                }
+                cont.SubmitChanges();
+            }
+            else // if potrawa is going to be update
+            {
+                tmp_potrawa.kategoria = potrawa.kategoria;
+
+                foreach (Skladniki skladnik in skladniki)
+                {
+                    Skladniki tmp_skladnik;
+                    if ((tmp_skladnik = getSkladnikForPotrawa(tmp_potrawa, skladnik)) != null && tmp_skladnik.ilosc!=skladnik.ilosc)
+                    {
+                        tmp_skladnik.ilosc = skladnik.ilosc;
+                        cont.SubmitChanges();
+                    }
+                    else if((tmp_skladnik = getSkladnikForPotrawa(tmp_potrawa, skladnik)) == null)
+                    {
+                        skladnik.ID_potrawy = tmp_potrawa.ID_potrawy;
+                        cont.Skladnikis.InsertOnSubmit(skladnik);
+                        cont.SubmitChanges();
+                    }
+                }
+
+                List<Skladniki> listInDatabase;
+                if ((listInDatabase = getSkladnikiForPotrawa(tmp_potrawa)).Count > skladniki.Count)
+                {
+                    foreach(Skladniki s in listInDatabase)
+                    {
+                        if (skladniki.Find(o => o.ID_produktu == s.ID_produktu) == null)
+                        {
+                            cont.Skladnikis.DeleteOnSubmit(s);
+                            cont.SubmitChanges();
+                        }
+                    }
+                }
+            }
             return true;
         }
     }

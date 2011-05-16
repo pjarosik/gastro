@@ -34,9 +34,8 @@ namespace Gastro.widok
 
             if (activeMode == Mode.New)
                 cbKategory.SelectedIndex = 0;
-            // temporary disabled
-            //else
-            //    loadPotrawy();
+            else
+                loadPotrawy();
         }
 
 
@@ -46,8 +45,13 @@ namespace Gastro.widok
             potrawa.ID_potrawy = decimal.Parse(ID_potrawy);
             if ((potrawa = DBProvider.getIfExists(potrawa)) != null)
             {
-                dgvSkladniki.DataSource = DBProvider.getSkladniki(potrawa);
-
+                foreach (logika.Component sklad in DBProvider.getComponents(potrawa))
+                    componentsList.Add(new logika.Component(sklad.Name, sklad.count));
+                
+                dgvSkladniki.DataSource = componentsList;
+                tbName.Text = potrawa.nazwa;
+                tbName.ReadOnly = true;
+                cbKategory.SelectedIndex = cbKategory.FindString(potrawa.kategoria, 0);
             }
             else
                 MessageBox.Show("Wybrana potrawa nie istnieje.blad!!");
@@ -130,16 +134,15 @@ namespace Gastro.widok
             Potrawy potrawa = new Potrawy();
             potrawa.kategoria = cbKategory.Text;
             potrawa.nazwa = tbName.Text;
-            if (DBProvider.getIfExists(potrawa) == null)
-            {
-                DBProvider.addPotrawa(potrawa, getSkladniki());
-                Close();
-            }
-            else
+
+            if (this.activeMode == Mode.New && DBProvider.getIfExists(potrawa) != null)
             {
                 MessageBox.Show(this, "Potrawa o podanej nazwie już istnieje.", "Uwaga");
                 return;
             }
+
+            DBProvider.addOrUpdatePotrawa(potrawa, getSkladniki());
+            Close();
         }
 
         private void dgvSkladniki_DataSourceChanged(object sender, EventArgs e)
