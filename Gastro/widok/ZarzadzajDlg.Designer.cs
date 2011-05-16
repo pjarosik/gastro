@@ -88,6 +88,7 @@
             this.btRemove.TabIndex = 4;
             this.btRemove.Text = "Usuń zaznaczone";
             this.btRemove.UseVisualStyleBackColor = true;
+            this.btRemove.Click += new System.EventHandler(this.btRemove_Click);
             // 
             // btNew
             // 

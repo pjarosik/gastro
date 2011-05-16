@@ -125,8 +125,20 @@ namespace Gastro.logika
                         Console.WriteLine("Kasuje: " + element.nazwa_produktu);
                     }
                 }
-            } 
+            }
+            cont.Skladniki_mineralnes.DeleteAllOnSubmit(cont.Skladniki_mineralnes);
+            cont.Aminokwasies.DeleteAllOnSubmit(cont.Aminokwasies);
+            cont.Energias.DeleteAllOnSubmit(cont.Energias);
+            cont.Kw_tluszcz_jednonienasycs.DeleteAllOnSubmit(cont.Kw_tluszcz_jednonienasycs);
+            cont.Kw_tluszcz_nasycs.DeleteAllOnSubmit(cont.Kw_tluszcz_nasycs);
+            cont.Kw_tluszcz_wielonienasycs.DeleteAllOnSubmit(cont.Kw_tluszcz_wielonienasycs);
+            cont.Wartosc_energetycznas.DeleteAllOnSubmit(cont.Wartosc_energetycznas);
+            cont.Weglowodanies.DeleteAllOnSubmit(cont.Weglowodanies);
+            cont.Witaminies.DeleteAllOnSubmit(cont.Witaminies);
+            cont.Potrawies.DeleteAllOnSubmit(cont.Potrawies);
+            cont.Skladnikis.DeleteAllOnSubmit(cont.Skladnikis);
             cont.Produkties.DeleteAllOnSubmit(cont.Produkties);
+            //cont.Produkties.DeleteAllOnSubmit(cont.Produkties);
             cont.SubmitChanges();
         }
 

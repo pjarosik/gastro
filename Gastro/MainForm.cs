@@ -74,11 +74,15 @@ namespace Gastro
             }
             else
                 MessageBox.Show("Wystapil blad podczas wczytywania danych");
+
+            progressBar.Value = 0;
         }
 
         private void wyczyśćToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DBProvider.drop();
+            dataGridView.DataSource = DBProvider.getProdukty();
+            MessageBox.Show("Baza danych zostala wyczyszczona.");
         }
 
         private void potrawyToolStripMenuItem_Click(object sender, EventArgs e)
