@@ -31,6 +31,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zarzadzajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.potrawyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produktyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bazaDanychToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wyczyśćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,9 +43,6 @@
             this.backgroundThread = new System.ComponentModel.BackgroundWorker();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.zarzadzajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.potrawyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.produktyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +74,29 @@
             this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.zamknijToolStripMenuItem.Text = "&Zamknij";
             this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
+            // 
+            // zarzadzajToolStripMenuItem
+            // 
+            this.zarzadzajToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.potrawyToolStripMenuItem,
+            this.produktyToolStripMenuItem});
+            this.zarzadzajToolStripMenuItem.Name = "zarzadzajToolStripMenuItem";
+            this.zarzadzajToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.zarzadzajToolStripMenuItem.Text = "Zarządzaj";
+            // 
+            // potrawyToolStripMenuItem
+            // 
+            this.potrawyToolStripMenuItem.Name = "potrawyToolStripMenuItem";
+            this.potrawyToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.potrawyToolStripMenuItem.Text = "Potrawy";
+            this.potrawyToolStripMenuItem.Click += new System.EventHandler(this.potrawyToolStripMenuItem_Click);
+            // 
+            // produktyToolStripMenuItem
+            // 
+            this.produktyToolStripMenuItem.Name = "produktyToolStripMenuItem";
+            this.produktyToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.produktyToolStripMenuItem.Text = "Produkty";
+            this.produktyToolStripMenuItem.Click += new System.EventHandler(this.produktyToolStripMenuItem_Click);
             // 
             // bazaDanychToolStripMenuItem
             // 
@@ -147,29 +170,6 @@
             this.dataGridView.Size = new System.Drawing.Size(738, 433);
             this.dataGridView.TabIndex = 2;
             // 
-            // zarzadzajToolStripMenuItem
-            // 
-            this.zarzadzajToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.potrawyToolStripMenuItem,
-            this.produktyToolStripMenuItem});
-            this.zarzadzajToolStripMenuItem.Name = "zarzadzajToolStripMenuItem";
-            this.zarzadzajToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.zarzadzajToolStripMenuItem.Text = "Zarządzaj";
-            // 
-            // potrawyToolStripMenuItem
-            // 
-            this.potrawyToolStripMenuItem.Name = "potrawyToolStripMenuItem";
-            this.potrawyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.potrawyToolStripMenuItem.Text = "Potrawy";
-            this.potrawyToolStripMenuItem.Click += new System.EventHandler(this.potrawyToolStripMenuItem_Click);
-            // 
-            // produktyToolStripMenuItem
-            // 
-            this.produktyToolStripMenuItem.Name = "produktyToolStripMenuItem";
-            this.produktyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.produktyToolStripMenuItem.Text = "Produkty";
-            this.produktyToolStripMenuItem.Click += new System.EventHandler(this.produktyToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +181,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Gastro";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

@@ -94,5 +94,10 @@ namespace Gastro
             //PotrawyDlg potrawyDlg = new PotrawyDlg();
             dlg.ShowDialog();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            dataGridView.DataSource = DBProvider.getProdukty();
+        }
     }
 }
