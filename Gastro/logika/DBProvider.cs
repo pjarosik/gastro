@@ -337,5 +337,21 @@ namespace Gastro.logika
 
             return tmp;
         }
+
+        static public bool checkIfJadlospisExist(string nazwa)
+        {
+            var tmp = from d in cont.Jadlospis
+                      where (d.nazwa == nazwa)
+                      select d;
+            return tmp.Count() < 1 ? false : true;
+        }
+
+        static public bool AddJadlospis(Jadlospi jadlospis)
+        {
+            cont.Jadlospis.InsertOnSubmit(jadlospis);
+            cont.SubmitChanges();
+
+            return true;
+        }
     }
 }
