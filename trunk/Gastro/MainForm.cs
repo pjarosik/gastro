@@ -103,5 +103,11 @@ namespace Gastro
         {
             dataGridView.DataSource = DBProvider.getProdukty();
         }
+
+        private void jadłospisyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JadlospisyDlg jdsDlg = new JadlospisyDlg();
+            jdsDlg.Show();
+        }
     }
 }
