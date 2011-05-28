@@ -162,5 +162,10 @@ namespace Gastro.widok
                     break;
             }
         }
+
+        private void btZamknij_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

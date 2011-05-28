@@ -193,6 +193,14 @@ namespace Gastro
 				return this.GetTable<Skladniki>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Jadlospi> Jadlospis
+		{
+			get
+			{
+				return this.GetTable<Jadlospi>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Aminokwasy")]
@@ -3794,6 +3802,177 @@ namespace Gastro
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Jadlospis")]
+	public partial class Jadlospi
+	{
+		
+		private decimal _id_jadlospis;
+		
+		private string _nazwa;
+		
+		private System.Nullable<decimal> _id_sniadanie1;
+		
+		private System.Nullable<decimal> _id_sniadanie2;
+		
+		private System.Nullable<decimal> _id_obiad;
+		
+		private System.Nullable<decimal> _id_podwieczorek;
+		
+		private System.Nullable<decimal> _id_kolacja1;
+		
+		private System.Nullable<decimal> _id_kolacja2;
+		
+		private System.DateTime _data;
+		
+		public Jadlospi()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_jadlospis", DbType="Decimal(18,0) NOT NULL")]
+		public decimal id_jadlospis
+		{
+			get
+			{
+				return this._id_jadlospis;
+			}
+			set
+			{
+				if ((this._id_jadlospis != value))
+				{
+					this._id_jadlospis = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string nazwa
+		{
+			get
+			{
+				return this._nazwa;
+			}
+			set
+			{
+				if ((this._nazwa != value))
+				{
+					this._nazwa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sniadanie1", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> id_sniadanie1
+		{
+			get
+			{
+				return this._id_sniadanie1;
+			}
+			set
+			{
+				if ((this._id_sniadanie1 != value))
+				{
+					this._id_sniadanie1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sniadanie2", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> id_sniadanie2
+		{
+			get
+			{
+				return this._id_sniadanie2;
+			}
+			set
+			{
+				if ((this._id_sniadanie2 != value))
+				{
+					this._id_sniadanie2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_obiad", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> id_obiad
+		{
+			get
+			{
+				return this._id_obiad;
+			}
+			set
+			{
+				if ((this._id_obiad != value))
+				{
+					this._id_obiad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_podwieczorek", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> id_podwieczorek
+		{
+			get
+			{
+				return this._id_podwieczorek;
+			}
+			set
+			{
+				if ((this._id_podwieczorek != value))
+				{
+					this._id_podwieczorek = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_kolacja1", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> id_kolacja1
+		{
+			get
+			{
+				return this._id_kolacja1;
+			}
+			set
+			{
+				if ((this._id_kolacja1 != value))
+				{
+					this._id_kolacja1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_kolacja2", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> id_kolacja2
+		{
+			get
+			{
+				return this._id_kolacja2;
+			}
+			set
+			{
+				if ((this._id_kolacja2 != value))
+				{
+					this._id_kolacja2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_data", DbType="DateTime NOT NULL")]
+		public System.DateTime data
+		{
+			get
+			{
+				return this._data;
+			}
+			set
+			{
+				if ((this._data != value))
+				{
+					this._data = value;
+				}
 			}
 		}
 	}

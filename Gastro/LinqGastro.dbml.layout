@@ -90,7 +90,7 @@
         <classShapeMoniker Id="411005e5-7fa0-478d-bf63-298ab26b5d72" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.2187475 : 17.7465844726563); (1.2187475 : 21.3698132324219); (3.5 : 21.3698132324219)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.2187475 : 17.7465844726563); (1.2187475 : 21.3698132324219); (2.19791916666667 : 21.3698132324219 : JumpStart); (2.36458583333333 : 21.3698132324219 : JumpEnd); (3.5 : 21.3698132324219)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Kw_tluszcz_nasyc" />
       <nodes>
         <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
@@ -137,19 +137,25 @@
         <elementListCompartment Id="3011811f-858b-48f0-b840-f232a2b26160" absoluteBounds="7.6400000000000006, 15.46, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(10.375 : 14.0052502441406); (8.625 : 14.0052502441406); (8.625 : 15)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.375 : 14.0052502441406); (8.625 : 14.0052502441406); (8.625 : 15)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqGastroDataContext/Potrawy/Potrawy_Skladniki" />
       <nodes>
         <classShapeMoniker Id="642875c4-451d-4e01-a901-5ed171ef9623" />
         <classShapeMoniker Id="dcc88f75-78c2-4bde-b99a-c7e92f00812e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 16.1597924804688); (7.625 : 16.1597924804688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 16.1597924804688); (7.625 : 16.1597924804688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Skladniki" />
       <nodes>
         <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
         <classShapeMoniker Id="dcc88f75-78c2-4bde-b99a-c7e92f00812e" />
       </nodes>
     </associationConnector>
+    <classShape Id="9abbda15-0543-4cf3-996c-d62113d5e46c" absoluteBounds="8, 3.375, 2, 2.24658447265625">
+      <DataClassMoniker Name="/LinqGastroDataContext/Jadlospi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e499cba1-8d5b-4f4c-b84d-a701e06cb958" absoluteBounds="8.015, 3.835, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

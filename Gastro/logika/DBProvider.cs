@@ -328,5 +328,14 @@ namespace Gastro.logika
             cont.SubmitChanges();
             return true;
         }
+        static public List<Potrawy> getPotrawaByCategory(string kategoria)
+        {
+            var tmp = (from d in cont.Potrawies
+                       where (d.kategoria == kategoria)
+                       orderby d.nazwa
+                       select d).ToList<Potrawy>();
+
+            return tmp;
+        }
     }
 }

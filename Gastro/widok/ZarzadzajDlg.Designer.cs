@@ -34,6 +34,7 @@
             this.btEdit = new System.Windows.Forms.Button();
             this.btRemove = new System.Windows.Forms.Button();
             this.btNew = new System.Windows.Forms.Button();
+            this.btZamknij = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,11 +102,22 @@
             this.btNew.UseVisualStyleBackColor = true;
             this.btNew.Click += new System.EventHandler(this.btNew_Click);
             // 
+            // btZamknij
+            // 
+            this.btZamknij.Location = new System.Drawing.Point(557, 399);
+            this.btZamknij.Name = "btZamknij";
+            this.btZamknij.Size = new System.Drawing.Size(75, 46);
+            this.btZamknij.TabIndex = 6;
+            this.btZamknij.Text = "Zamknij";
+            this.btZamknij.UseVisualStyleBackColor = true;
+            this.btZamknij.Click += new System.EventHandler(this.btZamknij_Click);
+            // 
             // ZarzadzajDlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 457);
+            this.Controls.Add(this.btZamknij);
             this.Controls.Add(this.btNew);
             this.Controls.Add(this.btRemove);
             this.Controls.Add(this.btEdit);
@@ -129,5 +141,6 @@
         private System.Windows.Forms.Button btEdit;
         private System.Windows.Forms.Button btRemove;
         private System.Windows.Forms.Button btNew;
+        private System.Windows.Forms.Button btZamknij;
     }
 }

@@ -54,7 +54,7 @@ namespace Gastro.widok
                 cbKategory.SelectedIndex = cbKategory.FindString(potrawa.kategoria, 0);
             }
             else
-                MessageBox.Show("Wybrana potrawa nie istnieje.blad!!");
+                MessageBox.Show("Wybrana potrawa nie istnieje.");
         }
 
         private void tbNazwaProduktu_TextChanged(object sender, EventArgs e)
