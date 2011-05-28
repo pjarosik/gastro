@@ -122,6 +122,12 @@ namespace Gastro.widok
 
         private void btEdit_Click(object sender, EventArgs e)
         {
+            if (dgvContent.SelectedCells.Count < 1)
+            {
+                MessageBox.Show(this, "Zaznacz wiersz do edycji.", "Uwaga!");
+                return;
+            }
+
             switch (activeMode)
             {
                 case Mode.Potrawy:
@@ -139,11 +145,20 @@ namespace Gastro.widok
 
         private void btRemove_Click(object sender, EventArgs e)
         {
+            if (dgvContent.SelectedCells.Count < 1)
+            {
+                MessageBox.Show(this,"Zaznacz wiersz do usunięcia.", "Uwaga!");
+                return;
+            }
+
             switch (activeMode)
             {
                 case Mode.Potrawy:
                     //new PotrawyDlg(PotrawyDlg.Mode.Edit, dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Cells[dgvContent.Columns.Count - 1].Value.ToString()).ShowDialog();
-                    //updateDGVContent();
+                    if(DBProvider.removePotrawa(dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Cells[dgvContent.Columns.Count - 1].Value.ToString()))
+                        MessageBox.Show(this, "Usunięto potrawę.", "Uwaga!");
+                    updateDGVContent();
+                    
                     break;
             }
         }

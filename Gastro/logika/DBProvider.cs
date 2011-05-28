@@ -307,5 +307,26 @@ namespace Gastro.logika
             }
             return true;
         }
+
+        static public bool removePotrawa(string potrawa_id)
+        {
+            Potrawy potrawa = new Potrawy();
+            Potrawy potrawaToDelete;
+            potrawa.ID_potrawy = int.Parse(potrawa_id);
+            potrawaToDelete = getIfExists(potrawa);
+
+            List<Skladniki> list;
+            list = getSkladnikiForPotrawa(potrawa);
+
+            foreach (Skladniki sklad in list)
+            {
+                cont.Skladnikis.DeleteOnSubmit(sklad);
+                cont.SubmitChanges();
+            }
+
+            cont.Potrawies.DeleteOnSubmit(potrawaToDelete);
+            cont.SubmitChanges();
+            return true;
+        }
     }
 }
