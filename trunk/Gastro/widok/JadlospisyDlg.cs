@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Gastro.logika;
+using System.Collections;
 
 namespace Gastro.widok
 {
@@ -14,6 +15,9 @@ namespace Gastro.widok
     {
         List<Potrawy> currentList;
         List<object> componentsList = new List<object>();
+
+        Jadlospi jadlospisToSave = new Jadlospi();
+
         public JadlospisyDlg()
         {
             InitializeComponent();
@@ -37,8 +41,15 @@ namespace Gastro.widok
                 return;
             }
 
+            if (DBProvider.checkIfJadlospisExist(tbName.Text))
+            {
+                MessageBox.Show(this, "Wprowadzona nazwa dla jadlospisu juz istnieje. Wprowadz inną nazwę.", "Uwaga");
+                return;
+            }
 
-
+            jadlospisToSave.data = dtpData.Value;
+            jadlospisToSave.nazwa = tbName.Text;
+            DBProvider.AddJadlospis(jadlospisToSave);
         }
 
         private void load()
@@ -125,9 +136,6 @@ namespace Gastro.widok
 
                 dgvSkladniki.DataSource = componentsList;
                 dgvSkladniki.Columns[0].Width = 450;
-                //tbName.Text = potrawa.nazwa;
-                //tbName.ReadOnly = true;
-                //cbKategory.SelectedIndex = cbKategory.FindString(potrawa.kategoria, 0);
             }
             updateStatus();
         }
@@ -137,16 +145,22 @@ namespace Gastro.widok
             switch (cbRodzajPosilku.SelectedIndex)
             {
                 case 0: lSn1.Text = "OK";
+                    jadlospisToSave.id_sniadanie1 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
                     break;
                 case 1: lSn2.Text = "OK";
+                    jadlospisToSave.id_sniadanie2 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
                     break;
                 case 2: lOb.Text = "OK";
+                    jadlospisToSave.id_obiad = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
                     break;
                 case 3: lPdw.Text = "OK";
+                    jadlospisToSave.id_podwieczorek = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
                     break;
-                case 4: lKol1.Text = "OK"; 
+                case 4: lKol1.Text = "OK";
+                    jadlospisToSave.id_kolacja1 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
                     break;
-                case 5: lKol2.Text = "OK"; 
+                case 5: lKol2.Text = "OK";
+                    jadlospisToSave.id_kolacja2 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
                     break;
             }
         }

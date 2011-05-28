@@ -66,6 +66,9 @@ namespace Gastro
     partial void InsertSkladniki(Skladniki instance);
     partial void UpdateSkladniki(Skladniki instance);
     partial void DeleteSkladniki(Skladniki instance);
+    partial void InsertJadlospi(Jadlospi instance);
+    partial void UpdateJadlospi(Jadlospi instance);
+    partial void DeleteJadlospi(Jadlospi instance);
     #endregion
 		
 		public LinqGastroDataContext() : 
@@ -3807,8 +3810,10 @@ namespace Gastro
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Jadlospis")]
-	public partial class Jadlospi
+	public partial class Jadlospi : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private decimal _id_jadlospis;
 		
@@ -3828,11 +3833,36 @@ namespace Gastro
 		
 		private System.DateTime _data;
 		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_jadlospisChanging(decimal value);
+    partial void Onid_jadlospisChanged();
+    partial void OnnazwaChanging(string value);
+    partial void OnnazwaChanged();
+    partial void Onid_sniadanie1Changing(System.Nullable<decimal> value);
+    partial void Onid_sniadanie1Changed();
+    partial void Onid_sniadanie2Changing(System.Nullable<decimal> value);
+    partial void Onid_sniadanie2Changed();
+    partial void Onid_obiadChanging(System.Nullable<decimal> value);
+    partial void Onid_obiadChanged();
+    partial void Onid_podwieczorekChanging(System.Nullable<decimal> value);
+    partial void Onid_podwieczorekChanged();
+    partial void Onid_kolacja1Changing(System.Nullable<decimal> value);
+    partial void Onid_kolacja1Changed();
+    partial void Onid_kolacja2Changing(System.Nullable<decimal> value);
+    partial void Onid_kolacja2Changed();
+    partial void OndataChanging(System.DateTime value);
+    partial void OndataChanged();
+    #endregion
+		
 		public Jadlospi()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_jadlospis", DbType="Decimal(18,0) NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_jadlospis", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public decimal id_jadlospis
 		{
 			get
@@ -3843,7 +3873,11 @@ namespace Gastro
 			{
 				if ((this._id_jadlospis != value))
 				{
+					this.Onid_jadlospisChanging(value);
+					this.SendPropertyChanging();
 					this._id_jadlospis = value;
+					this.SendPropertyChanged("id_jadlospis");
+					this.Onid_jadlospisChanged();
 				}
 			}
 		}
@@ -3859,7 +3893,11 @@ namespace Gastro
 			{
 				if ((this._nazwa != value))
 				{
+					this.OnnazwaChanging(value);
+					this.SendPropertyChanging();
 					this._nazwa = value;
+					this.SendPropertyChanged("nazwa");
+					this.OnnazwaChanged();
 				}
 			}
 		}
@@ -3875,7 +3913,11 @@ namespace Gastro
 			{
 				if ((this._id_sniadanie1 != value))
 				{
+					this.Onid_sniadanie1Changing(value);
+					this.SendPropertyChanging();
 					this._id_sniadanie1 = value;
+					this.SendPropertyChanged("id_sniadanie1");
+					this.Onid_sniadanie1Changed();
 				}
 			}
 		}
@@ -3891,7 +3933,11 @@ namespace Gastro
 			{
 				if ((this._id_sniadanie2 != value))
 				{
+					this.Onid_sniadanie2Changing(value);
+					this.SendPropertyChanging();
 					this._id_sniadanie2 = value;
+					this.SendPropertyChanged("id_sniadanie2");
+					this.Onid_sniadanie2Changed();
 				}
 			}
 		}
@@ -3907,7 +3953,11 @@ namespace Gastro
 			{
 				if ((this._id_obiad != value))
 				{
+					this.Onid_obiadChanging(value);
+					this.SendPropertyChanging();
 					this._id_obiad = value;
+					this.SendPropertyChanged("id_obiad");
+					this.Onid_obiadChanged();
 				}
 			}
 		}
@@ -3923,7 +3973,11 @@ namespace Gastro
 			{
 				if ((this._id_podwieczorek != value))
 				{
+					this.Onid_podwieczorekChanging(value);
+					this.SendPropertyChanging();
 					this._id_podwieczorek = value;
+					this.SendPropertyChanged("id_podwieczorek");
+					this.Onid_podwieczorekChanged();
 				}
 			}
 		}
@@ -3939,7 +3993,11 @@ namespace Gastro
 			{
 				if ((this._id_kolacja1 != value))
 				{
+					this.Onid_kolacja1Changing(value);
+					this.SendPropertyChanging();
 					this._id_kolacja1 = value;
+					this.SendPropertyChanged("id_kolacja1");
+					this.Onid_kolacja1Changed();
 				}
 			}
 		}
@@ -3955,7 +4013,11 @@ namespace Gastro
 			{
 				if ((this._id_kolacja2 != value))
 				{
+					this.Onid_kolacja2Changing(value);
+					this.SendPropertyChanging();
 					this._id_kolacja2 = value;
+					this.SendPropertyChanged("id_kolacja2");
+					this.Onid_kolacja2Changed();
 				}
 			}
 		}
@@ -3971,8 +4033,32 @@ namespace Gastro
 			{
 				if ((this._data != value))
 				{
+					this.OndataChanging(value);
+					this.SendPropertyChanging();
 					this._data = value;
+					this.SendPropertyChanged("data");
+					this.OndataChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
