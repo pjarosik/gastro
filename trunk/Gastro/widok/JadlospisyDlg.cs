@@ -47,9 +47,10 @@ namespace Gastro.widok
                 return;
             }
 
-            jadlospisToSave.data = dtpData.Value;
+            jadlospisToSave.data = dtpData.Value.ToShortDateString();
             jadlospisToSave.nazwa = tbName.Text;
             DBProvider.AddJadlospis(jadlospisToSave);
+            Close();
         }
 
         private void load()

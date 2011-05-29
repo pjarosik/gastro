@@ -13,7 +13,7 @@ namespace Gastro.widok
     public partial class ZarzadzajDlg : Form
     {
         List<object> objects;
-        public enum Mode { Produkty, Potrawy };
+        public enum Mode { Produkty, Potrawy, Jadlospisy };
         Mode activeMode;
 
         public ZarzadzajDlg(Mode mode)
@@ -38,13 +38,27 @@ namespace Gastro.widok
                     Utils.dataFilter(tbName.Text, objects);
                     dgvContent.DataSource = Utils.dataFilter(tbName.Text, objects);
                     break;
+                case Mode.Jadlospisy:
+                    Utils.dataFilter(tbName.Text, objects);
+                    dgvContent.DataSource = Utils.dataFilter(tbName.Text, objects);
+                    break;
             }
         }
 
         private void updateDGVContent()
         {
             dgvContent.DataSource = null;
-            objects = DBProvider.getPotrawy();
+            switch (activeMode)
+            {
+                case Mode.Potrawy:
+                    objects = DBProvider.getPotrawy();
+                    break;
+
+                case Mode.Jadlospisy:
+                    objects = DBProvider.getJadlospisy();
+                    break;
+            }
+
             dgvContent.DataSource = objects;
         }
 
@@ -66,6 +80,13 @@ namespace Gastro.widok
                     btNew.Text += " produkt";
                     this.Text += " produktami";
                     break;
+                case Mode.Jadlospisy:
+                    objects = DBProvider.getJadlospisy();
+                    dgvContent.DataSource = objects;
+                    btNew.Text += " jadłospis";
+                    this.Text += " jadłospisami";
+                    btEdit.Visible = false;
+                    break;
             }
         }
 
@@ -85,6 +106,9 @@ namespace Gastro.widok
                 case Mode.Produkty:
                     preapareDGVForProdukt();
                     break;
+                case Mode.Jadlospisy:
+                    preapareDGVForJadlospis();
+                    break;
             }
         }
         private void preapareDGVForPotrawy()
@@ -99,6 +123,14 @@ namespace Gastro.widok
             if (dgvContent.SelectedCells.Count != 0)
                 dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Selected = true;
         }
+
+        private void preapareDGVForJadlospis()
+        {
+            dgvContent.Columns[0].Width = 400;
+            dgvContent.Columns[1].Width = 100;
+            dgvContent.Columns[dgvContent.Columns.Count - 1].Visible = false;
+        }
+
         private void preapareDGVForProdukt()
         {
             dgvContent.Columns[0].Width = 400;
@@ -106,7 +138,16 @@ namespace Gastro.widok
 
         private void dgvContent_DataSourceChanged(object sender, EventArgs e)
         {
-                setupDGV(Mode.Potrawy);
+            switch (activeMode)
+            {
+                case Mode.Potrawy:
+                    setupDGV(Mode.Potrawy);
+                    break;
+                case Mode.Jadlospisy:
+                    setupDGV(Mode.Jadlospisy);
+                    break;
+                
+            }
         }
 
         private void btNew_Click(object sender, EventArgs e)
@@ -115,6 +156,11 @@ namespace Gastro.widok
             {
                 case Mode.Potrawy:
                     if (new PotrawyDlg(PotrawyDlg.Mode.New, "").ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
+                        updateDGVContent();
+                    break;
+
+                case Mode.Jadlospisy:
+                    if (new JadlospisyDlg().ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
                         updateDGVContent();
                     break;
             }
@@ -158,7 +204,11 @@ namespace Gastro.widok
                     if(DBProvider.removePotrawa(dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Cells[dgvContent.Columns.Count - 1].Value.ToString()))
                         MessageBox.Show(this, "Usunięto potrawę.", "Uwaga!");
                     updateDGVContent();
-                    
+                    break;
+                case Mode.Jadlospisy:
+                    if (DBProvider.removeJadlospis(dgvContent.Rows[dgvContent.SelectedCells[0].RowIndex].Cells[dgvContent.Columns.Count - 1].Value.ToString()))
+                        MessageBox.Show(this, "Usunięto jadlospis.", "Uwaga!");
+                    updateDGVContent();
                     break;
             }
         }

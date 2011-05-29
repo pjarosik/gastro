@@ -72,7 +72,7 @@
             // btEdit
             // 
             this.btEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btEdit.Location = new System.Drawing.Point(15, 399);
+            this.btEdit.Location = new System.Drawing.Point(180, 399);
             this.btEdit.Name = "btEdit";
             this.btEdit.Size = new System.Drawing.Size(75, 46);
             this.btEdit.TabIndex = 3;
@@ -94,7 +94,7 @@
             // btNew
             // 
             this.btNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btNew.Location = new System.Drawing.Point(180, 399);
+            this.btNew.Location = new System.Drawing.Point(12, 399);
             this.btNew.Name = "btNew";
             this.btNew.Size = new System.Drawing.Size(78, 46);
             this.btNew.TabIndex = 5;
