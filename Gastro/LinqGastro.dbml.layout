@@ -90,7 +90,7 @@
         <classShapeMoniker Id="411005e5-7fa0-478d-bf63-298ab26b5d72" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.2187475 : 17.7465844726563); (1.2187475 : 21.3698132324219); (1.66666666666667 : 21.3698132324219 : JumpStart); (1.83333333333333 : 21.3698132324219 : JumpEnd); (2.19791916666667 : 21.3698132324219 : JumpStart); (2.36458583333333 : 21.3698132324219 : JumpEnd); (3.5 : 21.3698132324219)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.2187475 : 17.7465844726563); (1.2187475 : 21.3698132324219); (1.66666666666667 : 21.3698132324219 : JumpStart); (1.83333333333333 : 21.3698132324219 : JumpEnd); (3.5 : 21.3698132324219)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqGastroDataContext/Produkty/Produkty_Kw_tluszcz_nasyc" />
       <nodes>
         <classShapeMoniker Id="892ad590-1714-41f2-b3e0-ffa4f5f73b84" />
@@ -151,10 +151,10 @@
         <classShapeMoniker Id="dcc88f75-78c2-4bde-b99a-c7e92f00812e" />
       </nodes>
     </associationConnector>
-    <classShape Id="f2a95324-29b8-48b4-8d17-b9a2364fe406" absoluteBounds="5.5, 1.75, 2, 2.24658447265625">
+    <classShape Id="f7bbe56c-0e17-4dde-9d0d-3f6d7ed30d30" absoluteBounds="5.75, 1.75, 2, 2.24658447265625">
       <DataClassMoniker Name="/LinqGastroDataContext/Jadlospi" />
       <nestedChildShapes>
-        <elementListCompartment Id="313ac311-2730-48db-a3e9-890e318ba321" absoluteBounds="5.515, 2.21, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f725071a-aa43-4d75-a4f8-50bc3ad6023d" absoluteBounds="5.765, 2.21, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

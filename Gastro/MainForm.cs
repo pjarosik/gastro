@@ -106,8 +106,8 @@ namespace Gastro
 
         private void jadłospisyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JadlospisyDlg jdsDlg = new JadlospisyDlg();
-            jdsDlg.Show();
+            ZarzadzajDlg dlg = new ZarzadzajDlg(ZarzadzajDlg.Mode.Jadlospisy);
+            dlg.ShowDialog();
         }
     }
 }

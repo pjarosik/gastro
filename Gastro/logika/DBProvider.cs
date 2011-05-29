@@ -353,5 +353,37 @@ namespace Gastro.logika
 
             return true;
         }
+
+        static public bool removeJadlospis(string jadlospis_id)
+        {
+            Jadlospi tmp = new Jadlospi();
+            tmp.id_jadlospis = int.Parse(jadlospis_id);
+            Jadlospi jadl = getJadlospis(tmp);
+            cont.Jadlospis.DeleteOnSubmit(jadl);
+            cont.SubmitChanges();
+
+            return true;
+        }
+
+        static public List<object> getJadlospisy()
+        {
+            var tmp = from d in cont.Jadlospis
+                      select new
+                      {
+                          d.nazwa,
+                          d.data,
+                          d.id_jadlospis
+                      };
+
+            return tmp.ToList<object>();
+        }
+        static public Jadlospi getJadlospis(Jadlospi jadl)
+        {
+            var tmp = (from d in cont.Jadlospis
+                      where d.id_jadlospis == jadl.id_jadlospis
+                      select d).SingleOrDefault();
+            return tmp;
+        }
+
     }
 }

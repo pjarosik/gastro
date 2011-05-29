@@ -3831,7 +3831,7 @@ namespace Gastro
 		
 		private System.Nullable<decimal> _id_kolacja2;
 		
-		private System.DateTime _data;
+		private string _data;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3853,7 +3853,7 @@ namespace Gastro
     partial void Onid_kolacja1Changed();
     partial void Onid_kolacja2Changing(System.Nullable<decimal> value);
     partial void Onid_kolacja2Changed();
-    partial void OndataChanging(System.DateTime value);
+    partial void OndataChanging(string value);
     partial void OndataChanged();
     #endregion
 		
@@ -3882,7 +3882,7 @@ namespace Gastro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa", DbType="NChar(100) NOT NULL", CanBeNull=false)]
 		public string nazwa
 		{
 			get
@@ -4022,8 +4022,8 @@ namespace Gastro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_data", DbType="DateTime NOT NULL")]
-		public System.DateTime data
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_data", DbType="NChar(100) NOT NULL", CanBeNull=false)]
+		public string data
 		{
 			get
 			{
