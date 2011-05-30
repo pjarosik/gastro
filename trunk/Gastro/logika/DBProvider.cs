@@ -275,6 +275,7 @@ namespace Gastro.logika
             else // if potrawa is going to be update
             {
                 tmp_potrawa.kategoria = potrawa.kategoria;
+                cont.SubmitChanges();
 
                 foreach (Skladniki skladnik in skladniki)
                 {

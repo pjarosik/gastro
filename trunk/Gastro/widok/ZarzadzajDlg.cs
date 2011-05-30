@@ -48,6 +48,8 @@ namespace Gastro.widok
         private void updateDGVContent()
         {
             dgvContent.DataSource = null;
+            if(objects!=null)
+                objects.Clear();
             switch (activeMode)
             {
                 case Mode.Potrawy:
