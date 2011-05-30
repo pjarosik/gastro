@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.Linq;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace Gastro.logika
 {
@@ -112,34 +113,63 @@ namespace Gastro.logika
             return true;
         }
 
-        static public void drop()
+        static public bool drop(BackgroundWorker worker)
         {
             Produkty element;
-            using (IEnumerator<Produkty> iterator = cont.Produkties.GetEnumerator())
-            {
-                for (int i = -1; i < cont.Produkties.Count(); i++)
-                {
-                    if (iterator.MoveNext())
-                    {
-                        element = iterator.Current;
-                        Console.WriteLine("Kasuje: " + element.nazwa_produktu);
-                    }
-                }
-            }
+            //using (IEnumerator<Produkty> iterator = cont.Produkties.GetEnumerator())
+            //{
+            //    for (int i = -1; i < cont.Produkties.Count(); i++)
+            //    {
+            //        if (iterator.MoveNext())
+            //        {
+            //            element = iterator.Current;
+            //            Console.WriteLine("Kasuje: " + element.nazwa_produktu);
+            //        }
+            //    }
+            //}
+
+            int tableCount = 12;
+            int step = 100 / tableCount;
+            int status = 0;
             cont.Skladniki_mineralnes.DeleteAllOnSubmit(cont.Skladniki_mineralnes);
+            status += step;
+            worker.ReportProgress(status);
             cont.Aminokwasies.DeleteAllOnSubmit(cont.Aminokwasies);
+            status += step;
+            worker.ReportProgress(status);
             cont.Energias.DeleteAllOnSubmit(cont.Energias);
+            status += step;
+            worker.ReportProgress(status);
             cont.Kw_tluszcz_jednonienasycs.DeleteAllOnSubmit(cont.Kw_tluszcz_jednonienasycs);
+            status += step;
+            worker.ReportProgress(status);
             cont.Kw_tluszcz_nasycs.DeleteAllOnSubmit(cont.Kw_tluszcz_nasycs);
+            status += step;
+            worker.ReportProgress(status);
             cont.Kw_tluszcz_wielonienasycs.DeleteAllOnSubmit(cont.Kw_tluszcz_wielonienasycs);
+            status += step;
+            worker.ReportProgress(status);
             cont.Wartosc_energetycznas.DeleteAllOnSubmit(cont.Wartosc_energetycznas);
+            status += step;
+            worker.ReportProgress(status);
             cont.Weglowodanies.DeleteAllOnSubmit(cont.Weglowodanies);
+            status += step;
+            worker.ReportProgress(status);
             cont.Witaminies.DeleteAllOnSubmit(cont.Witaminies);
+            status += step;
+            worker.ReportProgress(status);
             cont.Potrawies.DeleteAllOnSubmit(cont.Potrawies);
+            status += step;
+            worker.ReportProgress(status);
             cont.Skladnikis.DeleteAllOnSubmit(cont.Skladnikis);
+            status += step;
+            worker.ReportProgress(status);
             cont.Produkties.DeleteAllOnSubmit(cont.Produkties);
-            //cont.Produkties.DeleteAllOnSubmit(cont.Produkties);
+            status += step;
+            worker.ReportProgress(status);
             cont.SubmitChanges();
+
+            return true;
         }
 
         static public List<object> getProductsName()

@@ -50,8 +50,17 @@ namespace Gastro
         private void backgroundThread_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-            string path = (string)e.Argument;
-            e.Result = CSVReader.readFile(path,worker);
+
+            if ((string)e.Argument != "")
+            {
+                string path = (string)e.Argument;
+                e.Result = CSVReader.readFile(path, worker);
+            }
+            else
+            {
+                e.Result = DBProvider.drop(worker);
+            }
+
         }
 
         private void backgroundThread_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -69,7 +78,7 @@ namespace Gastro
             bool result = (bool)e.Result;
             if (result)
             {
-                MessageBox.Show("Dane wczytano poprawnie");
+                //MessageBox.Show("Dane wczytano poprawnie");
                 dataGridView.DataSource = DBProvider.getProdukty();
             }
             else
@@ -80,9 +89,7 @@ namespace Gastro
 
         private void wyczyśćToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DBProvider.drop();
-            dataGridView.DataSource = DBProvider.getProdukty();
-            MessageBox.Show("Baza danych zostala wyczyszczona.");
+            this.backgroundThread.RunWorkerAsync("");
         }
 
         private void potrawyToolStripMenuItem_Click(object sender, EventArgs e)
