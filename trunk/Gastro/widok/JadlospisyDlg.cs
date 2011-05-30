@@ -14,6 +14,7 @@ namespace Gastro.widok
     public partial class JadlospisyDlg : Form
     {
         List<Potrawy> currentList;
+        Potrawy emptyPotrawa = new Potrawy();
         List<object> componentsList = new List<object>();
 
         Jadlospi jadlospisToSave = new Jadlospi();
@@ -62,10 +63,12 @@ namespace Gastro.widok
 
         private void updateCb()
         {
+            emptyPotrawa.nazwa = "Brak";
             componentsList.Clear();
             dgvSkladniki.DataSource = null;
             cbPotrawa.DataSource = null;
             currentList = DBProvider.getPotrawaByCategory(cbRodzajPosilku.Text);
+            currentList.Insert(0, emptyPotrawa);
             cbPotrawa.DataSource = currentList;
             cbPotrawa.DisplayMember = "nazwa";
         }
@@ -126,6 +129,12 @@ namespace Gastro.widok
             dgvSkladniki.DataSource = null;
             componentsList.Clear();
 
+            if (currentList[cbPotrawa.SelectedIndex].nazwa == "Brak")
+            {
+                updateStatus();
+                return;
+            }
+
 
             Potrawy tmpPotrawa = new Potrawy();
             Potrawy potrawa = new Potrawy();
@@ -145,23 +154,71 @@ namespace Gastro.widok
         {
             switch (cbRodzajPosilku.SelectedIndex)
             {
-                case 0: lSn1.Text = "OK";
-                    jadlospisToSave.id_sniadanie1 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                case 0:
+                    if (currentList[cbPotrawa.SelectedIndex].nazwa != "Brak")
+                    {
+                        lSn1.Text = "OK";
+                        jadlospisToSave.id_sniadanie1 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                    }
+                    else
+                    {
+                        lSn1.Text = "Brak";
+                    }
                     break;
-                case 1: lSn2.Text = "OK";
-                    jadlospisToSave.id_sniadanie2 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                case 1:
+                    if (currentList[cbPotrawa.SelectedIndex].nazwa != "Brak")
+                    {
+                        lSn2.Text = "OK";
+                        jadlospisToSave.id_sniadanie2 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                    }
+                    else
+                    {
+                        lSn2.Text = "Brak";
+                    }
                     break;
-                case 2: lOb.Text = "OK";
-                    jadlospisToSave.id_obiad = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                case 2:
+                    if (currentList[cbPotrawa.SelectedIndex].nazwa != "Brak")
+                    {
+                        lOb.Text = "OK";
+                        jadlospisToSave.id_obiad = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                    }
+                    else
+                    {
+                        lOb.Text = "Brak";
+                    }
                     break;
-                case 3: lPdw.Text = "OK";
-                    jadlospisToSave.id_podwieczorek = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                case 3:
+                    if (currentList[cbPotrawa.SelectedIndex].nazwa != "Brak")
+                    {
+                        lPdw.Text = "OK";
+                        jadlospisToSave.id_podwieczorek = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                    }
+                    else
+                    {
+                        lPdw.Text = "Brak";
+                    }
                     break;
-                case 4: lKol1.Text = "OK";
-                    jadlospisToSave.id_kolacja1 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                case 4:
+                    if (currentList[cbPotrawa.SelectedIndex].nazwa != "Brak")
+                    {
+                        lKol1.Text = "OK";
+                        jadlospisToSave.id_kolacja1 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                    }
+                    else
+                    {
+                        lKol1.Text = "Brak";
+                    }
                     break;
-                case 5: lKol2.Text = "OK";
-                    jadlospisToSave.id_kolacja2 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                case 5:
+                    if (currentList[cbPotrawa.SelectedIndex].nazwa != "Brak")
+                    {
+                        lKol2.Text = "OK";
+                        jadlospisToSave.id_kolacja2 = currentList[cbPotrawa.SelectedIndex].ID_potrawy;
+                    }
+                    else
+                    {
+                        lKol2.Text = "Brak";
+                    }
                     break;
             }
         }
