@@ -43,6 +43,7 @@
             this.backgroundThread = new System.ComponentModel.BackgroundWorker();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridView.Visible = false;
             this.jadłospisyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
