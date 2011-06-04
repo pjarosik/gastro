@@ -415,6 +415,24 @@ namespace Gastro.logika
                       select d).SingleOrDefault();
             return tmp;
         }
+        
+        static public List<Jadlospi> getJadlospisyByDate(String date)
+        {
+            var tmp = from d in cont.Jadlospis
+                      where d.data == date
+                      select d;
+            return tmp.ToList<Jadlospi>();
+        }
+
+        static public Jadlospi getJadlospis(string id_jadlospis)
+        {
+            var tmp = from d in cont.Jadlospis
+                      where d.id_jadlospis == int.Parse( id_jadlospis)
+                      select d;
+
+
+            return tmp.SingleOrDefault();
+        }
 
     }
 }
