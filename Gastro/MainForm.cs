@@ -116,5 +116,10 @@ namespace Gastro
             ZarzadzajDlg dlg = new ZarzadzajDlg(ZarzadzajDlg.Mode.Jadlospisy);
             dlg.ShowDialog();
         }
+
+        private void wyliczDieteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new dieta().ShowDialog();
+        }
     }
 }

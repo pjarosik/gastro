@@ -34,6 +34,7 @@
             this.zarzadzajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.potrawyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produktyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jadłospisyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bazaDanychToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wyczyśćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,8 +44,7 @@
             this.backgroundThread = new System.ComponentModel.BackgroundWorker();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridView.Visible = false;
-            this.jadłospisyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wyliczDieteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +82,8 @@
             this.zarzadzajToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.potrawyToolStripMenuItem,
             this.produktyToolStripMenuItem,
-            this.jadłospisyToolStripMenuItem});
+            this.jadłospisyToolStripMenuItem,
+            this.wyliczDieteToolStripMenuItem});
             this.zarzadzajToolStripMenuItem.Name = "zarzadzajToolStripMenuItem";
             this.zarzadzajToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.zarzadzajToolStripMenuItem.Text = "Zarządzaj";
@@ -100,6 +101,13 @@
             this.produktyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.produktyToolStripMenuItem.Text = "Produkty";
             this.produktyToolStripMenuItem.Click += new System.EventHandler(this.produktyToolStripMenuItem_Click);
+            // 
+            // jadłospisyToolStripMenuItem
+            // 
+            this.jadłospisyToolStripMenuItem.Name = "jadłospisyToolStripMenuItem";
+            this.jadłospisyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.jadłospisyToolStripMenuItem.Text = "Jadłospisy";
+            this.jadłospisyToolStripMenuItem.Click += new System.EventHandler(this.jadłospisyToolStripMenuItem_Click);
             // 
             // bazaDanychToolStripMenuItem
             // 
@@ -172,13 +180,14 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(738, 433);
             this.dataGridView.TabIndex = 2;
+            this.dataGridView.Visible = false;
             // 
-            // jadłospisyToolStripMenuItem
+            // wyliczDieteToolStripMenuItem
             // 
-            this.jadłospisyToolStripMenuItem.Name = "jadłospisyToolStripMenuItem";
-            this.jadłospisyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.jadłospisyToolStripMenuItem.Text = "Jadłospisy";
-            this.jadłospisyToolStripMenuItem.Click += new System.EventHandler(this.jadłospisyToolStripMenuItem_Click);
+            this.wyliczDieteToolStripMenuItem.Name = "wyliczDieteToolStripMenuItem";
+            this.wyliczDieteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.wyliczDieteToolStripMenuItem.Text = "Wylicz dietę";
+            this.wyliczDieteToolStripMenuItem.Click += new System.EventHandler(this.wyliczDieteToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -218,6 +227,7 @@
         private System.Windows.Forms.ToolStripMenuItem potrawyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produktyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jadłospisyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wyliczDieteToolStripMenuItem;
     }
 }
 
