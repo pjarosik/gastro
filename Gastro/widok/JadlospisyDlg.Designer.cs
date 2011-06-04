@@ -47,12 +47,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lSn1 = new System.Windows.Forms.Label();
-            this.lSn2 = new System.Windows.Forms.Label();
-            this.lOb = new System.Windows.Forms.Label();
-            this.lPdw = new System.Windows.Forms.Label();
-            this.lKol1 = new System.Windows.Forms.Label();
             this.lKol2 = new System.Windows.Forms.Label();
+            this.lKol1 = new System.Windows.Forms.Label();
+            this.lPdw = new System.Windows.Forms.Label();
+            this.lOb = new System.Windows.Forms.Label();
+            this.lSn2 = new System.Windows.Forms.Label();
+            this.lSn1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladniki)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -160,6 +160,7 @@
             this.dgvSkladniki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSkladniki.Location = new System.Drawing.Point(15, 224);
             this.dgvSkladniki.Name = "dgvSkladniki";
+            this.dgvSkladniki.ReadOnly = true;
             this.dgvSkladniki.Size = new System.Drawing.Size(671, 200);
             this.dgvSkladniki.TabIndex = 10;
             // 
@@ -247,41 +248,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
             // 
-            // lSn1
+            // lKol2
             // 
-            this.lSn1.AutoSize = true;
-            this.lSn1.Location = new System.Drawing.Point(110, 27);
-            this.lSn1.Name = "lSn1";
-            this.lSn1.Size = new System.Drawing.Size(66, 13);
-            this.lSn1.TabIndex = 20;
-            this.lSn1.Text = "Nie wybrano";
-            // 
-            // lSn2
-            // 
-            this.lSn2.AutoSize = true;
-            this.lSn2.Location = new System.Drawing.Point(110, 51);
-            this.lSn2.Name = "lSn2";
-            this.lSn2.Size = new System.Drawing.Size(66, 13);
-            this.lSn2.TabIndex = 21;
-            this.lSn2.Text = "Nie wybrano";
-            // 
-            // lOb
-            // 
-            this.lOb.AutoSize = true;
-            this.lOb.Location = new System.Drawing.Point(110, 77);
-            this.lOb.Name = "lOb";
-            this.lOb.Size = new System.Drawing.Size(66, 13);
-            this.lOb.TabIndex = 22;
-            this.lOb.Text = "Nie wybrano";
-            // 
-            // lPdw
-            // 
-            this.lPdw.AutoSize = true;
-            this.lPdw.Location = new System.Drawing.Point(110, 101);
-            this.lPdw.Name = "lPdw";
-            this.lPdw.Size = new System.Drawing.Size(66, 13);
-            this.lPdw.TabIndex = 23;
-            this.lPdw.Text = "Nie wybrano";
+            this.lKol2.AutoSize = true;
+            this.lKol2.Location = new System.Drawing.Point(110, 154);
+            this.lKol2.Name = "lKol2";
+            this.lKol2.Size = new System.Drawing.Size(66, 13);
+            this.lKol2.TabIndex = 25;
+            this.lKol2.Text = "Nie wybrano";
             // 
             // lKol1
             // 
@@ -292,14 +266,41 @@
             this.lKol1.TabIndex = 24;
             this.lKol1.Text = "Nie wybrano";
             // 
-            // lKol2
+            // lPdw
             // 
-            this.lKol2.AutoSize = true;
-            this.lKol2.Location = new System.Drawing.Point(110, 154);
-            this.lKol2.Name = "lKol2";
-            this.lKol2.Size = new System.Drawing.Size(66, 13);
-            this.lKol2.TabIndex = 25;
-            this.lKol2.Text = "Nie wybrano";
+            this.lPdw.AutoSize = true;
+            this.lPdw.Location = new System.Drawing.Point(110, 101);
+            this.lPdw.Name = "lPdw";
+            this.lPdw.Size = new System.Drawing.Size(66, 13);
+            this.lPdw.TabIndex = 23;
+            this.lPdw.Text = "Nie wybrano";
+            // 
+            // lOb
+            // 
+            this.lOb.AutoSize = true;
+            this.lOb.Location = new System.Drawing.Point(110, 77);
+            this.lOb.Name = "lOb";
+            this.lOb.Size = new System.Drawing.Size(66, 13);
+            this.lOb.TabIndex = 22;
+            this.lOb.Text = "Nie wybrano";
+            // 
+            // lSn2
+            // 
+            this.lSn2.AutoSize = true;
+            this.lSn2.Location = new System.Drawing.Point(110, 51);
+            this.lSn2.Name = "lSn2";
+            this.lSn2.Size = new System.Drawing.Size(66, 13);
+            this.lSn2.TabIndex = 21;
+            this.lSn2.Text = "Nie wybrano";
+            // 
+            // lSn1
+            // 
+            this.lSn1.AutoSize = true;
+            this.lSn1.Location = new System.Drawing.Point(110, 27);
+            this.lSn1.Name = "lSn1";
+            this.lSn1.Size = new System.Drawing.Size(66, 13);
+            this.lSn1.TabIndex = 20;
+            this.lSn1.Text = "Nie wybrano";
             // 
             // JadlospisyDlg
             // 
