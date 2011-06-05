@@ -37,16 +37,18 @@ namespace Gastro.widok
         {
             if(jadlospis!=null)
                 jadlospis.Clear();
+
+            dgv.DataSource = null;
             jadlospis = DBProvider.getJadlospisyByDate(dtp.Value.ToShortDateString());
             cbJadlospisy.DataSource = DBProvider.getJadlospisyByDate(dtp.Value.ToShortDateString());
             cbJadlospisy.DisplayMember = "nazwa";
-            //dgv.DataSource = DBProvider.getJadlospis(jadlospis[cbJadlospisy.SelectedIndex].id_jadlospis.ToString());
         }
 
         private void cbJadlospisy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //List<object> list = new List<object>();
+            //list.Add();
             dgv.DataSource = DBProvider.getJadlospis(jadlospis[cbJadlospisy.SelectedIndex].id_jadlospis.ToString());
-            MessageBox.Show("elo");
         }
     }
 }
