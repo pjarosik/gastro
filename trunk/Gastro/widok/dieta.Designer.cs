@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbJadlospisy = new System.Windows.Forms.ComboBox();
             this.dgv2 = new System.Windows.Forms.DataGridView();
+            this.btPodsumowanie = new System.Windows.Forms.Button();
+            this.btZamknij = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv2)).BeginInit();
             this.SuspendLayout();
@@ -46,9 +48,12 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Location = new System.Drawing.Point(12, 72);
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(701, 275);
+            this.dgv.Size = new System.Drawing.Size(701, 239);
             this.dgv.TabIndex = 0;
+            this.dgv.DataSourceChanged += new System.EventHandler(this.dgv_DataSourceChanged);
+            this.dgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             this.dgv.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgv_ColumnWidthChanged);
+            this.dgv.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_DataBindingComplete);
             this.dgv.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgv_Scroll);
             // 
             // dtp
@@ -96,18 +101,42 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv2.ColumnHeadersVisible = false;
-            this.dgv2.Location = new System.Drawing.Point(12, 353);
+            this.dgv2.Location = new System.Drawing.Point(12, 317);
             this.dgv2.Name = "dgv2";
-            this.dgv2.Size = new System.Drawing.Size(701, 94);
+            this.dgv2.Size = new System.Drawing.Size(701, 76);
             this.dgv2.TabIndex = 5;
+            this.dgv2.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv2_CellFormatting);
             this.dgv2.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgv2_ColumnWidthChanged);
             this.dgv2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgv2_Scroll);
+            // 
+            // btPodsumowanie
+            // 
+            this.btPodsumowanie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btPodsumowanie.Location = new System.Drawing.Point(515, 399);
+            this.btPodsumowanie.Name = "btPodsumowanie";
+            this.btPodsumowanie.Size = new System.Drawing.Size(94, 41);
+            this.btPodsumowanie.TabIndex = 6;
+            this.btPodsumowanie.Text = "Podsumuj";
+            this.btPodsumowanie.UseVisualStyleBackColor = true;
+            this.btPodsumowanie.Click += new System.EventHandler(this.btPodsumowanie_Click);
+            // 
+            // btZamknij
+            // 
+            this.btZamknij.Location = new System.Drawing.Point(615, 399);
+            this.btZamknij.Name = "btZamknij";
+            this.btZamknij.Size = new System.Drawing.Size(98, 41);
+            this.btZamknij.TabIndex = 7;
+            this.btZamknij.Text = "Zamknij";
+            this.btZamknij.UseVisualStyleBackColor = true;
+            this.btZamknij.Click += new System.EventHandler(this.btZamknij_Click);
             // 
             // dieta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 449);
+            this.Controls.Add(this.btZamknij);
+            this.Controls.Add(this.btPodsumowanie);
             this.Controls.Add(this.dgv2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -132,5 +161,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbJadlospisy;
         private System.Windows.Forms.DataGridView dgv2;
+        private System.Windows.Forms.Button btPodsumowanie;
+        private System.Windows.Forms.Button btZamknij;
     }
 }
