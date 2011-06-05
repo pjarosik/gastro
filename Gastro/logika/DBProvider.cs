@@ -424,14 +424,60 @@ namespace Gastro.logika
             return tmp.ToList<Jadlospi>();
         }
 
-        static public Jadlospi getJadlospis(string id_jadlospis)
+        static public List<object> getJadlospis(string id_jadlospis)
         {
-            var tmp = from d in cont.Jadlospis
-                      where d.id_jadlospis == int.Parse( id_jadlospis)
-                      select d;
+            var tmp = from jadl in cont.Jadlospis
+                      from pot in cont.Potrawies
+                      from prod in cont.Produkties
+                      from skl in cont.Skladnikis
+                      from ener in cont.Energias
+                      from wit in cont.Witaminies
+                      from skl_min in cont.Skladniki_mineralnes
 
+                      where jadl.id_jadlospis == int.Parse(id_jadlospis)
+                      where jadl.id_sniadanie1 == pot.ID_potrawy ||
+                      jadl.id_sniadanie2 == pot.ID_potrawy || 
+                      jadl.id_obiad == pot.ID_potrawy ||
+                      jadl.id_podwieczorek == pot.ID_potrawy ||
+                      jadl.id_kolacja1 == pot.ID_potrawy ||
+                      jadl.id_kolacja2 == pot.ID_potrawy
 
-            return tmp.SingleOrDefault();
+                      where pot.ID_potrawy == skl.ID_potrawy
+                      where skl.ID_produktu == prod.numer_kodowy
+                      where prod.numer_kodowy == ener.numer_kodowy
+                      where prod.numer_kodowy == wit.numer_kodowy
+                      where prod.numer_kodowy == skl_min.numer_kodowy
+
+                      select new
+                      {
+                          Nazwa_produktu = prod.nazwa_produktu,
+                          Kategoria = pot.kategoria,
+                          Nazwa = jadl.nazwa,
+                          Data = jadl.data,
+                          Bialko = prod.bialko_roslinne + prod.bialko_zwierzece,
+                          Wartosc_energetyczna_kCal = prod.Wartosc_energetyczna.kcal,
+                          Tluszcze = prod.tluszcz,
+                          Sod = skl_min.sod,
+                          Potas = skl_min.potas,
+                          Wapn = skl_min.wapn,
+                          Fosfor = skl_min.fosfor,
+                          Magnez = skl_min.magnez,
+                          Zelazo = skl_min.zelazo,
+                          Cynk = skl_min.cynk,
+                          Miedz = skl_min.miedz,
+                          A = wit.ek_retinolu,
+                          D = wit.D,
+                          E = wit.E,
+                          B1 = wit.tiamina,
+                          B2 = wit.ryboflawina,
+                          PP = wit.niacyna,
+                          B6 = wit.B6,
+                          Foliany = wit.foliany,
+                          B12 = wit.B12,
+                          C = wit.C
+                      };
+
+            return tmp.ToList<object>();
         }
 
     }

@@ -38,6 +38,9 @@
             // 
             // dgv
             // 
+            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Location = new System.Drawing.Point(12, 72);
             this.dgv.Name = "dgv";
@@ -63,6 +66,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(390, 9);
             this.label2.Name = "label2";
@@ -73,6 +77,7 @@
             // 
             // cbJadlospisy
             // 
+            this.cbJadlospisy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbJadlospisy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbJadlospisy.FormattingEnabled = true;
             this.cbJadlospisy.Location = new System.Drawing.Point(393, 26);
