@@ -36,11 +36,13 @@ namespace Gastro.widok
 
         private void clearDGV2()
         {
-
-            dgv2.Rows[0].Cells[0].Value = "Podsumowanie: ";
-            for (int i = 3; i < dgv.Columns.Count; i++)
+            if (dgv.Columns.Count > 0)
             {
-                dgv2.Rows[0].Cells[i].Value = "";
+                dgv2.Rows[0].Cells[0].Value = "Podsumowanie: ";
+                for (int i = 3; i < dgv.Columns.Count; i++)
+                {
+                    dgv2.Rows[0].Cells[i].Value = "";
+                }
             }
         }
 
