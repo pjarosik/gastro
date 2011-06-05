@@ -26,10 +26,12 @@ namespace Gastro.widok
         private void dieta_Load(object sender, EventArgs e)
         {
             updateData();
-
-            for (int i = 0; i < dgv.Columns.Count; i++)
-                dgv2.Columns.Add(new DataGridViewColumn(new DataGridViewTextBoxCell()));
-            dgv2.Rows.Add();
+            if (dgv.Columns.Count > 0)
+            {
+                for (int i = 0; i < dgv.Columns.Count; i++)
+                    dgv2.Columns.Add(new DataGridViewColumn(new DataGridViewTextBoxCell()));
+                dgv2.Rows.Add();
+            }
         }
 
         private void clearDGV2()
@@ -118,7 +120,11 @@ namespace Gastro.widok
 
         private void btPodsumowanie_Click(object sender, EventArgs e)
         {
-            setDgv2();
+            if (dgv.Columns.Count > 0) 
+                setDgv2();
+            else
+                MessageBox.Show("Brak danych.");
+
         }
 
         private void dgv2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
