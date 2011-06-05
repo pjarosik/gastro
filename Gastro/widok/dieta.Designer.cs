@@ -33,7 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbJadlospisy = new System.Windows.Forms.ComboBox();
+            this.dgv2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv2)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv
@@ -44,8 +46,10 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Location = new System.Drawing.Point(12, 72);
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(701, 365);
+            this.dgv.Size = new System.Drawing.Size(701, 275);
             this.dgv.TabIndex = 0;
+            this.dgv.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgv_ColumnWidthChanged);
+            this.dgv.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgv_Scroll);
             // 
             // dtp
             // 
@@ -86,11 +90,25 @@
             this.cbJadlospisy.TabIndex = 2;
             this.cbJadlospisy.SelectedIndexChanged += new System.EventHandler(this.cbJadlospisy_SelectedIndexChanged);
             // 
+            // dgv2
+            // 
+            this.dgv2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv2.ColumnHeadersVisible = false;
+            this.dgv2.Location = new System.Drawing.Point(12, 353);
+            this.dgv2.Name = "dgv2";
+            this.dgv2.Size = new System.Drawing.Size(701, 94);
+            this.dgv2.TabIndex = 5;
+            this.dgv2.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgv2_ColumnWidthChanged);
+            this.dgv2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgv2_Scroll);
+            // 
             // dieta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 449);
+            this.Controls.Add(this.dgv2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbJadlospisy);
@@ -100,6 +118,7 @@
             this.Text = "Dieta";
             this.Load += new System.EventHandler(this.dieta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,5 +131,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbJadlospisy;
+        private System.Windows.Forms.DataGridView dgv2;
     }
 }
