@@ -39,9 +39,11 @@ namespace Gastro.widok
             if (dgv2.Columns.Count > 0)
             {
                 dgv2.Rows[0].Cells[0].Value = "Podsumowanie: ";
+                dgv2.Rows[1].Cells[0].Value = "Norma: ";
                 for (int i = 3; i < dgv.Columns.Count; i++)
                 {
                     dgv2.Rows[0].Cells[i].Value = "";
+                    dgv2.Rows[1].Cells[i].Value = "";
                 }
             }
         }
@@ -72,9 +74,32 @@ namespace Gastro.widok
                 {
                     summary[i - 3] += double.Parse(row.Cells[i].Value.ToString());
                 }
-                dgv2.Rows[0].Cells[i].Value =  summary[i - 3]; 
+                dgv2.Rows[0].Cells[i].Value = summary[i - 3]; 
             }
             dgv2.Rows[0].Cells[0].Value = "Podsumowanie: ";
+            dgv2.Rows[1].Cells[0].Value = "Normy: ";
+
+            dgv2.Rows[1].Cells[4].Value = summary[1] * 100 / 2250;
+            dgv2.Rows[1].Cells[5].Value = summary[2] * 100 / 88;
+            dgv2.Rows[1].Cells[6].Value = summary[3] * 100 / 75;
+            dgv2.Rows[1].Cells[7].Value = summary[4] * 100 / 575;
+            dgv2.Rows[1].Cells[8].Value = summary[5] * 100 / 3500;
+            dgv2.Rows[1].Cells[9].Value = summary[6] * 100 / 1100;
+            dgv2.Rows[1].Cells[10].Value = summary[7] * 100 / 800;
+            dgv2.Rows[1].Cells[11].Value = summary[8] * 100 / 360;
+            dgv2.Rows[1].Cells[12].Value = summary[9] * 100 / 12.5;
+            dgv2.Rows[1].Cells[13].Value = summary[10] * 100 / 15;
+            dgv2.Rows[1].Cells[14].Value = summary[11] * 100 / 2.0;
+            dgv2.Rows[1].Cells[15].Value = summary[12] * 100 / 800;
+            dgv2.Rows[1].Cells[16].Value = summary[13] * 100 / 10;
+            dgv2.Rows[1].Cells[17].Value = summary[14] * 100 / 10;
+            dgv2.Rows[1].Cells[18].Value = summary[15] * 100 / 1.8;
+            dgv2.Rows[1].Cells[19].Value = summary[16] * 100 / 2.4;
+            dgv2.Rows[1].Cells[20].Value = summary[17] * 100 / 21;
+            dgv2.Rows[1].Cells[21].Value = summary[18] * 100 / 2.2;
+            dgv2.Rows[1].Cells[22].Value = summary[19] * 100 / 300;
+            dgv2.Rows[1].Cells[23].Value = summary[20] * 100 / 3.0;
+            dgv2.Rows[1].Cells[24].Value = summary[21] * 100 / 70;
         }
 
         private void cbJadlospisy_SelectedIndexChanged(object sender, EventArgs e)

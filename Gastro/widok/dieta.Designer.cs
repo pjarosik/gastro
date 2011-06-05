@@ -122,6 +122,7 @@
             // 
             // btZamknij
             // 
+            this.btZamknij.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btZamknij.Location = new System.Drawing.Point(615, 399);
             this.btZamknij.Name = "btZamknij";
             this.btZamknij.Size = new System.Drawing.Size(98, 41);
