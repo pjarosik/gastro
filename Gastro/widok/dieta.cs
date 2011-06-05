@@ -36,7 +36,7 @@ namespace Gastro.widok
 
         private void clearDGV2()
         {
-            if (dgv.Columns.Count > 0)
+            if (dgv2.Columns.Count > 0)
             {
                 dgv2.Rows[0].Cells[0].Value = "Podsumowanie: ";
                 for (int i = 3; i < dgv.Columns.Count; i++)
