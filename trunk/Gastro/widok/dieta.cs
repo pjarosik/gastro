@@ -79,8 +79,8 @@ namespace Gastro.widok
             dgv2.Rows[0].Cells[0].Value = "Podsumowanie: ";
             dgv2.Rows[1].Cells[0].Value = "Normy: ";
 
-            dgv2.Rows[1].Cells[4].Value = summary[1] * 100 / 2250;
-            dgv2.Rows[1].Cells[5].Value = summary[2] * 100 / 88;
+            dgv2.Rows[1].Cells[4].Value = summary[1] * 100 / 88;
+            dgv2.Rows[1].Cells[5].Value = summary[2] * 100 / 2250;
             dgv2.Rows[1].Cells[6].Value = summary[3] * 100 / 75;
             dgv2.Rows[1].Cells[7].Value = summary[4] * 100 / 575;
             dgv2.Rows[1].Cells[8].Value = summary[5] * 100 / 3500;
